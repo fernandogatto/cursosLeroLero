@@ -1,5 +1,9 @@
 package javaResources.model;
 
+import java.sql.SQLException;
+
+import javaResources.dao.InstrutorDAO;
+
 public class InstrutorModel {
 
 	private int id;
@@ -66,4 +70,20 @@ public class InstrutorModel {
 		this.experiencia = experiencia;
 	}
 	
+	public void insertInstrutorModel() throws SQLException {
+		new InstrutorDAO().insertInstrutorDAO(this);
+	}
+	
+	public InstrutorModel listInstrutorByIdModel(int id) {
+		this.setId(id);
+		return new InstrutorDAO().listInstrutorByIdDAO(this.getId());
+	}
+	
+	public void updateInstrutorModel() {
+        new InstrutorDAO().updateInstrutorDAO(this);
+    }
+
+    public void deleteInstrutorModel() {
+        new InstrutorDAO().deleteInstrutorDAO(this.getId());
+    }
 }

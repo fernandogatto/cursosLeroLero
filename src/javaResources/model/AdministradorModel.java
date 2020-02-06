@@ -56,7 +56,7 @@ public class AdministradorModel {
         new AdministradorDAO().updateAdministradorDAO(this);
     }
 
-    public void deleteAdministradoryModel() {
+    public void deleteAdministradorModel() {
         new AdministradorDAO().deleteAdministradorDAO(this.getId());
     }
 }

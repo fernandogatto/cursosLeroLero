@@ -1,5 +1,9 @@
 package javaResources.model;
 
+import java.sql.SQLException;
+
+import javaResources.dao.CursoDAO;
+
 public class CursoModel {
 
 	private int id;
@@ -57,4 +61,20 @@ public class CursoModel {
 		this.preco = preco;
 	}
 	
+	public void insertCursoModel() throws SQLException {
+		new CursoDAO().insertCursoDAO(this);
+	}
+	
+	public CursoModel listCursoByIdModel(int id) {
+		this.setId(id);
+		return new CursoDAO().listCursoByIdDAO(this.getId());
+	}
+	
+	public void updateCursoModel() {
+        new CursoDAO().updateCursoDAO(this);
+    }
+
+    public void deleteCursoModel() {
+        new CursoDAO().deleteCursoDAO(this.getId());
+    }
 }
