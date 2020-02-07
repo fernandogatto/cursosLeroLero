@@ -66,7 +66,7 @@
 
 	<div class="container py-5">
 		<h1 class=" text-primary display-4">Login</h1>
-		<p class="lead">Entre para acessar a área restrita. Se ainda não possui cadastro, <a href="registro.html">clique aqui</a>.</p>
+		<p class="lead">Entre para acessar a área restrita. Se ainda não possui cadastro, <a href="Registro.jsp">clique aqui</a>.</p>
 		<form class="py-3">
 			<div class="form-group">
 				<label for="exampleInputEmail1">Email</label>
