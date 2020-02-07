@@ -1,0 +1,85 @@
+.intro {
+    height: calc(700px - 106px);
+    width: 100%;
+    .intro-item {
+        @include device(lg) {
+            text-align: center;
+            align-self: center !important;
+        }
+        @include device(md) {
+            text-align: center;
+            align-self: center !important;
+        }
+        @include device(sm) {
+            text-align: center;
+            align-self: center !important;
+        }
+        .lead {
+            font-size: 1.25em;
+        }
+        img {
+            @include device(lg) {
+                height: 400px;
+            }
+            @include device(md) {
+                height: 350px;
+            }
+            @include device(sm) {
+                height: 260px;
+            }
+        }
+        h1 {
+            @include device(md) {
+                font-size: 3.5em;
+            }
+            @include device(sm) {
+                font-size: 2.5em;
+            }
+        }
+    }
+    .content {
+        @include device(lg) {
+            flex-direction: column !important;
+            justify-content: space-between !important;
+        }
+        @include device(md) {
+            flex-direction: column !important;
+            justify-content: space-between !important;
+        }
+        @include device(sm) {
+            flex-direction: column !important;
+            justify-content: space-between !important;
+        }
+    }
+}
+
+#uniao {
+    background: url('../img/bg-uniao.jpg') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    @extend %d-block;
+    width: 100%;
+    height: 300px;
+    z-index: 1;
+    @extend %position-relative;
+    top: 0;
+    .mask-opacity {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        background: #00000052;
+    }
+    .container {
+        @extend %position-absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;    
+        #frase {
+            @include device(sm)    {
+                font-size: 1.75em;
+            }
+        }
+    }
+}

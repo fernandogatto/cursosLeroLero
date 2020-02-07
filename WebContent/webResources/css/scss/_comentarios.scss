@@ -1,0 +1,12 @@
+.comentarios {
+    .card {
+        .card-img-top {
+            width: 150px;
+            height: 150px;            
+            @include device(sm) {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    }
+}
