@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
 <head>
-	<title>Cursos Lero Lero</title>
+	<title>Instrutores | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -15,7 +14,7 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
 			<div class="container">
-				<a class="navbar-brand" href="Index.jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
+				<a class="navbar-brand" href="index.html"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
@@ -24,13 +23,13 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a class="nav-link" href="Index.jsp">Home</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="Sobre.jsp">Sobre</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
 							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
                         </li>
                         <li class="nav-item">
@@ -65,127 +64,58 @@
 		</nav>
 	</header>
 
-	<section class="intro bg-light">
-		<div class="d-flex flex-row justify-content-center h-100 content">
-			<div class="intro-item align-self-center">
-				<h1 class="display-3 mb-3">Cursos Lero Lero</h1>
-				<p class="lead">Onde a união cria laços e estabelece um novo futuro</p>
-				<a class="btn btn-primary btn-lg" href="Sobre.jsp">Saiba mais</a>
-			</div>
-			<div class="intro-item align-self-end">
-				<img src="webResources/img/estudante.png" alt="estudante">
-			</div>
-		</div>
-	</section>
-
-	<section class="quem-somos py-5">
+	<section class="instrutores py-5">
 		<div class="container">
 			<div class="mb-3 text-center">
-				<span class="h6 uppercase">Um pouco sobre nós</span>
-				<h2 class="display-4 text-primary">Quem Somos</h2>
-			</div>
-
-			<p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, delectus. Tempore
-				doloremque nam voluptas cupiditate earum sequi voluptates, ut facere ullam totam. Voluptatem quia quae
-				error amet, ratione quos iusto?</p>
-
-			<div class="row">
-				<div class="col-lg-4 col-md-12 mb-3 text-center">
-					<div class="icone d-flex justify-content-center">
-						<img src="webResources/img/material.png" alt="material">
-					</div>
-					<h3>Material completo</h3>
-					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, quod maiores. Esse unde ipsum
-						minus eveniet est ratione.</p>
-				</div>
-
-				<div class="col-lg-4 col-md-12 mb-3 text-center">
-					<div class="icone d-flex justify-content-center">
-						<img src="webResources/img/equipe.png" alt="equipe">
-					</div>
-					<h3>Aulas presenciais</h3>
-					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, quod maiores. Esse unde ipsum
-						minus eveniet est ratione.</p>
-				</div>
-
-				<div class="col-lg-4 col-md-12 mb-3 text-center">
-					<div class="icone d-flex justify-content-center">
-						<img src="webResources/img/certificado.png" alt="certificado">
-					</div>
-					<h3>Certificado</h3>
-					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, quod maiores. Esse unde ipsum
-						minus eveniet est ratione.</p>
-				</div>
-
-				<a class="btn btn-primary mx-auto" href="Instrutores.jsp">Conheça nossos instrutores</a>
-			</div>
-		</div>
-	</section>
-
-	<section class="text-center text-white" id="uniao">
-		<div class="mask-opacity"></div>
-		<div class="container">
-			<p id="frase" class="display-4 font-italic">Se quer ir rápido, vá sozinho. Se quer ir longe, vá em grupo.</p>
-			<p>Provérbio africano</p>
-		</div>
-	</section>
-
-	<section class="cursos py-5">
-		<div class="container">
-			<div class="mb-3 text-center">
-				<span class="h6 uppercase">O que ensinamos</span>
-				<h2 class="display-4 text-primary">Nossos Cursos</h2>
+				<span class="h6 uppercase">Quem ensina</span>
+				<h2 class="display-4 text-primary">Nossos Instrutores</h2>
 			</div>
 
 			<div class="row">
 				<div class="col-lg-3 col-md-6 col-12 my-2">
 					<div class="card">
-						<img src="webResources/img/curso-html-css.jpg" alt="curso de html e css" class="card-img-top">
+						<img src="webResources/img/professor-1.jpg" alt="Professor" class="card-img-top">
 
 						<div class="card-body">
-							<h3 class="card-title h5">HTML e CSS</h3>
-							<p class="info text-secondary">24 aulas | 1 hora | Intermediário</p>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<a href="#" class="btn btn-outline-primary">Inscreva-se</a>
+							<h3 class="card-title h5">Jonas Gutenberg</h3>
+							<p class="info text-secondary">Professor de Programação Orientada a Objetos</p>
+							<p class="card-text">MSc em Inteligência Artificial pela UFF e Bacharel em Ciência da Computação pela UFF</p>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-lg-3 col-md-6 col-12 my-2">
 					<div class="card">
-						<img src="webResources/img/curso-js.jpg" alt="curso de javascript" class="card-img-top">
+						<img src="webResources/img/professora-1.jpg" alt="Professor" class="card-img-top">
 
 						<div class="card-body">
-							<h3 class="card-title h5">Javascript</h3>
-							<p class="info text-secondary">24 aulas | 1 hora | Intermediário</p>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<a href="#" class="btn btn-outline-primary">Inscreva-se</a>
+							<h3 class="card-title h5">Alice Cruz</h3>
+							<p class="info text-secondary">Professora de Banco de Dados</p>
+							<p class="card-text">MSc em Banco de Dados Relacionais pela UFF e Bacharel em Sistemas da Informação pela UFF</p>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-lg-3 col-md-6 col-12 my-2">
 					<div class="card">
-						<img src="webResources/img/curso-bootstrap.jpeg" alt="curso de bootstrap" class="card-img-top">
+						<img src="webResources/img/professor-2.jpg" alt="Professor" class="card-img-top">
 
 						<div class="card-body">
-							<h3 class="card-title h5">Bootstrap</h3>
-							<p class="info text-secondary">24 aulas | 1 hora | Intermediário</p>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<a href="#" class="btn btn-outline-primary">Inscreva-se</a>
+							<h3 class="card-title h5">Tadeu Firmino</h3>
+							<p class="info text-secondary">Professor de Sistemas Operacionais</p>
+							<p class="card-text">MSc em Segurança da Informação pela UFF e Bacharel em Sistemas da Informação pela UFF</p>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-lg-3 col-md-6 col-12 my-2">
 					<div class="card">
-						<img src="webResources/img/curso-wordpress.jpg" alt="curso de wordpress" class="card-img-top">
+						<img src="webResources/img/professora-2.jpg" alt="Professor" class="card-img-top">
 
 						<div class="card-body">
-							<h3 class="card-title h5">WordPress</h3>
-							<p class="info text-secondary">24 aulas | 1 hora | Intermediário</p>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<a href="#" class="btn btn-outline-primary">Inscreva-se</a>
+							<h3 class="card-title h5">Sabrina Lopes</h3>
+							<p class="info text-secondary">Professora de Computação e Sociedade</p>
+							<p class="card-text">MSc em Psicologia da Informação pela UFF e Bacharel em Ciência da Computação pela UFF</p>
 						</div>
 					</div>
 				</div>
@@ -234,7 +164,7 @@
 		</div>
 
 		<div class="bg-primary text-center py-3">
-			<p class="mb-0">Cursos Lero Lero &copy; 2020. Nenhum direito reservado.</p>
+			<p class="mb-0">Integrado &copy; 2019. Nenhum direito reservado.</p>
 		</div>
 	</footer>
 
