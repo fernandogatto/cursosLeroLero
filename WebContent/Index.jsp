@@ -15,7 +15,7 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
 			<div class="container">
-				<a class="navbar-brand" href="index.html"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
+				<a class="navbar-brand" href="Index.jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
@@ -25,19 +25,19 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="index.html">Home</a>
+							<a class="nav-link" href="Index.jsp">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href=" sobre.html">Sobre</a>
+							<a class="nav-link" href="Sobre.jsp">Sobre</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href=" instrutores.html">Instrutores</a>
+							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href=" comentarios.html">Comentários</a>
+							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="tabelas.html">Tabelas</a>
+							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
                         </li>
                     	<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -45,7 +45,7 @@
 								Cursos
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="cursos.html">Cursos</a>
+								<a class="dropdown-item" href="Cursos.jsp">Cursos</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#">HTML e CSS</a>
 								<a class="dropdown-item" href="#">Javascript</a>
@@ -54,10 +54,10 @@
 							</div>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href=" login.html">Login</a>
+							<a class="nav-link" href="Login.jsp">Login</a>
 						</li>
 						<li class="nav-item">
-							<a class="btn btn-outline-primary" href="registro.html">Cadastre-se</a>
+							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
 						</li>
 					</ul>
 				</div>
@@ -70,7 +70,7 @@
 			<div class="intro-item align-self-center">
 				<h1 class="display-3 mb-3">Cursos Lero Lero</h1>
 				<p class="lead">Onde a união cria laços e estabelece um novo futuro</p>
-				<a class="btn btn-primary btn-lg" href="sobre.html">Saiba mais</a>
+				<a class="btn btn-primary btn-lg" href="Sobre.jsp">Saiba mais</a>
 			</div>
 			<div class="intro-item align-self-end">
 				<img src="webResources/img/estudante.png" alt="estudante">
@@ -117,7 +117,7 @@
 						minus eveniet est ratione.</p>
 				</div>
 
-				<a class="btn btn-primary mx-auto" href="instrutores.html">Conheça nossos instrutores</a>
+				<a class="btn btn-primary mx-auto" href="Instrutores.jsp">Conheça nossos instrutores</a>
 			</div>
 		</div>
 	</section>
@@ -204,10 +204,10 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 					<h4 class="h6 uppercase">Páginas</h4>
 					<ul class="list-unstyled">
-						<li><a href="#">Home</a></li>
-						<li><a href=" sobre.html">Sobre</a></li>
-						<li><a href=" instrutores.html">Instrutores</a></li>
-						<li><a href=" comentarios.html">Comentários</a></li>
+						<li><a href="Index.jsp">Home</a></li>
+						<li><a href="Sobre.jsp">Sobre</a></li>
+						<li><a href="Instrutores.jsp">Instrutores</a></li>
+						<li><a href="Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>
 
