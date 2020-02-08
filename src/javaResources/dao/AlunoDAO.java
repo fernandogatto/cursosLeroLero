@@ -19,19 +19,18 @@ public class AlunoDAO {
 		try {
 			connection = new ConnectionDatabase().getConnection();
 			stmt = connection.prepareStatement("INSERT INTO aluno (cpf, nome, email, celular, login, senha, endereco, cidade, bairro, cep, comentario, aprovado) VALUES (?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?)");
-			stmt.setInt(1, aluno.getId());
-			stmt.setString(2, aluno.getCpf());
-			stmt.setString(3, aluno.getNome());
-			stmt.setString(4, aluno.getEmail());
-			stmt.setString(5, aluno.getCelular());
-			stmt.setString(6, aluno.getLogin());
-			stmt.setString(7, aluno.getSenha());
-			stmt.setString(8, aluno.getEndereco());
-			stmt.setString(9, aluno.getCidade());
-			stmt.setString(10, aluno.getBairro());
-			stmt.setString(11, aluno.getCep());
-			stmt.setString(12, aluno.getComentario());
-			stmt.setString(13, aluno.getAprovado());
+			stmt.setString(1, aluno.getCpf());
+			stmt.setString(2, aluno.getNome());
+			stmt.setString(3, aluno.getEmail());
+			stmt.setString(4, aluno.getCelular());
+			stmt.setString(5, aluno.getLogin());
+			stmt.setString(6, aluno.getSenha());
+			stmt.setString(7, aluno.getEndereco());
+			stmt.setString(8, aluno.getCidade());
+			stmt.setString(9, aluno.getBairro());
+			stmt.setString(10, aluno.getCep());
+			stmt.setString(11, aluno.getComentario());
+			stmt.setString(12, aluno.getAprovado());
 			stmt.execute();
 		} catch(SQLException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao registrar aluno DAO: " + e.getMessage());

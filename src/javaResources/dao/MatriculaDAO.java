@@ -19,11 +19,10 @@ public class MatriculaDAO {
 		try {
 			connection = new ConnectionDatabase().getConnection();
 			stmt = connection.prepareStatement("INSERT INTO matriculas (turmas_id, alunos_id, data_matricula, nota) VALUES (?, ?, ?, ?)");
-			stmt.setInt(1, matricula.getId());
-			stmt.setInt(2, matricula.getTurmasId());
-			stmt.setInt(3, matricula.getAlunosId());
-			stmt.setDate(4, matricula.getDataMatricula());
-			stmt.setDouble(6, matricula.getNota());
+			stmt.setInt(1, matricula.getTurmasId());
+			stmt.setInt(2, matricula.getAlunosId());
+			stmt.setDate(3, matricula.getDataMatricula());
+			stmt.setDouble(4, matricula.getNota());
 			stmt.execute();
 		} catch(SQLException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao registrar matricula DAO: " + e.getMessage());

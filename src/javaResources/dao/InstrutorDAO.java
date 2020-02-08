@@ -18,14 +18,13 @@ public class InstrutorDAO {
 		
 		try {
 			connection = new ConnectionDatabase().getConnection();
-			stmt = connection.prepareStatement("INSERT INTO instrutores (id, nome, email, valor_hora, login, senha, experiencia) VALUES (?, ?, ?, ?, ?, ?, ?)");
-			stmt.setInt(1, instrutor.getId());
-			stmt.setString(2, instrutor.getNome());
-			stmt.setString(3,  instrutor.getEmail());
-			stmt.setInt(4, instrutor.getValorHora());
-			stmt.setString(5, instrutor.getLogin());
-			stmt.setString(6, instrutor.getSenha());
-			stmt.setString(7, instrutor.getExperiencia());
+			stmt = connection.prepareStatement("INSERT INTO instrutores (nome, email, valor_hora, login, senha, experiencia) VALUES (?, ?, ?, ?, ?, ?)");
+			stmt.setString(1, instrutor.getNome());
+			stmt.setString(2,  instrutor.getEmail());
+			stmt.setInt(3, instrutor.getValorHora());
+			stmt.setString(4, instrutor.getLogin());
+			stmt.setString(5, instrutor.getSenha());
+			stmt.setString(6, instrutor.getExperiencia());
 			stmt.execute();
 		} catch(SQLException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao registrar instrutor DAO: " + e.getMessage());

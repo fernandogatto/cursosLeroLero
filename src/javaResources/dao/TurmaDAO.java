@@ -18,13 +18,12 @@ public class TurmaDAO {
 		
 		try {
 			connection = new ConnectionDatabase().getConnection();
-			stmt = connection.prepareStatement("INSERT INTO turmas (instrutores_id, cursos_id, data_inicio, data_final, carga_horaria) VALUES (?, ?, ?, ?, ?, ?)");
-			stmt.setInt(1, turma.getId());
-			stmt.setInt(2, turma.getInstrutoresId());
-			stmt.setInt(3,  turma.getCursosId());
-			stmt.setDate(4, turma.getDataInicio());
-			stmt.setDate(5, turma.getDataFinal());
-			stmt.setInt(6, turma.getCargaHoraria());
+			stmt = connection.prepareStatement("INSERT INTO turmas (instrutores_id, cursos_id, data_inicio, data_final, carga_horaria) VALUES (?, ?, ?, ?, ?)");
+			stmt.setInt(1, turma.getInstrutoresId());
+			stmt.setInt(2,  turma.getCursosId());
+			stmt.setDate(3, turma.getDataInicio());
+			stmt.setDate(4, turma.getDataFinal());
+			stmt.setInt(5, turma.getCargaHoraria());
 			stmt.execute();
 		} catch(SQLException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao registrar turma DAO: " + e.getMessage());
