@@ -1,6 +1,7 @@
 package javaResources.model;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javaResources.dao.InstrutorDAO;
 
@@ -77,6 +78,10 @@ public class InstrutorModel {
 	public InstrutorModel listInstrutorByIdModel(int id) {
 		this.setId(id);
 		return new InstrutorDAO().listInstrutorByIdDAO(this.getId());
+	}
+	
+	public ArrayList<InstrutorModel> listAllInstrutoresModel() {
+		return new InstrutorDAO().listAllInstrutoresDAO();
 	}
 	
 	public void updateInstrutorModel() {

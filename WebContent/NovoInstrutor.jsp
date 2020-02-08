@@ -67,31 +67,36 @@
 		<div class="container py-5">
 			<h1 class=" text-primary display-4">Novo instrutor</h1>
 			<p class="lead">Cadastra-se para poder dar aulas!</p>
-			<form class="py-3" name='novoinstrutor'>
+			<form class="py-3" name='novoinstrutor' action="InsertInstrutorServlet" method="POST">
 				<div class="form-group">
 					<label for="nome">Nome completo *</label>
-					<input type="text" class="form-control" id="nomeinstrutor" name='nome' aria-describedby="nameHelp"
+					<input type="text" class="form-control" id="nomeInstrutor" name='nome' aria-describedby="nameHelp"
 						placeholder="Digite o nome">
 				</div>
 				<div class="form-group">
 					<label for="email">Email *</label>
-					<input type="email" class="form-control" id="exampleInputCPF" name="email" aria-describedby="cpfHelp"
+					<input type="email" class="form-control" id="emailInstrutor" name="email" aria-describedby="cpfHelp"
 						placeholder="Digite seu email">
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPhone">Valor hora</label>
-					<input type="text" class="form-control money" id="exampleInputPhone" name="valor_hora" aria-describedby="phoneHelp"
+					<input type="number" class="form-control" id="valorHoraInstrutor" name="valor_hora" aria-describedby="phoneHelp"
 						placeholder="Digite o valor da sua hora" rows="10">
 				</div>
 				<div class="form-group">
 					<label for="exampleInputEmail1">Login *</label>
-					<input type="text" class="form-control" id="exampleInputEmail1" name='login' aria-describedby="emailHelp"
+					<input type="text" class="form-control" id="loginInstrutor" name='login' aria-describedby="emailHelp"
 						placeholder="Digite seu nome para login">
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1">Senha *</label>
-					<input type="password" class="form-control" id="exampleInputPassword1" name='senha'
+					<input type="password" class="form-control" id="senhaInstrutor" name="senha"
 						placeholder="Digite sua senha">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Experiência *</label>
+					<input type="text" class="form-control" id="experienciaInstrutor" name="experiencia"
+						placeholder="Digite sua experiência profissional">
 				</div>
 				<button type="submit" class="btn btn-primary my-3">Cadastrar</button>
 			</form>
