@@ -49,9 +49,6 @@ public class TurmaDAO {
         	rs = stmt.executeQuery();
         	
         	if(rs.next()) {
-
-        		System.out.println("LOGGER TURMA LIST BY ID DAO");
-        		System.out.println(rs);
         		turma = new TurmaModel();
         		turma.setInstrutor(instrutor.listInstrutorByIdModel(rs.getInt("instrutores_id")));
         		turma.setCurso(curso.listCursoByIdModel(rs.getInt("cursos_id")));
