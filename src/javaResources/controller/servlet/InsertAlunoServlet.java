@@ -66,7 +66,7 @@ public class InsertAlunoServlet extends HttpServlet {
 		
 		try {
 			aluno.insertAlunoModel();
-			RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("AlunoAdicionado.jsp");
 			dispatcher.forward(request, response);
 
 		} catch (SQLException e) {

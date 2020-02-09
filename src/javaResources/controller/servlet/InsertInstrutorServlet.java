@@ -59,6 +59,7 @@ public class InsertInstrutorServlet extends HttpServlet {
 			instrutor.insertInstrutorModel();
 			RequestDispatcher dispatcher = request.getRequestDispatcher("InstrutorAdicionado.jsp");
 			dispatcher.forward(request, response);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
