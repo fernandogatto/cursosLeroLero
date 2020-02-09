@@ -40,16 +40,16 @@ public class InsertAlunoServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub		
-		String cpf = request.getParameter("cpf");
+		String cpf = request.getParameter("cpf").replaceAll("[.-]", "");
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
-		String celular = request.getParameter("celular");
+		String celular = request.getParameter("celular").replaceAll("[.-]", "");
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String endereco = request.getParameter("endereco");
 		String cidade = request.getParameter("cidade");
 		String bairro = request.getParameter("bairro");
-		String cep = request.getParameter("cep");
+		String cep = request.getParameter("cep").replaceAll("[.-]", "");
 		
 		AlunoModel aluno = new AlunoModel();
 		aluno.setCpf(cpf);

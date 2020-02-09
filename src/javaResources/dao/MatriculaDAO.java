@@ -1,6 +1,7 @@
 package javaResources.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,8 +20,8 @@ public class MatriculaDAO {
 		try {
 			connection = new ConnectionDatabase().getConnection();
 			stmt = connection.prepareStatement("INSERT INTO matriculas (turmas_id, alunos_id, data_matricula, nota) VALUES (?, ?, ?, ?)");
-			stmt.setInt(1, matricula.getTurmasId());
-			stmt.setInt(2, matricula.getAlunosId());
+			stmt.setInt(1, matricula.getTurma());
+			stmt.setInt(2, matricula.getAluno());
 			stmt.setDate(3, matricula.getDataMatricula());
 			stmt.setDouble(4, matricula.getNota());
 			stmt.execute();
@@ -65,11 +66,10 @@ public class MatriculaDAO {
         try {
             connection = new ConnectionDatabase().getConnection();
             stmt = connection.prepareStatement("UPDATE matriculas SET turmas_id = ?, alunos_id = ?, data_matricula = ?, nota = ?");
-            stmt.setString(1, matricula.getNome());
-            stmt.setString(2, matricula.getRequisito());
-            stmt.setString(3, matricula.getEmenta());
-            stmt.setInt(4, matricula.getCargaHoraria());
-            stmt.setDouble(5, matricula.getPreco());
+            stmt.setString(1, matricula.getTurma());
+            stmt.setString(2, matricula.getAluno());
+            stmt.setDate(3, matricula.getDataMatricula());
+            stmt.setDouble(4, matricula.getNota());
             stmt.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar matricula DAO: " + e.getMessage());

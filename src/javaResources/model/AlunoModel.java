@@ -1,5 +1,7 @@
 package javaResources.model;
 
+import java.sql.SQLException;
+
 import javaResources.dao.AlunoDAO;
 
 public class AlunoModel {
