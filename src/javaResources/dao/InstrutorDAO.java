@@ -14,7 +14,7 @@ import javaResources.model.InstrutorModel;
 
 public class InstrutorDAO {
 
-	public void insertInstrutorDAO(InstrutorModel instrutor) {
+	public void inserirInstrutorDAO(InstrutorModel instrutor) {
 		Connection connection = null;
 		PreparedStatement stmt = null;
 		
@@ -35,7 +35,7 @@ public class InstrutorDAO {
 		}
 	}
 	
-	public InstrutorModel listInstrutorByIdDAO(int id) {
+	public InstrutorModel listarInstrutorPorIdDAO(int id) {
 		Connection connection = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -43,7 +43,7 @@ public class InstrutorDAO {
 		
         try {
         	connection = new ConnectionDatabase().getConnection();
-        	stmt = connection.prepareStatement("SELECT * FROM instrutores WHERE id = ?");
+        	stmt = connection.prepareStatement("SELECT * FROM instrutores WHERE id = " + id);
         	rs = stmt.executeQuery();
         	if(rs.next()) {
         		instrutor = new InstrutorModel();
@@ -63,7 +63,7 @@ public class InstrutorDAO {
         return instrutor;
 	}
 	
-	public List<InstrutorModel> listAllInstrutoresDAO() {
+	public List<InstrutorModel> listarTodosInstrutoresDAO() {
 		Connection connection = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -95,19 +95,20 @@ public class InstrutorDAO {
         return instrutores;
 	}
 	
-	public void updateInstrutorDAO(InstrutorModel instrutor) {
+	public void alterarInstrutorDAO(InstrutorModel instrutor) {
 		Connection connection = null;
         PreparedStatement stmt = null;
         
         try {
             connection = new ConnectionDatabase().getConnection();
-            stmt = connection.prepareStatement("UPDATE instrutores SET nome = ?, email = ?, valor_hora = ?, login = ?, senha = ?, experiencia = ?");
+            stmt = connection.prepareStatement("UPDATE instrutores SET nome = ?, email = ?, valor_hora = ?, login = ?, senha = ?, experiencia = ? WHERE id = ?");
             stmt.setString(1, instrutor.getNome());
             stmt.setString(2, instrutor.getEmail());
             stmt.setInt(3, instrutor.getValorHora());
             stmt.setString(4, instrutor.getLogin());
             stmt.setString(5, instrutor.getSenha());
             stmt.setString(6, instrutor.getExperiencia());
+            stmt.setInt(7, instrutor.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar instrutor DAO: " + e.getMessage());
@@ -116,7 +117,7 @@ public class InstrutorDAO {
         }
 	}
 	
-	public void deleteInstrutorDAO(int id) {
+	public void deletarInstrutorDAO(int id) {
         Connection connection = null;
         PreparedStatement stmt = null;
 

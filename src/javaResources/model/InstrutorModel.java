@@ -71,24 +71,24 @@ public class InstrutorModel {
 		this.experiencia = experiencia;
 	}
 	
-	public void insertInstrutorModel() throws SQLException {
-		new InstrutorDAO().insertInstrutorDAO(this);
+	public void inserirInstrutorModel() throws SQLException {
+		new InstrutorDAO().inserirInstrutorDAO(this);
 	}
 	
-	public InstrutorModel listInstrutorByIdModel(int id) {
+	public InstrutorModel listarInstrutorPorIdModel(int id) {
 		this.setId(id);
-		return new InstrutorDAO().listInstrutorByIdDAO(this.getId());
+		return new InstrutorDAO().listarInstrutorPorIdDAO(this.getId());
 	}
 	
-	public List<InstrutorModel> listAllInstrutoresModel() {
-		return new InstrutorDAO().listAllInstrutoresDAO();
+	public List<InstrutorModel> listarTodosInstrutoresModel() {
+		return new InstrutorDAO().listarTodosInstrutoresDAO();
 	}
 	
-	public void updateInstrutorModel() {
-        new InstrutorDAO().updateInstrutorDAO(this);
+	public void alterarInstrutorModel() {
+        new InstrutorDAO().alterarInstrutorDAO(this);
     }
 
-    public void deleteInstrutorModel() {
-        new InstrutorDAO().deleteInstrutorDAO(this.getId());
+    public void deletarInstrutorModel() {
+        new InstrutorDAO().deletarInstrutorDAO(this.getId());
     }
 }
