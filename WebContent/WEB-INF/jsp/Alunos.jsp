@@ -89,8 +89,9 @@
 								<p class="card-text"><span>cep: </span>${ aluno.cep }</p>
 								<!--
 								<a href="/cursosLeroLero/LogicaServlet?logica=AlteraAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Alterar</a>
+								-->
 								<a href="/cursosLeroLero/LogicaServlet?logica=DeleteAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Deletar</a> 
-								 -->
+								 
 							</div>
 						</div>
 					</div>
