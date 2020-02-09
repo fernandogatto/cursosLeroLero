@@ -147,7 +147,6 @@
 	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
 	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
 	<script type="text/javascript" src="webResources/js/bootstrap.js"></script>
-    <script type="text/javascript" src="webResources/js/bootstrap.js"></script>
     <script type="text/javascript" src="webResources/js/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="webResources/js/masks-input.js"></script>
 	<script type="text/javascript" src="webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>

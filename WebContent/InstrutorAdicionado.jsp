@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>Novo Instrutor | Cursos Lero Lero</title>
+	<title>Instrutor Adicionado | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -14,7 +14,7 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
 			<div class="container">
-				<a class="navbar-brand" href="index.html"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
+				<a class="navbar-brand" href="Index.jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
@@ -65,41 +65,9 @@
 	</header>
 	<section>
 		<div class="container py-5">
-			<h1 class=" text-primary display-4">Novo instrutor</h1>
-			<p class="lead">Cadastra-se para poder dar aulas!</p>
-			<form class="py-3" name='novoinstrutor' action="InsertInstrutorServlet" method="POST">
-				<div class="form-group">
-					<label for="nome">Nome completo *</label>
-					<input type="text" class="form-control" id="nomeInstrutor" name='nome' aria-describedby="nameHelp"
-						placeholder="Digite o nome">
-				</div>
-				<div class="form-group">
-					<label for="email">Email *</label>
-					<input type="email" class="form-control" id="emailInstrutor" name="email" aria-describedby="cpfHelp"
-						placeholder="Digite seu email">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPhone">Valor hora</label>
-					<input type="number" class="form-control" id="valorHoraInstrutor" name="valor_hora" aria-describedby="phoneHelp"
-						placeholder="Digite o valor da sua hora" rows="10">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputEmail1">Login *</label>
-					<input type="text" class="form-control" id="loginInstrutor" name='login' aria-describedby="emailHelp"
-						placeholder="Digite seu nome para login">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1">Senha *</label>
-					<input type="password" class="form-control" id="senhaInstrutor" name="senha"
-						placeholder="Digite sua senha">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1">Experiência *</label>
-					<input type="text" class="form-control" id="experienciaInstrutor" name="experiencia"
-						placeholder="Digite sua experiência profissional">
-				</div>
-				<button type="submit" class="btn btn-primary my-3">Cadastrar</button>
-			</form>
+			<h1 class=" text-primary display-4">Instrutor adicionado</h1>
+			<p class="lead">Voltar à página inicial</p>
+			<a href="Index.jsp" class="btn btn-primary">Home</a>
 		</div>
 	</section>
 
@@ -150,10 +118,6 @@
 
 	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
 	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
-    <script type="text/javascript" src="webResources/js/bootstrap.js"></script>
-    <script type="text/javascript" src="webResources/js/jquery.mask.min.js"></script>
-    <script type="text/javascript" src="webResources/js/masks-input.js"></script>
-	<script type="text/javascript" src="webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="webResources/js/validation-instrutor.js"></script>
+	<script type="text/javascript" src="webResources/js/bootstrap.js"></script>
 </body>
 </html>
