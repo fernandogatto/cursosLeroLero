@@ -85,6 +85,7 @@
 							<h3 class="card-title h5">${ instrutor.nome }</h3>
 							<p class="info text-secondary">Professor de Programação Orientada a Objetos</p>
 							<p class="card-text">${ instrutor.experiencia }</p>
+							<a href="/cursosLeroLero/LogicaServlet?logica=AlteraInstrutorLogica&id=${ instrutor.id }" class="btn btn-primary btn-sm">Alterar</a>
 							<a href="/cursosLeroLero/LogicaServlet?logica=DeleteInstrutorLogica&id=${ instrutor.id }" class="btn btn-primary btn-sm">Deletar</a>
 						</div>
 					</div>

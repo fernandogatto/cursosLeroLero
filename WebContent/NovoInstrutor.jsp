@@ -67,7 +67,8 @@
 		<div class="container py-5">
 			<h1 class=" text-primary display-4">Novo instrutor</h1>
 			<p class="lead">Cadastra-se para poder dar aulas!</p>
-			<form class="py-3" name='novoinstrutor' action="InsertInstrutorServlet" method="POST">
+			<form class="py-3" name='novoinstrutor' action="LogicaServlet" method="POST">
+				<input type="hidden" name="logica" value="InserirInstrutorLogica">
 				<div class="form-group">
 					<label for="nome">Nome completo *</label>
 					<input type="text" class="form-control" id="nomeInstrutor" name='nome' aria-describedby="nameHelp"
