@@ -1,6 +1,6 @@
 package javaResources.controller;
 
-import javaResources.model.AluonModel;
+import javaResources.model.AlunoModel;
 
 public class AlunoController {
 	

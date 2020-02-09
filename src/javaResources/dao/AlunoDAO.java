@@ -18,7 +18,7 @@ public class AlunoDAO {
 		
 		try {
 			connection = new ConnectionDatabase().getConnection();
-			stmt = connection.prepareStatement("INSERT INTO aluno (cpf, nome, email, celular, login, senha, endereco, cidade, bairro, cep, comentario, aprovado) VALUES (?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?)");
+			stmt = connection.prepareStatement("INSERT INTO alunos (cpf, nome, email, celular, login, senha, endereco, cidade, bairro, cep) VALUES (?, ?, ?, ?, ? , ?, ?, ?, ?, ?)");
 			stmt.setString(1, aluno.getCpf());
 			stmt.setString(2, aluno.getNome());
 			stmt.setString(3, aluno.getEmail());
@@ -29,8 +29,6 @@ public class AlunoDAO {
 			stmt.setString(8, aluno.getCidade());
 			stmt.setString(9, aluno.getBairro());
 			stmt.setString(10, aluno.getCep());
-			stmt.setString(11, aluno.getComentario());
-			stmt.setString(12, aluno.getAprovado());
 			stmt.execute();
 		} catch(SQLException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao registrar aluno DAO: " + e.getMessage());
@@ -73,7 +71,7 @@ public class AlunoDAO {
         return aluno;
 	}
 	
-	public void updateAlunoDAO(alunoModel aluno) {
+	public void updateAlunoDAO(AlunoModel aluno) {
 		Connection connection = null;
         PreparedStatement stmt = null;
         

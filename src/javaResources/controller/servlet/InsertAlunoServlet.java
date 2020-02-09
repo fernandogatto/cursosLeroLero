@@ -63,13 +63,12 @@ public class InsertAlunoServlet extends HttpServlet {
 		aluno.setBairro(bairro);
 		aluno.setCep(cep);
 
-		System.out.Println("insert aluno");
 		
 		try {
 			aluno.insertAlunoModel();
 			RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
 			dispatcher.forward(request, response);
-			System.out.Println("try insert aluno");
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
