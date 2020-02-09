@@ -68,7 +68,8 @@
 		<div class="container py-5">
 			<h1 class=" text-primary display-4">Novo aluno</h1>
 			<p class="lead">Cadastre-se!</p>
-			<form class="py-3" id="form-aluno" name='novoaluno' action="InsertAlunoServlet" method="POST">
+			<form class="py-3" id="form-aluno" name='novoaluno' action="LogicaServlet" method="POST">
+				<input type="hidden" name="logica" value="InserirAlunoLogica">
 				<div class="form-group">
 					<label for="cpf">CPF*</label>
 					<input type="text" class="form-control cpf" id="cpfAluno" name="cpf" aria-describedby="cpfHelp"	placeholder="Digite seu CPF">

@@ -1,6 +1,7 @@
 package javaResources.model;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javaResources.dao.AlunoDAO;
 
@@ -130,6 +131,10 @@ public class AlunoModel {
 	public AlunoModel listAlunoByIdModel(int id) {
 		this.setId(id);
 		return new AlunoDAO().listAlunoByIdDAO(this.getId());
+	}
+
+	public List<AlunoModel> listAllAlunosModel() {
+		return new AlunoDAO().listAllAlunosDAO();
 	}
 	
 	public void updateAlunoModel() {

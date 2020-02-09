@@ -4,11 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
 import javaResources.dao.connection.ConnectionDatabase;
 import javaResources.model.AlunoModel;
+import javaResources.model.InstrutorModel;
 
 public class AlunoDAO {
 
@@ -70,6 +73,43 @@ public class AlunoDAO {
         
         return aluno;
 	}
+	
+	public List<AlunoModel> listAllAlunosDAO() {
+		Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<AlunoModel> alunos = new ArrayList<>();
+        AlunoModel aluno = null;
+        
+        try {
+        	connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("SELECT * FROM alunos");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+            	aluno = new AlunoModel();
+            	aluno.setId(rs.getInt("id"));
+            	aluno.setCpf(rs.getString("cpf"));
+            	aluno.setNome(rs.getString("nome"));
+            	aluno.setEmail(rs.getString("email"));
+            	aluno.setCelular(rs.getString("celular"));
+            	aluno.setLogin(rs.getString("login"));
+            	aluno.setSenha(rs.getString("senha"));
+            	aluno.setEndereco(rs.getString("endereco"));
+            	aluno.setEndereco(rs.getString("cidade"));
+            	aluno.setEndereco(rs.getString("bairro"));
+            	aluno.setEndereco(rs.getString("cep"));
+            	alunos.add(aluno);
+            }        	
+        } catch(SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar todos os alunos: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt, rs);
+        }
+
+        return alunos;
+	}
+
 	
 	public void updateAlunoDAO(AlunoModel aluno) {
 		Connection connection = null;
