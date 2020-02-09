@@ -67,47 +67,47 @@
 	<section>
 		<div class="container py-5">
 			<h1 class=" text-primary display-4">Novo aluno</h1>
-			<p class="lead">Cadastra-se!</p>
-			<form class="py-3" id="form-aluno" method="POST">
+			<p class="lead">Cadastre-se!</p>
+			<form class="py-3" id="form-aluno" name='novoaluno' action="InsertAlunoServlet" method="POST">
 				<div class="form-group">
 					<label for="cpf">CPF*</label>
-					<input type="text" class="form-control cpf" id="cpf" name="cpf" aria-describedby="cpfHelp"	placeholder="Digite seu CPF">
+					<input type="text" class="form-control cpf" id="cpfAluno" name="cpf" aria-describedby="cpfHelp"	placeholder="Digite seu CPF">
 				</div>
 				<div class="form-group">
 					<label for="nome">Nome*</label>
-					<input type="text" class="form-control" id="nome" name="nome" aria-describedby="nameHelp" placeholder="Digite seu nome">
+					<input type="text" class="form-control" id="nomeAluno" name="nome" aria-describedby="nameHelp" placeholder="Digite seu nome">
 				</div>
 				<div class="form-group">
 					<label for="email">Email*</label>
-					<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Digite seu email" rows="10">
+					<input type="email" class="form-control" id="emailAluno" name="email" aria-describedby="emailHelp" placeholder="Digite seu email" rows="10">
 				</div>
 				<div class="form-group">
 					<label for="celular">Celular*</label>
-					<input type="text" class="form-control cellphone_with_ddd" id="celular" name="celular" aria-describedby="phoneHelp" placeholder="Digite seu número de celular">
+					<input type="text" class="form-control cellphone_with_ddd" id="celularAluno" name="celular" aria-describedby="phoneHelp" placeholder="Digite seu número de celular">
                 </div>
 				<div class="form-group">
 					<label for="endereco">Endereço*</label>
-					<input type="text" class="form-control" id="endereco" name="endereco" aria-describedby="addressHelp" placeholder="Digite seu endereço">
+					<input type="text" class="form-control" id="enderecoAluno" name="endereco" aria-describedby="addressHelp" placeholder="Digite seu endereço">
 				</div>
 				<div class="form-group">
 					<label for="cidade">Cidade*</label>
-					<input type="text" class="form-control" id="cidade" name="cidade" aria-describedby="cityHelp" placeholder="Digite sua cidade">
+					<input type="text" class="form-control" id="cidadeAluno" name="cidade" aria-describedby="cityHelp" placeholder="Digite sua cidade">
 				</div>
 				<div class="form-group">
 					<label for="bairro">Bairro*</label>
-					<input type="text" class="form-control" id="bairro" name="bairro" aria-describedby="neighborhoodHelp" placeholder="Digite seu bairro">
+					<input type="text" class="form-control" id="bairroAluno" name="bairro" aria-describedby="neighborhoodHelp" placeholder="Digite seu bairro">
 				</div>
 				<div class="form-group">
 					<label for="cep">CEP*</label>
-					<input type="text" class="form-control cep" id="cep" name="cep" aria-describedby="cepHelp" placeholder="Digite seu CEP">
+					<input type="text" class="form-control cep" id="cepAluno" name="cep" aria-describedby="cepHelp" placeholder="Digite seu CEP">
 				</div>
 				<div class="form-group">
 					<label for="login">Login*</label>
-					<input type="text" class="form-control" id="login" name="login" aria-describedby="loginHelp" placeholder="Digite seu usuário para login">
+					<input type="text" class="form-control" id="loginAluno" name="login" aria-describedby="loginHelp" placeholder="Digite seu usuário para login">
 				</div>
 				<div class="form-group">
 					<label for="senha">Senha*</label>
-					<input type="password" class="form-control" id="senha" name="senha" aria-describedby="passwordHelp" placeholder="Escolha uma senha">
+					<input type="password" class="form-control" id="senhaAluno" name="senha" aria-describedby="passwordHelp" placeholder="Escolha uma senha">
 				</div>
 				<button type="submit" class="btn btn-primary my-3">Salvar</button>
 			</form>

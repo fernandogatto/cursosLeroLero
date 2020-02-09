@@ -18,11 +18,10 @@ public class AdministradorDAO {
 		
 		try {
 			connection = new ConnectionDatabase().getConnection();
-			stmt = connection.prepareStatement("INSERT INTO administrador (id, nome, login, senha) VALUES (?, ?, ?, ?)");
-			stmt.setInt(1, administrador.getId());
-			stmt.setString(2, administrador.getNome());
-			stmt.setString(3, administrador.getLogin());
-			stmt.setString(4, administrador.getSenha());
+			stmt = connection.prepareStatement("INSERT INTO administrador (nome, login, senha) VALUES (?, ?, ?)");
+			stmt.setString(1, administrador.getNome());
+			stmt.setString(2, administrador.getLogin());
+			stmt.setString(3, administrador.getSenha());
 			stmt.execute();
 		} catch(SQLException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao registrar administrador DAO: " + e.getMessage());
