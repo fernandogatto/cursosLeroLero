@@ -96,9 +96,9 @@ public class AlunoDAO {
             	aluno.setLogin(rs.getString("login"));
             	aluno.setSenha(rs.getString("senha"));
             	aluno.setEndereco(rs.getString("endereco"));
-            	aluno.setEndereco(rs.getString("cidade"));
-            	aluno.setEndereco(rs.getString("bairro"));
-            	aluno.setEndereco(rs.getString("cep"));
+            	aluno.setCidade(rs.getString("cidade"));
+            	aluno.setBairro(rs.getString("bairro"));
+            	aluno.setCep(rs.getString("cep"));
             	alunos.add(aluno);
             }        	
         } catch(SQLException e) {

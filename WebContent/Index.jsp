@@ -34,6 +34,9 @@
 							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
                         </li>
                         <li class="nav-item">
+							<a class="nav-link" href="LogicaServlet?logica=ListaAlunosLogica">Alunos</a>
+                        </li>
+                        <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
                         </li>
                         <li class="nav-item">
