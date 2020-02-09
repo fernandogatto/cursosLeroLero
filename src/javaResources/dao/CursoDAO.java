@@ -18,13 +18,12 @@ public class CursoDAO {
 		
 		try {
 			connection = new ConnectionDatabase().getConnection();
-			stmt = connection.prepareStatement("INSERT INTO cursos (id, nome, requisito, ementa, carga_horaria, preco) VALUES (?, ?, ?, ?, ?, ?)");
-			stmt.setInt(1, curso.getId());
-			stmt.setString(2, curso.getNome());
-			stmt.setString(3, curso.getRequisito());
-			stmt.setString(4, curso.getEmenta());
-			stmt.setInt(5, curso.getCargaHoraria());
-			stmt.setDouble(6, curso.getPreco());
+			stmt = connection.prepareStatement("INSERT INTO cursos (nome, requisito, ementa, carga_horaria, preco) VALUES (?, ?, ?, ?, ?)");
+			stmt.setString(1, curso.getNome());
+			stmt.setString(2, curso.getRequisito());
+			stmt.setString(3, curso.getEmenta());
+			stmt.setInt(4, curso.getCargaHoraria());
+			stmt.setDouble(5, curso.getPreco());
 			stmt.execute();
 		} catch(SQLException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao registrar curso DAO: " + e.getMessage());

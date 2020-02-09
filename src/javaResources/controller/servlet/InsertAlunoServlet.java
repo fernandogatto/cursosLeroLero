@@ -50,10 +50,6 @@ public class InsertAlunoServlet extends HttpServlet {
 		String cidade = request.getParameter("cidade");
 		String bairro = request.getParameter("bairro");
 		String cep = request.getParameter("cep");
-		String comentario  = request.getParameter("comentario");
-		String aprovado = request.getParameter("aprovado");
-//		String comentario = "comentario default";
-//		String aprovado = "aprovado default";
 		
 		AlunoModel aluno = new AlunoModel();
 		aluno.setCpf(cpf);
@@ -66,8 +62,6 @@ public class InsertAlunoServlet extends HttpServlet {
 		aluno.setCidade(cidade);
 		aluno.setBairro(bairro);
 		aluno.setCep(cep);
-		aluno.setComentario(comentario);
-		aluno.setAprovado(aprovado);
 
 		System.out.Println("insert aluno");
 		
@@ -78,7 +72,6 @@ public class InsertAlunoServlet extends HttpServlet {
 			System.out.Println("try insert aluno");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.Println("catch insert aluno");
 		}
 	}
 

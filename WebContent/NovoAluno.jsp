@@ -109,16 +109,6 @@
 					<label for="senha">Senha*</label>
 					<input type="password" class="form-control" id="senhaAluno" name="senha" aria-describedby="passwordHelp" placeholder="Escolha uma senha">
 				</div>
-				
-				<div class="form-group">
-					<label for="comentario">Comentario*</label>
-					<input type="text" class="form-control" id="comentarioAluno" name="comentario" aria-describedby="passwordHelp" placeholder="Escolha uma senha">
-				</div>
-				
-				<div class="form-group">
-					<label for="aprovado">Aprovado*</label>
-					<input type="text" class="form-control" id="aprovadoAluno" name="aprovado" aria-describedby="passwordHelp" placeholder="Escolha uma senha">
-				</div>
 				<button type="submit" class="btn btn-primary my-3">Salvar</button>
 			</form>
 		</div>
