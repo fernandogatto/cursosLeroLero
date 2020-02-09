@@ -8,10 +8,15 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import javaResources.dao.connection.ConnectionDatabase;
+import javaResources.model.InstrutorModel;
+import javaResources.model.CursoModel;
 import javaResources.model.TurmaModel;
 
 public class TurmaDAO {
 
+	private static InstrutorModel instrutor;
+	private static CursoModel curso;
+	
 	public void insertTurmaDAO(TurmaModel turma) {
 		Connection connection = null;
 		PreparedStatement stmt = null;
@@ -42,10 +47,14 @@ public class TurmaDAO {
         	connection = new ConnectionDatabase().getConnection();
         	stmt = connection.prepareStatement("SELECT * FROM turmas WHERE id = ?");
         	rs = stmt.executeQuery();
+        	
         	if(rs.next()) {
+
+        		System.out.println("LOGGER TURMA LIST BY ID DAO");
+        		System.out.println(rs);
         		turma = new TurmaModel();
-        		turma.setInstrutor(rs.getString("instrutores_id"));
-        		turma.setCurso(rs.getString("cursos_id"));
+        		turma.setInstrutor(instrutor.listInstrutorByIdModel(rs.getInt("instrutores_id")));
+        		turma.setCurso(curso.listCursoByIdModel(rs.getInt("cursos_id")));
         		turma.setDataInicio(rs.getDate("data_inicio"));
         		turma.setDataFinal(rs.getDate("data_final"));
         		turma.setCargaHoraria(rs.getInt("carga_horaria"));
@@ -66,8 +75,8 @@ public class TurmaDAO {
         try {
             connection = new ConnectionDatabase().getConnection();
             stmt = connection.prepareStatement("UPDATE turmas SET instrutores_id = ?, cursos_id = ?, data_inicio = ?, data_final = ?, carga_horaria = ?");
-            stmt.setInt(1, turma.getInstrutor());
-            stmt.setInt(2, turma.getCurso());
+            stmt.setInt(1, turma.getInstrutor().getId());
+            stmt.setInt(2, turma.getCurso().getId());
             stmt.setDate(3, turma.getDataInicio());
             stmt.setDate(4, turma.getDataFinal());
             stmt.setInt(5, turma.getCargaHoraria());
