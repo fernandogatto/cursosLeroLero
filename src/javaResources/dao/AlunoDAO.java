@@ -92,8 +92,8 @@ public class AlunoDAO {
             stmt.setBoolean(12, aluno.isAprovado());
             stmt.setInt(13, aluno.getId());
             stmt.executeUpdate();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Erro ao atualizar aluno DAO: " + e.getMessage());
+        } catch (Exception e) {
+        	JOptionPane.showMessageDialog(null, "Erro ao atualizar aluno DAO: " + e.getMessage());
         } finally {
             ConnectionDatabase.closeConnection(connection, stmt);
         }
