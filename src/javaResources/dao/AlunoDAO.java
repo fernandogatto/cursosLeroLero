@@ -45,7 +45,7 @@ public class AlunoDAO {
 		
         try {
         	connection = new ConnectionDatabase().getConnection();
-        	stmt = connection.prepareStatement("SELECT * FROM alunos WHERE id = ?");
+        	stmt = connection.prepareStatement("SELECT * FROM alunos WHERE id =" + id);
         	rs = stmt.executeQuery();
         	if(rs.next()) {
         		aluno = new AlunoModel();
@@ -77,7 +77,7 @@ public class AlunoDAO {
         
         try {
             connection = new ConnectionDatabase().getConnection();
-            stmt = connection.prepareStatement("UPDATE alunos SET cpf = ?, nome = ?, email = ?, celular = ?, login = ?, senha = ?, endereco = ?, cidade = ?, bairro = ?, cep = ?, comentario = ?, aprovado = ?");
+            stmt = connection.prepareStatement("UPDATE alunos SET cpf = ?, nome = ?, email = ?, celular = ?, login = ?, senha = ?, endereco = ?, cidade = ?, bairro = ?, cep = ?, comentario = ?, aprovado = ? WHERE id = ?");
             stmt.setString(1, aluno.getCpf());
             stmt.setString(2, aluno.getNome());
             stmt.setString(3, aluno.getEmail());
@@ -90,6 +90,7 @@ public class AlunoDAO {
             stmt.setString(10, aluno.getCep());
             stmt.setString(11, aluno.getComentario());
             stmt.setBoolean(12, aluno.isAprovado());
+            stmt.setInt(13, aluno.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar aluno DAO: " + e.getMessage());
