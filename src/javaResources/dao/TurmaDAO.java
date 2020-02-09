@@ -19,8 +19,8 @@ public class TurmaDAO {
 		try {
 			connection = new ConnectionDatabase().getConnection();
 			stmt = connection.prepareStatement("INSERT INTO turmas (instrutores_id, cursos_id, data_inicio, data_final, carga_horaria) VALUES (?, ?, ?, ?, ?)");
-			stmt.setInt(1, turma.getInstrutoresId());
-			stmt.setInt(2,  turma.getCursosId());
+			stmt.setInt(1, turma.getIdInstrutor());
+			stmt.setInt(2, turma.getIdCurso());
 			stmt.setDate(3, turma.getDataInicio());
 			stmt.setDate(4, turma.getDataFinal());
 			stmt.setInt(5, turma.getCargaHoraria());
@@ -44,11 +44,11 @@ public class TurmaDAO {
         	rs = stmt.executeQuery();
         	if(rs.next()) {
         		turma = new TurmaModel();
-        		turma.setInstrutoresId(rs.getString("instrutores_id"));
-        		turma.setCursosId(rs.getString("cursos_id"));
-        		turma.setDataInicio(rs.getInt("data_inicio"));
-        		turma.setDataFinal(rs.getString("data_final"));
-        		turma.setCargaHoraria(rs.getString("carga_horaria"));
+        		turma.setIdInstrutor(rs.getInt("instrutores_id"));
+        		turma.setIdCurso(rs.getInt("cursos_id"));
+        		turma.setDataInicio(rs.getDate("data_inicio"));
+        		turma.setDataFinal(rs.getDate("data_final"));
+        		turma.setCargaHoraria(rs.getInt("carga_horaria"));
         	}
         } catch(SQLException e) {
         	JOptionPane.showMessageDialog(null, "Erro ao listar turma pelo ID: " + e.getMessage());
@@ -65,12 +65,13 @@ public class TurmaDAO {
         
         try {
             connection = new ConnectionDatabase().getConnection();
-            stmt = connection.prepareStatement("UPDATE turmas SET instrutores_id = ?, cursos_id = ?, data_inicio = ?, data_final = ?, carga_horaria = ?");
-            stmt.setInt(1, turma.getInstrutoresId());
-            stmt.setInt(2, turma.getCursosId());
+            stmt = connection.prepareStatement("UPDATE turmas SET instrutores_id = ?, cursos_id = ?, data_inicio = ?, data_final = ?, carga_horaria = ? WHERE id = ?");
+            stmt.setInt(1, turma.getIdInstrutor());
+            stmt.setInt(2, turma.getIdCurso());
             stmt.setDate(3, turma.getDataInicio());
             stmt.setDate(4, turma.getDataFinal());
             stmt.setInt(5, turma.getCargaHoraria());
+            stmt.setInt(6, turma.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar turma DAO: " + e.getMessage());

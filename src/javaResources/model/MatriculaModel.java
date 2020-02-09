@@ -5,8 +5,8 @@ import java.sql.Date;
 public class MatriculaModel {
 
 	private int id;
-	private TurmaModel turma;
-	private AlunoModel aluno;
+	private int idTurma;
+	private int idAluno;
 	private Date dataMatricula;
 	private double nota;
 	
@@ -18,22 +18,22 @@ public class MatriculaModel {
 		this.id = id;
 	}
 	
-	public TurmaModel getTurma() {
-		return turma;
+	public int getIdTurma() {
+		return idTurma;
 	}
-	
-	public void setTurma(TurmaModel turma) {
-		this.turma = turma;
+
+	public void setIdTurma(int idTurma) {
+		this.idTurma = idTurma;
 	}
-	
-	public AlunoModel getAluno() {
-		return aluno;
+
+	public int getIdAluno() {
+		return idAluno;
 	}
-	
-	public void setAluno(AlunoModel aluno) {
-		this.aluno = aluno;
+
+	public void setIdAluno(int idAluno) {
+		this.idAluno = idAluno;
 	}
-	
+
 	public Date getDataMatricula() {
 		return dataMatricula;
 	}
