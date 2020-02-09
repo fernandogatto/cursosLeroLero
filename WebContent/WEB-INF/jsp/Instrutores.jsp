@@ -1,4 +1,3 @@
-<%@page import="javaResources.controller.InstrutorController"%>
 <%@page import="javaResources.model.InstrutorModel"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -18,7 +17,7 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
 			<div class="container">
-				<a class="navbar-brand" href="index.html"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
+				<a class="navbar-brand" href="Index.jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
@@ -34,7 +33,7 @@
 							<a class="nav-link" href="Sobre.jsp">Sobre</a>
                         </li>
                         <li class="nav-item active">
-							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
+							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
                         </li>
                         <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
@@ -77,8 +76,7 @@
 
 			<div class="row">
 			
-			<jsp:useBean id="controller" class="javaResources.controller.InstrutorController"/>
-			<c:forEach var="instrutor" items="${ controller.listAllInstrutoresController }" >
+			<c:forEach var="instrutor" items="${ instrutores }" >
 				<div class="col-lg-3 col-md-6 col-12 my-2">
 					<div class="card">
 						<img src="webResources/img/professor-1.jpg" alt="Professor" class="card-img-top">
@@ -110,7 +108,7 @@
 					<ul class="list-unstyled">
 						<li><a href="Index.jsp">Home</a></li>
 						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="Instrutores.jsp">Instrutores</a></li>
+						<li><a href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
 						<li><a href="Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>

@@ -1,8 +1,9 @@
-package javaResources.controller.servlet;
+package javaResources.controller.servlet.function;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import javaResources.controller.servlet.LogicaInterface;
 import javaResources.model.InstrutorModel;
 
 public class DeleteInstrutorLogica implements LogicaInterface {
@@ -14,7 +15,7 @@ public class DeleteInstrutorLogica implements LogicaInterface {
 		instrutor.setId(id);
 		instrutor.deleteInstrutorModel();
 		
-		return "Instrutores.jsp";
+		return "LogicaServlet?logica=ListaInstrutoresLogica";
 	}
 
 }

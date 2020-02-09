@@ -31,7 +31,7 @@
 							<a class="nav-link" href="Sobre.jsp">Sobre</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
+							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
                         </li>
                         <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
@@ -117,7 +117,7 @@
 						minus eveniet est ratione.</p>
 				</div>
 
-				<a class="btn btn-primary mx-auto" href="Instrutores.jsp">Conheça nossos instrutores</a>
+				<a class="btn btn-primary mx-auto" href="LogicaServlet?logica=ListaInstrutoresLogica">Conheça nossos instrutores</a>
 			</div>
 		</div>
 	</section>
@@ -206,7 +206,7 @@
 					<ul class="list-unstyled">
 						<li><a href="Index.jsp">Home</a></li>
 						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="Instrutores.jsp">Instrutores</a></li>
+						<li><a href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
 						<li><a href="Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>
