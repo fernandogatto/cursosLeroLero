@@ -14,7 +14,7 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
 			<div class="container">
-				<a class="navbar-brand" href="index.html"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
+				<a class="navbar-brand" href="Index.jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
@@ -30,7 +30,7 @@
 							<a class="nav-link" href="Sobre.jsp">Sobre</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
+							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
                         </li>
                         <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
@@ -111,7 +111,7 @@
 					<ul class="list-unstyled">
 						<li><a href="Index.jsp">Home</a></li>
 						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="Instrutores.jsp">Instrutores</a></li>
+						<li><a href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
 						<li><a href="Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>

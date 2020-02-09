@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -20,7 +22,7 @@ public class InstrutorDAO {
 			connection = new ConnectionDatabase().getConnection();
 			stmt = connection.prepareStatement("INSERT INTO instrutores (nome, email, valor_hora, login, senha, experiencia) VALUES (?, ?, ?, ?, ?, ?)");
 			stmt.setString(1, instrutor.getNome());
-			stmt.setString(2,  instrutor.getEmail());
+			stmt.setString(2, instrutor.getEmail());
 			stmt.setInt(3, instrutor.getValorHora());
 			stmt.setString(4, instrutor.getLogin());
 			stmt.setString(5, instrutor.getSenha());
@@ -59,6 +61,38 @@ public class InstrutorDAO {
         }
         
         return instrutor;
+	}
+	
+	public List<InstrutorModel> listAllInstrutoresDAO() {
+		Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList<InstrutorModel> instrutores = new ArrayList<>();
+        InstrutorModel instrutor = null;
+        
+        try {
+        	connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("SELECT * FROM instrutores");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+            	instrutor = new InstrutorModel();
+            	instrutor.setId(rs.getInt("id"));
+            	instrutor.setNome(rs.getString("nome"));
+            	instrutor.setEmail(rs.getString("email"));
+            	instrutor.setValorHora(rs.getInt("valor_hora"));
+            	instrutor.setLogin(rs.getString("login"));
+            	instrutor.setSenha(rs.getString("senha"));
+            	instrutor.setExperiencia(rs.getString("experiencia"));
+            	instrutores.add(instrutor);
+            }        	
+        } catch(SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar todos os instrutores: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt, rs);
+        }
+
+        return instrutores;
 	}
 	
 	public void updateInstrutorDAO(InstrutorModel instrutor) {

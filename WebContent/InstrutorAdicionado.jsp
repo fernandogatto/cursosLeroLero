@@ -30,7 +30,7 @@
 							<a class="nav-link" href="Sobre.jsp">Sobre</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
+							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
                         </li>
                         <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
@@ -84,7 +84,7 @@
 					<ul class="list-unstyled">
 						<li><a href="Index.jsp">Home</a></li>
 						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="Instrutores.jsp">Instrutores</a></li>
+						<li><a href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
 						<li><a href="Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>
