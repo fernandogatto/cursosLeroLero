@@ -3,6 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -76,26 +77,21 @@
 
 			<div class="row">
 			
-			<% 
-			InstrutorController controller = new InstrutorController();
-			List<InstrutorModel> instrutores = controller.listAllInstrutoresController();
-			
-			for(InstrutorModel instrutor : instrutores) {
-			%>
+			<jsp:useBean id="controller" class="javaResources.controller.InstrutorController"/>
+			<c:forEach var="instrutor" items="${ controller.listAllInstrutoresController }" >
 				<div class="col-lg-3 col-md-6 col-12 my-2">
 					<div class="card">
 						<img src="webResources/img/professor-1.jpg" alt="Professor" class="card-img-top">
 
 						<div class="card-body">
-							<h3 class="card-title h5"><%= instrutor.getNome() %></h3>
+							<h3 class="card-title h5">${ instrutor.nome }</h3>
 							<p class="info text-secondary">Professor de Programação Orientada a Objetos</p>
-							<p class="card-text"><%= instrutor.getExperiencia() %></p>
+							<p class="card-text">${ instrutor.experiencia }</p>
+							<a href="/cursosLeroLero/LogicaServlet?logica=DeleteInstrutorLogica&id=${ instrutor.id }" class="btn btn-primary btn-sm">Deletar</a>
 						</div>
 					</div>
 				</div>
-			<%	
-			}
-			%>
+			</c:forEach>
 				
 			</div>
 		</div>

@@ -10,7 +10,7 @@ public class InstrutorController {
 		return new InstrutorModel().listInstrutorByIdModel(id);
 	}
 	
-	public List<InstrutorModel> listAllInstrutoresController() {
+	public List<InstrutorModel> getlistAllInstrutoresController() {
 		return new InstrutorModel().listAllInstrutoresModel();
 	}
 	
