@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -62,7 +63,7 @@ public class InstrutorDAO {
         return instrutor;
 	}
 	
-	public ArrayList<InstrutorModel> listAllInstrutoresDAO() {
+	public List<InstrutorModel> listAllInstrutoresDAO() {
 		Connection connection = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;

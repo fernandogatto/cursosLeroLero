@@ -1,3 +1,6 @@
+<%@page import="javaResources.controller.InstrutorController"%>
+<%@page import="javaResources.model.InstrutorModel"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -72,53 +75,28 @@
 			</div>
 
 			<div class="row">
+			
+			<% 
+			InstrutorController controller = new InstrutorController();
+			List<InstrutorModel> instrutores = controller.listAllInstrutoresController();
+			
+			for(InstrutorModel instrutor : instrutores) {
+			%>
 				<div class="col-lg-3 col-md-6 col-12 my-2">
 					<div class="card">
 						<img src="webResources/img/professor-1.jpg" alt="Professor" class="card-img-top">
 
 						<div class="card-body">
-							<h3 class="card-title h5">Jonas Gutenberg</h3>
+							<h3 class="card-title h5"><%= instrutor.getNome() %></h3>
 							<p class="info text-secondary">Professor de Programação Orientada a Objetos</p>
-							<p class="card-text">MSc em Inteligência Artificial pela UFF e Bacharel em Ciência da Computação pela UFF</p>
+							<p class="card-text"><%= instrutor.getExperiencia() %></p>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-lg-3 col-md-6 col-12 my-2">
-					<div class="card">
-						<img src="webResources/img/professora-1.jpg" alt="Professor" class="card-img-top">
-
-						<div class="card-body">
-							<h3 class="card-title h5">Alice Cruz</h3>
-							<p class="info text-secondary">Professora de Banco de Dados</p>
-							<p class="card-text">MSc em Banco de Dados Relacionais pela UFF e Bacharel em Sistemas da Informação pela UFF</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 col-12 my-2">
-					<div class="card">
-						<img src="webResources/img/professor-2.jpg" alt="Professor" class="card-img-top">
-
-						<div class="card-body">
-							<h3 class="card-title h5">Tadeu Firmino</h3>
-							<p class="info text-secondary">Professor de Sistemas Operacionais</p>
-							<p class="card-text">MSc em Segurança da Informação pela UFF e Bacharel em Sistemas da Informação pela UFF</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 col-12 my-2">
-					<div class="card">
-						<img src="webResources/img/professora-2.jpg" alt="Professor" class="card-img-top">
-
-						<div class="card-body">
-							<h3 class="card-title h5">Sabrina Lopes</h3>
-							<p class="info text-secondary">Professora de Computação e Sociedade</p>
-							<p class="card-text">MSc em Psicologia da Informação pela UFF e Bacharel em Ciência da Computação pela UFF</p>
-						</div>
-					</div>
-				</div>
+			<%	
+			}
+			%>
+				
 			</div>
 		</div>
 	</section>
