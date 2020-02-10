@@ -24,8 +24,8 @@ public class TurmaDAO {
 		try {
 			connection = new ConnectionDatabase().getConnection();
 			stmt = connection.prepareStatement("INSERT INTO turmas (instrutores_id, cursos_id, data_inicio, data_final, carga_horaria) VALUES (?, ?, ?, ?, ?)");
-			stmt.setInt(1, turma.getInstrutor().getId());
-			stmt.setInt(2,  turma.getCurso().getId());
+			stmt.setInt(1, turma.getIdInstrutor());
+			stmt.setInt(2, turma.getIdCurso());
 			stmt.setDate(3, turma.getDataInicio());
 			stmt.setDate(4, turma.getDataFinal());
 			stmt.setInt(5, turma.getCargaHoraria());
@@ -50,8 +50,8 @@ public class TurmaDAO {
         	
         	if(rs.next()) {
         		turma = new TurmaModel();
-        		turma.setInstrutor(instrutor.listInstrutorByIdModel(rs.getInt("instrutores_id")));
-        		turma.setCurso(curso.listCursoByIdModel(rs.getInt("cursos_id")));
+        		turma.setIdInstrutor(rs.getInt("instrutores_id"));
+        		turma.setIdCurso(rs.getInt("cursos_id"));
         		turma.setDataInicio(rs.getDate("data_inicio"));
         		turma.setDataFinal(rs.getDate("data_final"));
         		turma.setCargaHoraria(rs.getInt("carga_horaria"));
@@ -71,12 +71,13 @@ public class TurmaDAO {
         
         try {
             connection = new ConnectionDatabase().getConnection();
-            stmt = connection.prepareStatement("UPDATE turmas SET instrutores_id = ?, cursos_id = ?, data_inicio = ?, data_final = ?, carga_horaria = ?");
-            stmt.setInt(1, turma.getInstrutor().getId());
-            stmt.setInt(2, turma.getCurso().getId());
+            stmt = connection.prepareStatement("UPDATE turmas SET instrutores_id = ?, cursos_id = ?, data_inicio = ?, data_final = ?, carga_horaria = ? WHERE id = ?");
+            stmt.setInt(1, turma.getIdInstrutor());
+            stmt.setInt(2, turma.getIdCurso());
             stmt.setDate(3, turma.getDataInicio());
             stmt.setDate(4, turma.getDataFinal());
             stmt.setInt(5, turma.getCargaHoraria());
+            stmt.setInt(6, turma.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar turma DAO: " + e.getMessage());

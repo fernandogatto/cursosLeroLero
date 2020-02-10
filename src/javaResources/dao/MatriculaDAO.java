@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 
 import javaResources.dao.connection.ConnectionDatabase;
 import javaResources.model.MatriculaModel;
+import javaResources.model.TurmaModel;
 
 public class MatriculaDAO {
 
@@ -20,8 +21,8 @@ public class MatriculaDAO {
 		try {
 			connection = new ConnectionDatabase().getConnection();
 			stmt = connection.prepareStatement("INSERT INTO matriculas (turmas_id, alunos_id, data_matricula, nota) VALUES (?, ?, ?, ?)");
-			stmt.setInt(1, matricula.getTurma());
-			stmt.setInt(2, matricula.getAluno());
+			stmt.setInt(1, matricula.getIdTurma());
+			stmt.setInt(2, matricula.getIdAluno());
 			stmt.setDate(3, matricula.getDataMatricula());
 			stmt.setDouble(4, matricula.getNota());
 			stmt.execute();
@@ -44,10 +45,11 @@ public class MatriculaDAO {
             rs = stmt.executeQuery();
             if (rs.next()) {
                 matricula = new MatriculaModel();
-                matricula.setTurmasId(rs.getString("turmas_id"));
-                matricula.setAlunosId(rs.getString("alunos_id"));
-                matricula.setEmenta(rs.getString("data_matricula"));
-                matricula.setCargaHoraria(rs.getInt("nota"));
+                TurmaModel turma;
+                matricula.setIdTurma(rs.getInt("turmas_id"));
+                matricula.setIdAluno(rs.getInt("alunos_id"));
+                matricula.setDataMatricula(rs.getDate("data_matricula"));
+                matricula.setNota(rs.getDouble("nota"));
                 return matricula;
             }
         } catch (SQLException e) {
@@ -65,11 +67,12 @@ public class MatriculaDAO {
 
         try {
             connection = new ConnectionDatabase().getConnection();
-            stmt = connection.prepareStatement("UPDATE matriculas SET turmas_id = ?, alunos_id = ?, data_matricula = ?, nota = ?");
-            stmt.setString(1, matricula.getTurma());
-            stmt.setString(2, matricula.getAluno());
+            stmt = connection.prepareStatement("UPDATE matriculas SET turmas_id = ?, alunos_id = ?, data_matricula = ?, nota = ? WHERE id = ?");
+            stmt.setInt(1, matricula.getIdTurma());
+            stmt.setInt(2, matricula.getIdAluno());
             stmt.setDate(3, matricula.getDataMatricula());
             stmt.setDouble(4, matricula.getNota());
+            stmt.setInt(5, matricula.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar matricula DAO: " + e.getMessage());

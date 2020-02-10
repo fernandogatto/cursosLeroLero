@@ -1,12 +1,10 @@
-<%@page import="javaResources.model.InstrutorModel"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>Instrutores | Cursos Lero Lero</title>
+	<title>Alterar Instrutor | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -23,7 +21,7 @@
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-
+	
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
@@ -32,7 +30,7 @@
 						<li class="nav-item">
 							<a class="nav-link" href="Sobre.jsp">Sobre</a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item">
 							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
                         </li>
                         <li class="nav-item">
@@ -66,34 +64,45 @@
 			</div>
 		</nav>
 	</header>
-
-	<section class="instrutores py-5">
-		<div class="container">
-			<div class="mb-3 text-center">
-				<span class="h6 uppercase">Quem ensina</span>
-				<h2 class="display-4 text-primary">Nossos Instrutores</h2>
-			</div>
-
-			<div class="row">
-			
-			<c:forEach var="instrutor" items="${ instrutores }" >
-				<div class="col-lg-3 col-md-6 col-12 my-2">
-					<div class="card">
-						<img src="webResources/img/professor-1.jpg" alt="Professor" class="card-img-top">
-
-						<div class="card-body">
-							<h3 class="card-title h5">${ instrutor.nome }</h3>
-							<p class="info text-secondary">Professor de Programação Orientada a Objetos</p>
-							<p class="card-text">${ instrutor.experiencia }</p>
-							<a href="#" class="btn btn-primary btn-sm">Ver</a>
-							<a href="/cursosLeroLero/LogicaServlet?logica=MostrarInstrutorLogica&id=${ instrutor.id }" class="btn btn-primary btn-sm">Alterar</a>
-							<a href="/cursosLeroLero/LogicaServlet?logica=DeleteInstrutorLogica&id=${ instrutor.id }" class="btn btn-primary btn-sm">Deletar</a>
-						</div>
-					</div>
+	<section>
+		<div class="container py-5">
+			<h1 class=" text-primary display-4">Alterar instrutor</h1>
+			<p class="lead">Altere os dados!</p>
+			<form class="py-3" name='novoinstrutor' action="LogicaServlet" method="POST">
+				<input type="hidden" name="logica" value="AlterarInstrutorLogica">
+				<input type="hidden" name="id" value="${ id }">
+				<div class="form-group">
+					<label for="nome">Nome completo *</label>
+					<input type="text" class="form-control" id="nomeInstrutor" name='nome' aria-describedby="nameHelp"
+						placeholder="Digite o nome" value="${ instrutor.nome }">
 				</div>
-			</c:forEach>
-				
-			</div>
+				<div class="form-group">
+					<label for="email">Email *</label>
+					<input type="email" class="form-control" id="emailInstrutor" name="email" aria-describedby="cpfHelp"
+						placeholder="Digite seu email" value="${ instrutor.email }">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPhone">Valor hora</label>
+					<input type="number" class="form-control" id="valorHoraInstrutor" name="valor_hora" aria-describedby="phoneHelp"
+						placeholder="Digite o valor da sua hora" rows="10" value="${ instrutor.valorHora }">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Login *</label>
+					<input type="text" class="form-control" id="loginInstrutor" name='login' aria-describedby="emailHelp"
+						placeholder="Digite seu nome para login" value="${ instrutor.login }">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Senha *</label>
+					<input type="password" class="form-control" id="senhaInstrutor" name="senha"
+						placeholder="Digite sua senha" value="${ instrutor.senha }">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Experiência *</label>
+					<input type="text" class="form-control" id="experienciaInstrutor" name="experiencia"
+						placeholder="Digite sua experiência profissional" value="${ instrutor.experiencia }">
+				</div>
+				<button type="submit" class="btn btn-primary my-3">Salvar</button>
+			</form>
 		</div>
 	</section>
 
@@ -138,12 +147,16 @@
 		</div>
 
 		<div class="bg-primary text-center py-3">
-			<p class="mb-0">Integrado &copy; 2019. Nenhum direito reservado.</p>
+			<p class="mb-0">Cursos Lero Lero &copy; 2020. Nenhum direito reservado.</p>
 		</div>
 	</footer>
 
 	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
 	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
-	<script type="text/javascript" src="webResources/js/bootstrap.js"></script>
+    <script type="text/javascript" src="webResources/js/bootstrap.js"></script>
+    <script type="text/javascript" src="webResources/js/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="webResources/js/masks-input.js"></script>
+	<script type="text/javascript" src="webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="webResources/js/validation-instrutor.js"></script>
 </body>
 </html>

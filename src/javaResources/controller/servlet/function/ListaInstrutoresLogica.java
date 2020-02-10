@@ -12,7 +12,7 @@ public class ListaInstrutoresLogica implements LogicaInterface {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		List<InstrutorModel> instrutores = new InstrutorModel().listAllInstrutoresModel();
+		List<InstrutorModel> instrutores = new InstrutorModel().listarTodosInstrutoresModel();
 		request.setAttribute("instrutores", instrutores);
 		
 		return "/WEB-INF/jsp/Instrutores.jsp";

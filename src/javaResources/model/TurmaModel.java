@@ -5,8 +5,8 @@ import java.sql.Date;
 public class TurmaModel {
 	
 	private int id;
-	private InstrutorModel instrutor;
-	private CursoModel curso;
+	private int idInstrutor;
+	private int idCurso;
 	private Date dataInicio;
 	private Date dataFinal;
 	private int cargaHoraria;
@@ -19,22 +19,22 @@ public class TurmaModel {
 		this.id = id;
 	}
 	
-	public InstrutorModel getInstrutor() {
-		return instrutor;
+	public int getIdInstrutor() {
+		return idInstrutor;
 	}
-	
-	public void setInstrutor(InstrutorModel instrutor) {
-		this.instrutor = instrutor;
+
+	public void setIdInstrutor(int idInstrutor) {
+		this.idInstrutor = idInstrutor;
 	}
-	
-	public CursoModel getCurso() {
-		return curso;
+
+	public int getIdCurso() {
+		return idCurso;
 	}
-	
-	public void setCurso(CursoModel curso) {
-		this.curso = curso;
+
+	public void setIdCurso(int idCurso) {
+		this.idCurso = idCurso;
 	}
-	
+
 	public Date getDataInicio() {
 		return dataInicio;
 	}
