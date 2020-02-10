@@ -53,7 +53,7 @@
 								<a class="dropdown-item" href="#">WordPress</a>
 							</div>
                         </li>
-                        <% if(request.getAttribute("login") == null) { %>
+                        <%if(request.getAttribute("verify") != null) { %>
                         <li class="nav-item">
 							<a class="nav-link" href="Login.jsp">Login</a>
 						</li>
@@ -63,10 +63,7 @@
 						<% } %>
 						<% if(request.getAttribute("login") != null) { %>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								${ usuario.nome }
-							</a>
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${ usuario.nome }</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="/cursosLeroLero/LogoutServlet">Logout</a>
 							</div>
