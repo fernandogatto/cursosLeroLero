@@ -83,13 +83,13 @@
 	
 							<div class="card-body">
 								<h3 class="card-title h5">${ aluno.nome }</h3>
-								<p class="card-text"><span>cpf: </span>${ aluno.cpf }</p>
-								<p class="card-text"><span>email: </span>${ aluno.email }</p>
-								<p class="card-text"><span>celular: </span>${ aluno.celular }</p>
-								<p class="card-text"><span>endereco: </span>${ aluno.endereco }</p>
-								<p class="card-text"><span>cidade: </span>${ aluno.cidade }</p>
-								<p class="card-text"><span>bairro: </span>${ aluno.bairro }</p>
-								<p class="card-text"><span>cep: </span>${ aluno.cep }</p>
+								<p class="card-text">cpf: <span class="cpf">${ aluno.cpf }</span></p>
+								<p class="card-text">email: <span>${ aluno.email }</span></p>
+								<p class="card-text">celular: <span class="cellphone_with_ddd">${ aluno.celular }</span></p>
+								<p class="card-text">endereco: <span>${ aluno.endereco }</span></p>
+								<p class="card-text">cidade: <span>${ aluno.cidade }</span></p>
+								<p class="card-text">bairro: <span>${ aluno.bairro }</span></p>
+								<p class="card-text">cep: <span class="cep">${ aluno.cep }</span></p>
 								<a href="/cursosLeroLero/LogicaServlet?logica=MostrarAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Alterar</a>
 								<a href="/cursosLeroLero/LogicaServlet?logica=DeleteAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Deletar</a> 
 								 
@@ -151,5 +151,7 @@
 	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
 	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
 	<script type="text/javascript" src="webResources/js/bootstrap.js"></script>
+	<script type="text/javascript" src="webResources/js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="webResources/js/masks-input.js"></script>
 </body>
 </html>
