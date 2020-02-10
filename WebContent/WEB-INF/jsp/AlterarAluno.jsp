@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>Novo Aluno | Cursos Lero Lero</title>
+	<title>Alterar Aluno | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -11,7 +12,7 @@
 </head>
 
 <body>
-<header>
+	<header>
 		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
 			<div class="container">
 				<a class="navbar-brand" href="Index.jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
@@ -31,6 +32,9 @@
                         </li>
                         <li class="nav-item">
 							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
+                        </li>
+                        <li class="nav-item">
+							<a class="nav-link" href="LogicaServlet?logica=ListaAlunosLogica">Alunos</a>
                         </li>
                         <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
@@ -63,52 +67,62 @@
 			</div>
 		</nav>
 	</header>
-
 	<section>
 		<div class="container py-5">
-			<h1 class=" text-primary display-4">Novo aluno</h1>
-			<p class="lead">Cadastre-se!</p>
-			<form class="py-3" id="form-aluno" name='novoaluno' action="LogicaServlet" method="POST">
-				<input type="hidden" name="logica" value="InserirAlunoLogica">
+			<h1 class=" text-primary display-4">Alterar aluno</h1>
+			<p class="lead">Altere os dados!</p>
+			<form class="py-3" name='novoaluno' action="LogicaServlet" method="POST">
+				<input type="hidden" name="logica" value="AlterarAlunoLogica">
+				<input type="hidden" name="id" value="${ id }">
 				<div class="form-group">
 					<label for="cpf">CPF*</label>
-					<input type="text" class="form-control cpf" id="cpfAluno" name="cpf" aria-describedby="cpfHelp"	placeholder="Digite seu CPF">
+					<input type="text" class="form-control" id="cpfAluno" name='cpf' aria-describedby="nameHelp"
+						placeholder="Digite o CPF" value="${ aluno.cpf }">
 				</div>
 				<div class="form-group">
 					<label for="nome">Nome*</label>
-					<input type="text" class="form-control" id="nomeAluno" name="nome" aria-describedby="nameHelp" placeholder="Digite seu nome">
+					<input type="text" class="form-control" id="nomeAluno" name='nome' aria-describedby="nameHelp"
+						placeholder="Digite o nome" value="${ aluno.nome }">
 				</div>
 				<div class="form-group">
-					<label for="email">Email*</label>
-					<input type="email" class="form-control" id="emailAluno" name="email" aria-describedby="emailHelp" placeholder="Digite seu email" rows="10">
+					<label for="email">Email *</label>
+					<input type="email" class="form-control" id="emailAluno" name="email" aria-describedby="cpfHelp"
+						placeholder="Digite seu email" value="${ aluno.email }">
 				</div>
 				<div class="form-group">
-					<label for="celular">Celular*</label>
-					<input type="text" class="form-control cellphone_with_ddd" id="celularAluno" name="celular" aria-describedby="phoneHelp" placeholder="Digite seu número de celular">
-                </div>
-				<div class="form-group">
-					<label for="endereco">Endereço*</label>
-					<input type="text" class="form-control" id="enderecoAluno" name="endereco" aria-describedby="addressHelp" placeholder="Digite seu endereço">
+					<label for="celular">Celular *</label>
+					<input type="text" class="form-control" id="celularAluno" name="celular" aria-describedby="cpfHelp"
+						placeholder="Digite seu celular" value="${ aluno.celular }">
 				</div>
 				<div class="form-group">
-					<label for="cidade">Cidade*</label>
-					<input type="text" class="form-control" id="cidadeAluno" name="cidade" aria-describedby="cityHelp" placeholder="Digite sua cidade">
+					<label for="exampleInputEmail1">Login *</label>
+					<input type="text" class="form-control" id="loginAluno" name='login' aria-describedby="emailHelp"
+						placeholder="Digite seu nome para login" value="${ aluno.login }">
 				</div>
 				<div class="form-group">
-					<label for="bairro">Bairro*</label>
-					<input type="text" class="form-control" id="bairroAluno" name="bairro" aria-describedby="neighborhoodHelp" placeholder="Digite seu bairro">
+					<label for="exampleInputPassword1">Senha *</label>
+					<input type="password" class="form-control" id="senhaAluno" name="senha"
+						placeholder="Digite sua senha" value="${ aluno.senha }">
 				</div>
 				<div class="form-group">
-					<label for="cep">CEP*</label>
-					<input type="text" class="form-control cep" id="cepAluno" name="cep" aria-describedby="cepHelp" placeholder="Digite seu CEP">
+					<label for="exampleInputPassword1">Endereco *</label>
+					<input type="text" class="form-control" id="enderecoInstrutor" name="endereco"
+						placeholder="Digite seu endereço" value="${ aluno.endereco}">
 				</div>
 				<div class="form-group">
-					<label for="login">Login*</label>
-					<input type="text" class="form-control" id="loginAluno" name="login" aria-describedby="loginHelp" placeholder="Digite seu usuário para login">
+					<label for="exampleInputPassword1">Cidade *</label>
+					<input type="text" class="form-control" id="cidadeAluno" name="cidade"
+						placeholder="Digite sua cidade" value="${ aluno.cidade}">
 				</div>
 				<div class="form-group">
-					<label for="senha">Senha*</label>
-					<input type="password" class="form-control" id="senhaAluno" name="senha" aria-describedby="passwordHelp" placeholder="Escolha uma senha">
+					<label for="exampleInputPassword1">Bairro *</label>
+					<input type="text" class="form-control" id="bairroAluno" name="bairro"
+						placeholder="Digite seu bairro" value="${ aluno.bairro}">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">CEP *</label>
+					<input type="text" class="form-control" id="cepAluno" name="cep"
+						placeholder="Digite seu CEP" value="${ aluno.cep}">
 				</div>
 				<button type="submit" class="btn btn-primary my-3">Salvar</button>
 			</form>
@@ -164,8 +178,8 @@
 	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
     <script type="text/javascript" src="webResources/js/bootstrap.js"></script>
     <script type="text/javascript" src="webResources/js/jquery.mask.min.js"></script>
-	<script type="text/javascript" src="webResources/js/masks-input.js"></script>
+    <script type="text/javascript" src="webResources/js/masks-input.js"></script>
 	<script type="text/javascript" src="webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="webResources/js/validation-aluno.js"></script>
+	<script type="text/javascript" src="webResources/js/validation-instrutor.js"></script>
 </body>
 </html>

@@ -66,7 +66,7 @@
 	<section>
 		<div class="container py-5">
 			<h1 class=" text-primary display-4">Novo instrutor</h1>
-			<p class="lead">Cadastra-se para poder dar aulas!</p>
+			<p class="lead">Cadastre-se para poder dar aulas!</p>
 			<form class="py-3" name='novoinstrutor' action="LogicaServlet" method="POST">
 				<input type="hidden" name="logica" value="InserirInstrutorLogica">
 				<div class="form-group">
@@ -151,6 +151,7 @@
 
 	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
 	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
+	<script type="text/javascript" src="webResources/js/bootstrap.js"></script>
     <script type="text/javascript" src="webResources/js/bootstrap.js"></script>
     <script type="text/javascript" src="webResources/js/jquery.mask.min.js"></script>
     <script type="text/javascript" src="webResources/js/masks-input.js"></script>

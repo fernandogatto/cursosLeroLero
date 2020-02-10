@@ -8,10 +8,15 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import javaResources.dao.connection.ConnectionDatabase;
+import javaResources.model.InstrutorModel;
+import javaResources.model.CursoModel;
 import javaResources.model.TurmaModel;
 
 public class TurmaDAO {
 
+	private static InstrutorModel instrutor;
+	private static CursoModel curso;
+	
 	public void insertTurmaDAO(TurmaModel turma) {
 		Connection connection = null;
 		PreparedStatement stmt = null;
@@ -42,6 +47,7 @@ public class TurmaDAO {
         	connection = new ConnectionDatabase().getConnection();
         	stmt = connection.prepareStatement("SELECT * FROM turmas WHERE id = ?");
         	rs = stmt.executeQuery();
+        	
         	if(rs.next()) {
         		turma = new TurmaModel();
         		turma.setIdInstrutor(rs.getInt("instrutores_id"));
