@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>Alunos | Cursos Lero Lero</title>
+	<title>Alterar Aluno | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -15,13 +15,13 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
 			<div class="container">
-				<a class="navbar-brand" href="Index,jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
+				<a class="navbar-brand" href="Index.jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-
+	
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
@@ -42,7 +42,7 @@
                         <li class="nav-item">
 							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
                         </li>
-                    	<li class="nav-item active dropdown">
+                    	<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Cursos
@@ -66,44 +66,70 @@
 				</div>
 			</div>
 		</nav>
-    </header>
-    
-    <section class="cursos py-5">
-        <div class="container">
-            <div class="mb-3 text-center">
-                <span class="h6 uppercase">Para quem ensinamos</span>
-                <h2 class="display-4 text-primary">Nossos alunos</h2>
-            </div>
+	</header>
+	<section>
+		<div class="container py-5">
+			<h1 class=" text-primary display-4">Alterar aluno</h1>
+			<p class="lead">Altere os dados!</p>
+			<form class="py-3" name='novoaluno' action="LogicaServlet" method="POST">
+				<input type="hidden" name="logica" value="AlterarAlunoLogica">
+				<input type="hidden" name="id" value="${ id }">
+				<div class="form-group">
+					<label for="cpf">CPF*</label>
+					<input type="text" class="form-control" id="cpfAluno" name='cpf' aria-describedby="nameHelp"
+						placeholder="Digite o CPF" value="${ aluno.cpf }">
+				</div>
+				<div class="form-group">
+					<label for="nome">Nome*</label>
+					<input type="text" class="form-control" id="nomeAluno" name='nome' aria-describedby="nameHelp"
+						placeholder="Digite o nome" value="${ aluno.nome }">
+				</div>
+				<div class="form-group">
+					<label for="email">Email *</label>
+					<input type="email" class="form-control" id="emailAluno" name="email" aria-describedby="cpfHelp"
+						placeholder="Digite seu email" value="${ aluno.email }">
+				</div>
+				<div class="form-group">
+					<label for="celular">Celular *</label>
+					<input type="text" class="form-control" id="celularAluno" name="celular" aria-describedby="cpfHelp"
+						placeholder="Digite seu celular" value="${ aluno.celular }">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Login *</label>
+					<input type="text" class="form-control" id="loginAluno" name='login' aria-describedby="emailHelp"
+						placeholder="Digite seu nome para login" value="${ aluno.login }">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Senha *</label>
+					<input type="password" class="form-control" id="senhaAluno" name="senha"
+						placeholder="Digite sua senha" value="${ aluno.senha }">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Endereco *</label>
+					<input type="text" class="form-control" id="enderecoInstrutor" name="endereco"
+						placeholder="Digite seu endereço" value="${ aluno.endereco}">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Cidade *</label>
+					<input type="text" class="form-control" id="cidadeAluno" name="cidade"
+						placeholder="Digite sua cidade" value="${ aluno.cidade}">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Bairro *</label>
+					<input type="text" class="form-control" id="bairroAluno" name="bairro"
+						placeholder="Digite seu bairro" value="${ aluno.bairro}">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">CEP *</label>
+					<input type="text" class="form-control" id="cepAluno" name="cep"
+						placeholder="Digite seu CEP" value="${ aluno.cep}">
+				</div>
+				<button type="submit" class="btn btn-primary my-3">Salvar</button>
+			</form>
+		</div>
+	</section>
 
-			<div class="row">		
-				<c:forEach var="aluno" items="${ alunos }" >
-					<div class="col-lg-4 col-md-6 col-12 my-2">
-						<div class="card">
-							<img src="webResources/img/professor-1.jpg" alt="Aluno" class="card-img-top">
-	
-							<div class="card-body">
-								<h3 class="card-title h5">${ aluno.nome }</h3>
-								<p class="card-text"><span>cpf: </span>${ aluno.cpf }</p>
-								<p class="card-text"><span>email: </span>${ aluno.email }</p>
-								<p class="card-text"><span>celular: </span>${ aluno.celular }</p>
-								<p class="card-text"><span>endereco: </span>${ aluno.endereco }</p>
-								<p class="card-text"><span>cidade: </span>${ aluno.cidade }</p>
-								<p class="card-text"><span>bairro: </span>${ aluno.bairro }</p>
-								<p class="card-text"><span>cep: </span>${ aluno.cep }</p>
-								<a href="/cursosLeroLero/LogicaServlet?logica=MostrarAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Alterar</a>
-								<a href="/cursosLeroLero/LogicaServlet?logica=DeleteAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Deletar</a> 
-								 
-							</div>
-						</div>
-					</div>
-				</c:forEach>
-					
-			</div>
-            
-            </div>
-    </section>
-
-    <footer class="bg-dark text-white">
+	<footer class="bg-dark text-white">
 		<div class="container py-4">
 			<div class="row">
 				<div class="col-lg-4 col-12">
@@ -150,6 +176,10 @@
 
 	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
 	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
-	<script type="text/javascript" src="webResources/js/bootstrap.js"></script>
+    <script type="text/javascript" src="webResources/js/bootstrap.js"></script>
+    <script type="text/javascript" src="webResources/js/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="webResources/js/masks-input.js"></script>
+	<script type="text/javascript" src="webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="webResources/js/validation-instrutor.js"></script>
 </body>
 </html>
