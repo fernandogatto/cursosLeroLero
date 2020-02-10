@@ -67,20 +67,24 @@
 	<div class="container py-5">
 		<h1 class=" text-primary display-4">Login</h1>
 		<p class="lead">Entre para acessar a área restrita. Se ainda não possui cadastro, <a href="Registro.jsp">clique aqui</a>.</p>
-		<form class="py-3">
+		<form class="py-3" action="LoginServlet" method="POST">
 			<div class="form-group">
-				<label for="exampleInputEmail1">Email</label>
-				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+				<label for="login">Login</label>
+				<input type="text" class="form-control" id="login" name="login" aria-describedby="Digite seu email"
 					placeholder="Digite seu email">
 			</div>
 			<div class="form-group">
-				<label for="exampleInputPassword1">Senha</label>
-				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha">
+				<label for="senha">Senha</label>
+				<input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha">
 			</div>
-			<div class="form-check">
-				<input type="checkbox" class="form-check-input" id="exampleCheck1">
-				<label class="form-check-label" for="exampleCheck1">Lembrar de mim</label>
-			</div>
+			<div class="form-group">
+                <label for="tipo">Tipo</label>
+                <select id="tipo" name="tipo">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Instrutor">Instrutor</option>
+                    <option value="Aluno">Aluno</option>
+                </select>
+            </div>
 			<button type="submit" class="btn btn-primary my-3">Entrar</button>
 		</form>
 	</div>

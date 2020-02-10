@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,7 +33,7 @@
 							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="Comentarios.jsp">Coment�rios</a>
+							<a class="nav-link" href="Comentarios.jsp">Comentï¿½rios</a>
                         </li>
                         <li class="nav-item">
 							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
@@ -52,12 +52,25 @@
 								<a class="dropdown-item" href="#">WordPress</a>
 							</div>
                         </li>
+                        <% if(request.getAttribute("login") == null) { %>
                         <li class="nav-item">
 							<a class="nav-link" href="Login.jsp">Login</a>
 						</li>
 						<li class="nav-item">
 							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
 						</li>
+						<% } %>
+						<% if(request.getAttribute("login") != null) { %>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								${ usuario.nome }
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="/cursosLeroLero/LogoutServlet">Logout</a>
+							</div>
+                        </li>
+                        <% } %>
 					</ul>
 				</div>
 			</div>
@@ -68,7 +81,7 @@
 		<div class="container">
 			<div class="mb-3 text-center">
 				<span class="h6 uppercase">Quem somos</span>
-				<h2 class="display-4 text-primary">Nossa Hist�ria</h2>
+				<h2 class="display-4 text-primary">Nossa Histï¿½ria</h2>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus possimus, cumque dignissimos eos quae minus, sequi a dolor quo nesciunt vitae debitis iusto et tempora corporis. Nisi veniam amet quidem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus possimus, cumque dignissimos eos quae minus, sequi a dolor quo nesciunt vitae debitis iusto et tempora corporis. Nisi veniam amet quidem.</p>
             <div class="d-flex justify-content-center">
@@ -79,14 +92,14 @@
     
     <section class="perguntas pb-5">
         <div class="my-5 text-center">
-            <span class="h6 uppercase d-block">Est� com d�vidas?</span>
+            <span class="h6 uppercase d-block">Estï¿½ com dï¿½vidas?</span>
             <h2 class="display-4 text-primary">Perguntas frequentes</h2>
         </div>
   
         <div class="row justify-content-center">
             <div class="col-md-6" id="perguntas-frequentes" data-children=".pergunta">
                 <div class="pergunta py-2">
-                    <a href="#pergunta-1" class="lead" data-toggle="collapse" data-parent="#perguntas-frequentes" aria-expanded="true" aria-controls="pergunta-1">Onde � o curso?</a>
+                    <a href="#pergunta-1" class="lead" data-toggle="collapse" data-parent="#perguntas-frequentes" aria-expanded="true" aria-controls="pergunta-1">Onde ï¿½ o curso?</a>
                     <div id="pergunta-1" class="collapse show" role="tabpanel">
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, molestias? Laboriosam excepturi cupiditate quia maiores omnis odio, dolorem soluta voluptate optio quisquam incidunt veritatis iure fugiat nihil, alias sed explicabo.</p>
                     </div>
@@ -95,7 +108,7 @@
                 <div class="dropdown-divider"></div>
   
                 <div class="pergunta py-2">
-                    <a href="#pergunta-2" class="lead" data-toggle="collapse" data-parent="#perguntas-frequentes" aria-expanded="false" aria-controls="pergunta-2">Precisa comprar algum material did�tico?</a>
+                    <a href="#pergunta-2" class="lead" data-toggle="collapse" data-parent="#perguntas-frequentes" aria-expanded="false" aria-controls="pergunta-2">Precisa comprar algum material didï¿½tico?</a>
                     <div id="pergunta-2" class="collapse" role="tabpanel">
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, molestias? Laboriosam excepturi cupiditate quia maiores omnis odio, dolorem soluta voluptate optio quisquam incidunt veritatis iure fugiat nihil, alias sed explicabo.</p>
                     </div>
@@ -113,7 +126,7 @@
                 <div class="dropdown-divider"></div>
 
                 <div class="pergunta py-2">
-                    <a href="#pergunta-4" class="lead" data-toggle="collapse" data-parent="#perguntas-frequentes" aria-expanded="false" aria-controls="pergunta-4">O curso d� direito a bolsa de desconto?</a>
+                    <a href="#pergunta-4" class="lead" data-toggle="collapse" data-parent="#perguntas-frequentes" aria-expanded="false" aria-controls="pergunta-4">O curso dï¿½ direito a bolsa de desconto?</a>
                     <div id="pergunta-4" class="collapse" role="tabpanel">
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, molestias? Laboriosam excepturi cupiditate quia maiores omnis odio, dolorem soluta voluptate optio quisquam incidunt veritatis iure fugiat nihil, alias sed explicabo.</p>
                     </div>
@@ -137,12 +150,12 @@
 				</div>
 
 				<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-					<h4 class="h6 uppercase">P�ginas</h4>
+					<h4 class="h6 uppercase">Pï¿½ginas</h4>
 					<ul class="list-unstyled">
 						<li><a href="Index.jsp">Home</a></li>
 						<li><a href="Sobre.jsp">Sobre</a></li>
 						<li><a href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
-						<li><a href="Comentarios.jsp">Coment�rios</a></li>
+						<li><a href="Comentarios.jsp">Comentï¿½rios</a></li>
 					</ul>
 				</div>
 
