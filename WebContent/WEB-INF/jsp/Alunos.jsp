@@ -77,6 +77,7 @@
 
 			<div class="row">		
 				<c:forEach var="aluno" items="${ alunos }" >
+				 <c:if test = "${aluno.aprovado = true}">
 					<div class="col-lg-4 col-md-6 col-12 my-2">
 						<div class="card">
 							<img src="webResources/img/professor-1.jpg" alt="Aluno" class="card-img-top">
@@ -97,6 +98,7 @@
 							</div>
 						</div>
 					</div>
+				  </c:if>
 				</c:forEach>
 					
 			</div>
