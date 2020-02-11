@@ -1,5 +1,10 @@
 package javaResources.model;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import javaResources.dao.AlunoDAO;
+
 public class AlunoModel {
 
 	private int id;
@@ -118,5 +123,26 @@ public class AlunoModel {
 	public void setAprovado(boolean aprovado) {
 		this.aprovado = aprovado;
 	}
+
+	public void insertAlunoModel() throws SQLException {
+		new AlunoDAO().insertAlunoDAO(this);
+	}
+	
+	public AlunoModel listAlunoByIdModel(int id) {
+		this.setId(id);
+		return new AlunoDAO().listAlunoByIdDAO(this.getId());
+	}
+
+	public List<AlunoModel> listAllAlunosModel() {
+		return new AlunoDAO().listAllAlunosDAO();
+	}
+	
+	public void updateAlunoModel() {
+        new AlunoDAO().updateAlunoDAO(this);
+    }
+
+    public void deleteAlunoModel() {
+        new AlunoDAO().deleteAlunoDAO(this.getId());
+    }
 	
 }

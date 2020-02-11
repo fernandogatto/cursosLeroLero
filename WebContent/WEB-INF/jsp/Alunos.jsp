@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>Novo Instrutor | Cursos Lero Lero</title>
+	<title>Alunos | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -14,13 +15,13 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
 			<div class="container">
-				<a class="navbar-brand" href="Index.jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
+				<a class="navbar-brand" href="Index,jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-	
+
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
@@ -33,77 +34,79 @@
 							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
                         </li>
                         <li class="nav-item">
+							<a class="nav-link" href="LogicaServlet?logica=ListaAlunosLogica">Alunos</a>
+                        </li>
+                        <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
                         </li>
                         <li class="nav-item">
 							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
                         </li>
-                    	<li class="nav-item">
-							<a class="nav-link" href="Cursos.jsp">Cursos</a>
+                    	<li class="nav-item active dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Cursos
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="Cursos.jsp">Cursos</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">HTML e CSS</a>
+								<a class="dropdown-item" href="#">Javascript</a>
+								<a class="dropdown-item" href="#">Bootstrap</a>
+								<a class="dropdown-item" href="#">WordPress</a>
+							</div>
                         </li>
-                        <%if(session.getAttribute("nomeUsuario") == null) { %>
                         <li class="nav-item">
 							<a class="nav-link" href="Login.jsp">Login</a>
 						</li>
 						<li class="nav-item">
 							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
 						</li>
-						<% } %>
-						<% if(session.getAttribute("nomeUsuario") != null) { %>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${ sessionScope.nomeUsuario }</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="/cursosLeroLero/LogoutServlet">Logout</a>
-							</div>
-                        </li>
-                        <% } %>
 					</ul>
 				</div>
 			</div>
 		</nav>
-	</header>
-	<section>
-		<div class="container py-5">
-			<h1 class=" text-primary display-4">Novo instrutor</h1>
-			<p class="lead">Cadastre-se para poder dar aulas!</p>
-			<form class="py-3" name='novoinstrutor' action="LogicaServlet" method="POST">
-				<input type="hidden" name="logica" value="InserirInstrutorLogica">
-				<div class="form-group">
-					<label for="nome">Nome completo *</label>
-					<input type="text" class="form-control" id="nomeInstrutor" name='nome' aria-describedby="nameHelp"
-						placeholder="Digite o nome">
-				</div>
-				<div class="form-group">
-					<label for="email">Email *</label>
-					<input type="email" class="form-control" id="emailInstrutor" name="email" aria-describedby="cpfHelp"
-						placeholder="Digite seu email">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPhone">Valor hora</label>
-					<input type="number" class="form-control" id="valorHoraInstrutor" name="valor_hora" aria-describedby="phoneHelp"
-						placeholder="Digite o valor da sua hora" rows="10">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputEmail1">Login *</label>
-					<input type="text" class="form-control" id="loginInstrutor" name='login' aria-describedby="emailHelp"
-						placeholder="Digite seu nome para login">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1">Senha *</label>
-					<input type="password" class="form-control" id="senhaInstrutor" name="senha"
-						placeholder="Digite sua senha">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1">Experiência *</label>
-					<input type="text" class="form-control" id="experienciaInstrutor" name="experiencia"
-						placeholder="Digite sua experiência profissional">
-				</div>
-				<button type="submit" class="btn btn-primary my-3">Cadastrar</button>
-			</form>
-		</div>
-	</section>
+    </header>
+    
+    <section class="cursos py-5">
+        <div class="container">
+            <div class="mb-3 text-center">
+                <span class="h6 uppercase">Para quem ensinamos</span>
+                <h2 class="display-4 text-primary">Nossos alunos</h2>
+            </div>
 
-	<footer class="bg-dark text-white">
+			<div class="row">		
+				<c:forEach var="aluno" items="${ alunos }" >
+				 <c:if test = "${aluno.aprovado = true}">
+					<div class="col-lg-4 col-md-6 col-12 my-2">
+						<div class="card">
+							<img src="webResources/img/professor-1.jpg" alt="Aluno" class="card-img-top">
+	
+							<div class="card-body">
+								<h3 class="card-title h5">${ aluno.nome }</h3>
+								<p class="card-text">cpf: <span class="cpf">${ aluno.cpf }</span></p>
+								<p class="card-text">email: <span>${ aluno.email }</span></p>
+								<p class="card-text">celular: <span class="cellphone_with_ddd">${ aluno.celular }</span></p>
+								<p class="card-text">endereco: <span>${ aluno.endereco }</span></p>
+								<p class="card-text">cidade: <span>${ aluno.cidade }</span></p>
+								<p class="card-text">bairro: <span>${ aluno.bairro }</span></p>
+								<p class="card-text">cep: <span class="cep">${ aluno.cep }</span></p>
+								<a href="" class="btn btn-primary btn-sm">Ver</a>
+								<a href="/cursosLeroLero/LogicaServlet?logica=MostrarAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Alterar</a>
+								<a href="/cursosLeroLero/LogicaServlet?logica=DeleteAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Deletar</a> 
+								 
+							</div>
+						</div>
+					</div>
+				  </c:if>
+				</c:forEach>
+					
+			</div>
+            
+            </div>
+    </section>
+
+    <footer class="bg-dark text-white">
 		<div class="container py-4">
 			<div class="row">
 				<div class="col-lg-4 col-12">
@@ -151,10 +154,7 @@
 	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
 	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
 	<script type="text/javascript" src="webResources/js/bootstrap.js"></script>
-    <script type="text/javascript" src="webResources/js/bootstrap.js"></script>
-    <script type="text/javascript" src="webResources/js/jquery.mask.min.js"></script>
-    <script type="text/javascript" src="webResources/js/masks-input.js"></script>
-	<script type="text/javascript" src="webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="webResources/js/validation-instrutor.js"></script>
+	<script type="text/javascript" src="webResources/js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="webResources/js/masks-input.js"></script>
 </body>
 </html>

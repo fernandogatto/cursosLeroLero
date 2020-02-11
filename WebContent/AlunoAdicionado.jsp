@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>Novo Instrutor | Cursos Lero Lero</title>
+	<title>Aluno Adicionado | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -30,7 +30,7 @@
 							<a class="nav-link" href="Sobre.jsp">Sobre</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
+							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
                         </li>
                         <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
@@ -38,25 +38,26 @@
                         <li class="nav-item">
 							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
                         </li>
-                    	<li class="nav-item">
-							<a class="nav-link" href="Cursos.jsp">Cursos</a>
+                    	<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Cursos
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="Cursos.jsp">Cursos</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">HTML e CSS</a>
+								<a class="dropdown-item" href="#">Javascript</a>
+								<a class="dropdown-item" href="#">Bootstrap</a>
+								<a class="dropdown-item" href="#">WordPress</a>
+							</div>
                         </li>
-                        <%if(session.getAttribute("nomeUsuario") == null) { %>
                         <li class="nav-item">
 							<a class="nav-link" href="Login.jsp">Login</a>
 						</li>
 						<li class="nav-item">
 							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
 						</li>
-						<% } %>
-						<% if(session.getAttribute("nomeUsuario") != null) { %>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${ sessionScope.nomeUsuario }</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="/cursosLeroLero/LogoutServlet">Logout</a>
-							</div>
-                        </li>
-                        <% } %>
 					</ul>
 				</div>
 			</div>
@@ -64,42 +65,9 @@
 	</header>
 	<section>
 		<div class="container py-5">
-			<h1 class=" text-primary display-4">Novo instrutor</h1>
-			<p class="lead">Cadastre-se para poder dar aulas!</p>
-			<form class="py-3" name='novoinstrutor' action="LogicaServlet" method="POST">
-				<input type="hidden" name="logica" value="InserirInstrutorLogica">
-				<div class="form-group">
-					<label for="nome">Nome completo *</label>
-					<input type="text" class="form-control" id="nomeInstrutor" name='nome' aria-describedby="nameHelp"
-						placeholder="Digite o nome">
-				</div>
-				<div class="form-group">
-					<label for="email">Email *</label>
-					<input type="email" class="form-control" id="emailInstrutor" name="email" aria-describedby="cpfHelp"
-						placeholder="Digite seu email">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPhone">Valor hora</label>
-					<input type="number" class="form-control" id="valorHoraInstrutor" name="valor_hora" aria-describedby="phoneHelp"
-						placeholder="Digite o valor da sua hora" rows="10">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputEmail1">Login *</label>
-					<input type="text" class="form-control" id="loginInstrutor" name='login' aria-describedby="emailHelp"
-						placeholder="Digite seu nome para login">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1">Senha *</label>
-					<input type="password" class="form-control" id="senhaInstrutor" name="senha"
-						placeholder="Digite sua senha">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1">Experiência *</label>
-					<input type="text" class="form-control" id="experienciaInstrutor" name="experiencia"
-						placeholder="Digite sua experiência profissional">
-				</div>
-				<button type="submit" class="btn btn-primary my-3">Cadastrar</button>
-			</form>
+			<h1 class=" text-primary display-4">Aluno adicionado</h1>
+			<p class="lead">Voltar à página inicial</p>
+			<a href="Index.jsp" class="btn btn-primary">Home</a>
 		</div>
 	</section>
 
@@ -116,7 +84,7 @@
 					<ul class="list-unstyled">
 						<li><a href="Index.jsp">Home</a></li>
 						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
+						<li><a href="Instrutores.jsp">Instrutores</a></li>
 						<li><a href="Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>
@@ -151,10 +119,5 @@
 	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
 	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
 	<script type="text/javascript" src="webResources/js/bootstrap.js"></script>
-    <script type="text/javascript" src="webResources/js/bootstrap.js"></script>
-    <script type="text/javascript" src="webResources/js/jquery.mask.min.js"></script>
-    <script type="text/javascript" src="webResources/js/masks-input.js"></script>
-	<script type="text/javascript" src="webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="webResources/js/validation-instrutor.js"></script>
 </body>
 </html>
