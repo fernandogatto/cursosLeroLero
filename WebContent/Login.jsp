@@ -38,19 +38,8 @@
                         <li class="nav-item">
 							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
                         </li>
-                    	<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Cursos
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="Cursos.jsp">Cursos</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">HTML e CSS</a>
-								<a class="dropdown-item" href="#">Javascript</a>
-								<a class="dropdown-item" href="#">Bootstrap</a>
-								<a class="dropdown-item" href="#">WordPress</a>
-							</div>
+                    	<li class="nav-item">
+							<a class="nav-link" href="Cursos.jsp">Cursos</a>
                         </li>
                         <li class="nav-item active">
 							<a class="nav-link" href="Login.jsp">Login</a>
