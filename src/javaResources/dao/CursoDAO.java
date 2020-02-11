@@ -84,7 +84,7 @@ public class CursoDAO {
             	curso.setPreco(rs.getDouble("preco"));
             	cursos.add(curso);
             }        	
-        } catch(SQLException e) {
+        } catch(Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao listar todos os cursos: " + e.getMessage());
         } finally {
             ConnectionDatabase.closeConnection(connection, stmt, rs);

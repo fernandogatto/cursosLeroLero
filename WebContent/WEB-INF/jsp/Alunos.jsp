@@ -48,7 +48,7 @@
 								Cursos
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="Cursos.jsp">Cursos</a>
+								<a class="dropdown-item" href="LogicaServlet?logica=ListaCursosLogica">Cursos</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#">HTML e CSS</a>
 								<a class="dropdown-item" href="#">Javascript</a>

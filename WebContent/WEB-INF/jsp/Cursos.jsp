@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,6 +34,9 @@
 							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
                         </li>
                         <li class="nav-item">
+							<a class="nav-link" href="LogicaServlet?logica=ListaAlunosLogica">Alunos</a>
+                        </li>
+                        <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
                         </li>
                         <li class="nav-item">
@@ -44,7 +48,7 @@
 								Cursos
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="Cursos.jsp">Cursos</a>
+								<a class="dropdown-item" href="LogicaServlet?logica=ListaCursosLogica">Cursos</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#">HTML e CSS</a>
 								<a class="dropdown-item" href="#">Javascript</a>
@@ -70,6 +74,26 @@
                 <span class="h6 uppercase">O que ensinamos</span>
                 <h2 class="display-4 text-primary">Nossos Cursos</h2>
             </div>
+
+			<div class="row">		
+				<c:forEach var="curso" items="${ cursos }" >
+					<div class="col-lg-4 col-md-6 col-12 my-2">
+						<div class="card">
+							<img src="webResources/img/curso-js.jpg" alt="Curso" class="card-img-top">
+	
+							<div class="card-body">
+								<h3 class="card-title h5">${ curso.nome }</h3>
+								<p class="card-text">requisito: <span>${ curso.requisito }</span></p>
+								<p class="card-text">ementa: <span>${ curso.ementa }</span></p>
+								<p class="card-text">carga horária: <span>${ curso.carga_horaria }</span></p>
+								<p class="card-text">preço: <span>${ curso.preco }</span></p>
+								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+					
+			</div>
 
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-12 my-2">

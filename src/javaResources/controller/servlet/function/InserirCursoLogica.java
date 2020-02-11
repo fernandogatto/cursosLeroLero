@@ -25,7 +25,7 @@ public class InserirCursoLogica implements LogicaInterface {
 		
 		curso.inserirCursoModel();
 		
-		return "Cursos.jsp";
+		return "/WEB-INF/jsp/Cursos.jsp";
 	}
 
 }
