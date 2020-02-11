@@ -14,6 +14,11 @@ public class InstrutorModel {
 	private String login;
 	private String senha;
 	private String experiencia;
+	private String tipoUsuario;
+	
+	public InstrutorModel() {
+		this.tipoUsuario = "Instrutor";
+	}
 	
 	public int getId() {
 		return id;
@@ -71,6 +76,14 @@ public class InstrutorModel {
 		this.experiencia = experiencia;
 	}
 	
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+
 	public void inserirInstrutorModel() throws SQLException {
 		new InstrutorDAO().inserirInstrutorDAO(this);
 	}

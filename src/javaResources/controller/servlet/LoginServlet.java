@@ -51,6 +51,7 @@ public class LoginServlet extends HttpServlet {
 				if(administrador.getLogin().equals(login) && administrador.getSenha().equals(senha)) {
 					HttpSession session = request.getSession();
 	                session.setAttribute("nomeUsuario", administrador.getNome());
+	                session.setAttribute("administrador", true);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
 					dispatcher.forward(request, response);
 					return;
@@ -61,6 +62,7 @@ public class LoginServlet extends HttpServlet {
 				if(instrutor.getLogin().equals(login) && instrutor.getSenha().equals(senha)) {
 					HttpSession session = request.getSession();
 	                session.setAttribute("nomeUsuario", instrutor.getNome());
+	                session.setAttribute("instrutor", true);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
 					dispatcher.forward(request, response);
 					return;
