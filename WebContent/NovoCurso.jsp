@@ -68,10 +68,11 @@
 		<div class="container py-5">
 			<h1 class=" text-primary display-4">Novo curso</h1>
 			<p class="lead">Cadastre seu próprio curso!</p>
-			<form class="py-3" name="novocurso">
+			<form class="py-3" name="novocurso" id="form-curso" action="LogicaServlet" method="POST">
+				<input type="hidden" name="logica" value="InserirCursoLogica">
 				<div class="form-group">
 					<label for="nome_curso">Nome do curso *</label>
-					<input type="text" class="form-control" name="nome_curso" id="nome_curso" aria-describedby="nameHelp"
+					<input type="text" class="form-control" name="nome" id="nome" aria-describedby="nameHelp"
 						placeholder="Digite o nome">
 				</div>
 				<div class="form-group">
