@@ -76,7 +76,7 @@
 				<input type="hidden" name="id" value="${ id }">
 				<div class="form-group">
 					<label for="cpf">CPF*</label>
-					<input type="text" class="form-control" id="cpfAluno" name='cpf' aria-describedby="nameHelp"
+					<input type="text" class="form-control cpf" id="cpfAluno" name='cpf' aria-describedby="nameHelp"
 						placeholder="Digite o CPF" value="${ aluno.cpf }">
 				</div>
 				<div class="form-group">
@@ -91,7 +91,7 @@
 				</div>
 				<div class="form-group">
 					<label for="celular">Celular *</label>
-					<input type="text" class="form-control" id="celularAluno" name="celular" aria-describedby="cpfHelp"
+					<input type="text" class="form-control cellphone_with_ddd" id="celularAluno" name="celular" aria-describedby="cpfHelp"
 						placeholder="Digite seu celular" value="${ aluno.celular }">
 				</div>
 				<div class="form-group">
@@ -121,7 +121,7 @@
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1">CEP *</label>
-					<input type="text" class="form-control" id="cepAluno" name="cep"
+					<input type="text" class="form-control cep" id="cepAluno" name="cep"
 						placeholder="Digite seu CEP" value="${ aluno.cep}">
 				</div>
 				<button type="submit" class="btn btn-primary my-3">Salvar</button>

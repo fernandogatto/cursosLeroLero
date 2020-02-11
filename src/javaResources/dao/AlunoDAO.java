@@ -129,6 +129,7 @@ public class AlunoDAO {
             stmt.setString(10, aluno.getCep());
             stmt.setString(11, aluno.getComentario());
             stmt.setBoolean(12, aluno.isAprovado());
+            stmt.setInt(13, aluno.getId());
             stmt.executeUpdate();
         } catch (Exception e) {
         	JOptionPane.showMessageDialog(null, "Erro ao atualizar aluno DAO: " + e.getMessage());

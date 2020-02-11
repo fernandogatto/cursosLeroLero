@@ -11,16 +11,16 @@ public class AlterarAlunoLogica implements LogicaInterface {
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int id = Integer.parseInt(request.getParameter("id"));
-		String cpf = request.getParameter("cpf");
+		String cpf = request.getParameter("cpf").replaceAll("[.-]", "");
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
-		String celular = request.getParameter("celular");
+		String celular = request.getParameter("celular").replaceAll("[.-]", "");
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String endereco = request.getParameter("endereco");
 		String cidade = request.getParameter("cidade");
 		String bairro = request.getParameter("bairro");
-		String cep = request.getParameter("cep");
+		String cep = request.getParameter("cep").replaceAll("[.-]", "");
 //		String comentario = request.getParameter("comentario");
 //		String aprovado = request.getParameter("aprovado");
 		
