@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -12,7 +14,7 @@ import javaResources.model.CursoModel;
 
 public class CursoDAO {
 
-	public void insertCursoDAO(CursoModel curso) {
+	public void inserirCursoDAO(CursoModel curso) {
 		Connection connection = null;
 		PreparedStatement stmt = null;
 		
@@ -25,14 +27,14 @@ public class CursoDAO {
 			stmt.setInt(4, curso.getCargaHoraria());
 			stmt.setDouble(5, curso.getPreco());
 			stmt.execute();
-		} catch(SQLException e) {
+		} catch(Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro ao registrar curso DAO: " + e.getMessage());
 		} finally {
 			ConnectionDatabase.closeConnection(connection, stmt);
 		}
 	}
 	
-	public CursoModel listCursoByIdDAO(int id) {
+	public CursoModel listarCursoPorIdDAO(int id) {
         Connection connection = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -51,7 +53,7 @@ public class CursoDAO {
                 curso.setPreco(rs.getDouble("preco"));
                 return curso;
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao listar curso pelo ID: " + e.getMessage());
         } finally {
             ConnectionDatabase.closeConnection(connection, stmt);
@@ -60,27 +62,62 @@ public class CursoDAO {
         return null;
     }
 	
-	public void updateCursoDAO(CursoModel curso) {
+	public List<CursoModel> listarTodosCursosDAO() {
+		Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<CursoModel> cursos = new ArrayList<>();
+        CursoModel curso = null;
+        
+        try {
+        	connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("SELECT * FROM cursos");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+            	curso = new CursoModel();
+            	curso.setId(rs.getInt("id"));
+            	curso.setNome(rs.getString("nome"));
+            	curso.setRequisito(rs.getString("requisito"));
+            	curso.setEmenta(rs.getString("ementa"));
+            	curso.setCargaHoraria(rs.getInt("carga_horaria"));
+            	curso.setPreco(rs.getDouble("preco"));
+            	cursos.add(curso);
+            }        	
+        } catch(SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar todos os cursos: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt, rs);
+        }
+
+        return cursos;
+	}
+	
+
+	
+	public void alterarCursoDAO(CursoModel curso) {
         Connection connection = null;
         PreparedStatement stmt = null;
 
         try {
             connection = new ConnectionDatabase().getConnection();
-            stmt = connection.prepareStatement("UPDATE cursos SET nome = ?, requisito = ?, ementa = ?, carga_horaria = ?, preco = ?");
+            stmt = connection.prepareStatement("UPDATE cursos SET nome = ?, requisito = ?, ementa = ?, carga_horaria = ?, preco = ? WHERE id = ?");
             stmt.setString(1, curso.getNome());
             stmt.setString(2, curso.getRequisito());
             stmt.setString(3, curso.getEmenta());
             stmt.setInt(4, curso.getCargaHoraria());
             stmt.setDouble(5, curso.getPreco());
+            stmt.setInt(6, curso.getId());
+            
             stmt.executeUpdate();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar curso DAO: " + e.getMessage());
         } finally {
             ConnectionDatabase.closeConnection(connection, stmt);
         }
     }
 	
-	public void deleteCursoDAO(int id) {
+	public void deletarCursoDAO(int id) {
         Connection connection = null;
         PreparedStatement stmt = null;
 
@@ -88,7 +125,7 @@ public class CursoDAO {
             connection = new ConnectionDatabase().getConnection();
             stmt = connection.prepareStatement("DELETE FROM cursos WHERE id = " + id);
             stmt.execute();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error ao deletar curso: " + e.getMessage());
         } finally {
             ConnectionDatabase.closeConnection(connection, stmt);
