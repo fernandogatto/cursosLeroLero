@@ -33,6 +33,7 @@ public class LogoutServlet extends HttpServlet {
             session.removeAttribute("nomeUsuario");
             session.removeAttribute("administrador");
             session.removeAttribute("instrutor");
+            session.removeAttribute("aluno");
              
             RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
             dispatcher.forward(request, response);

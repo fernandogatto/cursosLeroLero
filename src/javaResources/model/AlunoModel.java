@@ -20,6 +20,11 @@ public class AlunoModel {
 	private String cep;
 	private String comentario;
 	private boolean aprovado;
+	private String tipoUsuario;
+	
+	public AlunoModel() {
+		this.tipoUsuario = "ALuno";
+	}
 	
 	public int getId() {
 		return id;
@@ -122,6 +127,14 @@ public class AlunoModel {
 	
 	public void setAprovado(boolean aprovado) {
 		this.aprovado = aprovado;
+	}
+
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 
 	public void insertAlunoModel() throws SQLException {

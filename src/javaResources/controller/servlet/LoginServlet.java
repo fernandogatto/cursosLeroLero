@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import javaResources.model.AdministradorModel;
+import javaResources.model.AlunoModel;
 import javaResources.model.InstrutorModel;
 
 /**
@@ -68,11 +69,19 @@ public class LoginServlet extends HttpServlet {
 					return;
 				}
 			} 
-//			else if(tipoUsuario.compareTo("Aluno") == 0) {
-//				
-//			}
+		} else if(tipoUsuario.compareTo("Aluno") == 0) {
+			for(AlunoModel aluno : new AlunoModel().listAllAlunosModel()) {
+				if(aluno.getLogin().equals(login) && aluno.getSenha().equals(senha)) {
+					HttpSession session = request.getSession();
+	                session.setAttribute("nomeUsuario", aluno.getNome());
+	                session.setAttribute("aluno", true);
+					RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
+					dispatcher.forward(request, response);
+					return;
+				}
+			}
 		}
-			
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
 		dispatcher.forward(request, response);
 	}
