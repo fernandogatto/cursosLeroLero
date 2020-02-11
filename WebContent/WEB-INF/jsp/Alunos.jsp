@@ -90,6 +90,7 @@
 								<p class="card-text">cidade: <span>${ aluno.cidade }</span></p>
 								<p class="card-text">bairro: <span>${ aluno.bairro }</span></p>
 								<p class="card-text">cep: <span class="cep">${ aluno.cep }</span></p>
+								<a href="" class="btn btn-primary btn-sm">Ver</a>
 								<a href="/cursosLeroLero/LogicaServlet?logica=MostrarAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Alterar</a>
 								<a href="/cursosLeroLero/LogicaServlet?logica=DeleteAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Deletar</a> 
 								 
