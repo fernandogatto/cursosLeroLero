@@ -83,8 +83,6 @@
 	
 							<div class="card-body">
 								<h3 class="card-title h5">${ curso.nome }</h3>
-								<p class="card-text">requisito: <span>${ curso.requisito }</span></p>
-								<p class="card-text">ementa: <span>${ curso.ementa }</span></p>
 								<p class="card-text">carga horária: <span>${ curso.cargaHoraria }</span> horas</p>
 								<p class="card-text">preço: R$<span>${ curso.preco }</span></p>
 								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
