@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>Nova Turma | Cursos Lero Lero</title>
+	<title>Turma Adicionado | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -30,7 +30,7 @@
 							<a class="nav-link" href="Sobre.jsp">Sobre</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
+							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
                         </li>
                         <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
@@ -65,37 +65,9 @@
 	</header>
 	<section>
 		<div class="container py-5">
-			<h1 class=" text-primary display-4">Nova turma</h1>
-			<p class="lead">Cadastre sua turma para poder dar aulas!</p>
-			<form class="py-3 novaturma" name='novaturma' action="LogicaServlet" method="POST">
-				<input type="hidden" name="logica" value="InserirTurmaLogica">
-				<div class="form-group">
-					<label for="exampleInputName">ID do instrutor *</label>
-					<input type="text" class="form-control" id="exampleInputName" name='instrutores_id' aria-describedby="nameHelp"
-						placeholder="Digite o nome do instrutor">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputCPF">ID do curso *</label>
-					<input type="text" class="form-control" id="exampleInputCPF" name='cursos_id' aria-describedby="cpfHelp"
-						placeholder="Digite o nome do curso">
-				</div>
-				<div class="form-group data">
-					<label for="exampleInputPhone">Data de início *</label>
-					<input type="date" class="form-control" id="date" name='data_inicio' aria-describedby="phoneHelp"
-						placeholder="Digite quando irá começar" rows="10">
-				</div>
-				<div class="form-group data">
-					<label for="exampleInputEmail1">Data de fim *</label>
-					<input type="date" class="form-control" id="date" name='data_final' aria-describedby="emailHelp"
-						placeholder="Digite quando irá terminar">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1">Carga horária</label>
-					<input type="number" class="form-control" id="exampleInputPassword1" name='carga_horaria' 
-						placeholder="Digite a carga horária do seu curso">
-				</div>
-				<button type="submit" class="btn btn-primary my-3">Cadastrar turma</button>
-			</form>
+			<h1 class=" text-primary display-4">Turma adicionada</h1>
+			<p class="lead">Voltar à página inicial</p>
+			<a href="Index.jsp" class="btn btn-primary">Home</a>
 		</div>
 	</section>
 
@@ -112,7 +84,7 @@
 					<ul class="list-unstyled">
 						<li><a href="Index.jsp">Home</a></li>
 						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
+						<li><a href="Instrutores.jsp">Instrutores</a></li>
 						<li><a href="Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>
@@ -147,9 +119,5 @@
 	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
 	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
 	<script type="text/javascript" src="webResources/js/bootstrap.js"></script>
-	<script type="text/javascript" src="webResources/js/jquery.mask.min.js"></script>
-	<script type="text/javascript" src="webResources/js/masks-input.js"></script>
-	<script type="text/javascript" src="webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
-	<!-- <script type="text/javascript" src="webResources/js/validation-turma.js"></script> -->
 </body>
 </html>

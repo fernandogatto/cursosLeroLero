@@ -1,6 +1,10 @@
 package javaResources.model;
 
 import java.sql.Date;
+import java.sql.SQLException;
+import java.util.List;
+
+import javaResources.dao.TurmaDAO;
 
 public class TurmaModel {
 	
@@ -58,5 +62,26 @@ public class TurmaModel {
 	public void setCargaHoraria(int cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
 	}
+
+	public void inserirTurmaModel() throws SQLException {
+		new TurmaDAO().inserirTurmaDAO(this);
+	}
+	
+	public TurmaModel listarTurmaPorIdModel(int id) {
+		this.setId(id);
+		return new TurmaDAO().listarTurmaPorIdDAO(this.getId());
+	}
+	
+	public List<TurmaModel> listarTodasTurmasModel() {
+		return new TurmaDAO().listarTodasTurmasDAO();
+	}
+	
+	public void alterarTurmaModel() {
+        new TurmaDAO().alterarTurmaDAO(this);
+    }
+
+    public void deletarTurmaModel() {
+        new TurmaDAO().deletarTurmaDAO(this.getId());
+    }
 
 }

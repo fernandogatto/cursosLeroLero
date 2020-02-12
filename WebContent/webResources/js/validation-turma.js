@@ -3,25 +3,23 @@ $(document).ready(function () {
   $(function () {
     $("form[name='novaturma']").validate({
       rules: {
-        instrutor: {required: true, minlength: 3},
-        curso: {required: true, minlength: 3},
+        instrutores_id: {required: true},
+        cursos_id: {required: true},
         data_inicio: {required: true, minDateIni: true},
-        data_fim: {required: true, minDateFim: true},
+        data_final: {required: true, minDateFim: true},
       },
       messages: {
-        instrutor: {
+        instrutores_id: {
           required: "Por favor, digite o nome do instrutor.",
-          minlength: "O nome deve ter pelo menos três caracteres."
         },
-        curso: {
+        cursos_id: {
           required: "Por favor, digite o nome do curso.",
-          minlength: "o curso deve ter pelo menos cinco caracteres."
         },
         data_inicio: {
           required: "Por favor, digite a data de início do curso.",
           minDate: "A data de início deve depois de hoje."
         },
-        data_fim: {
+        data_final: {
           required: "Por favor, digite a data de fim do curso.",
           minDate: "A data de fim deve depois da data de início."
         },

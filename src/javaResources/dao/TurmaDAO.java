@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -17,7 +19,7 @@ public class TurmaDAO {
 	private static InstrutorModel instrutor;
 	private static CursoModel curso;
 	
-	public void insertTurmaDAO(TurmaModel turma) {
+	public void inserirTurmaDAO(TurmaModel turma) {
 		Connection connection = null;
 		PreparedStatement stmt = null;
 		
@@ -37,7 +39,7 @@ public class TurmaDAO {
 		}
 	}
 	
-	public TurmaModel listTurmaByIdDAO(int id) {
+	public TurmaModel listarTurmaPorIdDAO(int id) {
 		Connection connection = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -65,7 +67,36 @@ public class TurmaDAO {
         return turma;
 	}
 	
-	public void updateTurmaDAO(TurmaModel turma) {
+	public List<TurmaModel> listarTodasTurmasDAO() {
+		Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<TurmaModel> turmas = new ArrayList<>();
+        TurmaModel turma = null;
+        
+        try {
+        	connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("SELECT * FROM turmas");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+            	turma = new TurmaModel();
+        		turma.setIdInstrutor(rs.getInt("instrutores_id"));
+        		turma.setIdCurso(rs.getInt("cursos_id"));
+        		turma.setDataInicio(rs.getDate("data_inicio"));
+        		turma.setDataFinal(rs.getDate("data_final"));
+        		turma.setCargaHoraria(rs.getInt("carga_horaria"));
+        	}     	
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar todas as turmas: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt, rs);
+        }
+
+        return turmas;
+	}
+	
+	public void alterarTurmaDAO(TurmaModel turma) {
 		Connection connection = null;
         PreparedStatement stmt = null;
         
@@ -86,7 +117,7 @@ public class TurmaDAO {
         }
 	}
 	
-	public void deleteTurmaDAO(int id) {
+	public void deletarTurmaDAO(int id) {
         Connection connection = null;
         PreparedStatement stmt = null;
 
