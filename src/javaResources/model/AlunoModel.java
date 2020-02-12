@@ -153,6 +153,10 @@ public class AlunoModel {
 	public void updateAlunoModel() {
         new AlunoDAO().updateAlunoDAO(this);
     }
+	
+	public void aprovarAlunoModel() {
+        new AlunoDAO().aprovarAlunoDAO(this);
+    }
 
     public void deleteAlunoModel() {
         new AlunoDAO().deleteAlunoDAO(this.getId());

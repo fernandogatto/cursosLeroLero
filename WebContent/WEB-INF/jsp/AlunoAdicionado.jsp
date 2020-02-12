@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>Instrutor Adicionado | Cursos Lero Lero</title>
+	<title>Aluno Adicionado | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -30,7 +30,7 @@
 							<a class="nav-link" href="Sobre.jsp">Sobre</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
+							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
                         </li>
                         <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
@@ -65,7 +65,8 @@
 	</header>
 	<section>
 		<div class="container py-5">
-			<h1 class=" text-primary display-4">Instrutor adicionado</h1>
+			<h1 class=" text-primary display-4">Cadastro com sucesso</h1>
+			<p class="lead">Aguarde pela sua aprovação</p>
 			<p class="lead">Voltar à página inicial</p>
 			<a href="Index.jsp" class="btn btn-primary">Home</a>
 		</div>
@@ -84,7 +85,7 @@
 					<ul class="list-unstyled">
 						<li><a href="Index.jsp">Home</a></li>
 						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
+						<li><a href="Instrutores.jsp">Instrutores</a></li>
 						<li><a href="Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>

@@ -20,7 +20,7 @@ public class InserirAlunoLogica implements LogicaInterface {
 		String cidade  = request.getParameter("cidade");
 		String bairro = request.getParameter("bairro");
 		String cep = request.getParameter("cep").replaceAll("[.-]", "");
-		Boolean aprovado = true;
+		Boolean aprovado = false;
 		
 		AlunoModel aluno = new AlunoModel();
 		aluno.setCpf(cpf);
@@ -37,7 +37,7 @@ public class InserirAlunoLogica implements LogicaInterface {
 		
 		aluno.insertAlunoModel();
 		
-		return "AlunoAdicionado.jsp";
+		return "/WEB-INF/jsp/AlunoAdicionado.jsp";
 	}
 
 }

@@ -27,7 +27,7 @@ public class InserirInstrutorLogica implements LogicaInterface {
 		
 		instrutor.inserirInstrutorModel();
 		
-		return "InstrutorAdicionado.jsp";
+		return "/WEB-INF/jsp/InstrutorAdicionado.jsp";
 	}
 
 }

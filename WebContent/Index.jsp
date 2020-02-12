@@ -34,9 +34,6 @@
 							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaAlunosLogica">Alunos</a>
-                        </li>
-                        <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
                         </li>
                         <li class="nav-item">
@@ -44,6 +41,9 @@
                         </li>
                     	<li class="nav-item">
 							<a class="nav-link" href="Cursos.jsp">Cursos</a>
+                        </li>
+                        <li class="nav-item">
+							<a class="nav-link" href="LogicaServlet?logica=ListaAlunosLogica">Registros</a>
                         </li>
                         <%if(session.getAttribute("nomeUsuario") == null) { %>
                         <li class="nav-item">

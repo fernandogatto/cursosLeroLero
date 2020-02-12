@@ -67,7 +67,7 @@ public class AdministradorDAO {
         
         try {
         	connection = new ConnectionDatabase().getConnection();
-            stmt = connection.prepareStatement("SELECT * FROM admnistrador");
+            stmt = connection.prepareStatement("SELECT * FROM administrador");
             rs = stmt.executeQuery();
             
             while(rs.next()) {

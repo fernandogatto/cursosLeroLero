@@ -42,26 +42,25 @@
                         <li class="nav-item">
 							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
                         </li>
-                    	<li class="nav-item active dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Cursos
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="Cursos.jsp">Cursos</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">HTML e CSS</a>
-								<a class="dropdown-item" href="#">Javascript</a>
-								<a class="dropdown-item" href="#">Bootstrap</a>
-								<a class="dropdown-item" href="#">WordPress</a>
-							</div>
+                    	<li class="nav-item">
+							<a class="nav-link" href="Cursos.jsp">Cursos</a>
                         </li>
+                        <%if(session.getAttribute("nomeUsuario") == null) { %>
                         <li class="nav-item">
 							<a class="nav-link" href="Login.jsp">Login</a>
 						</li>
 						<li class="nav-item">
 							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
 						</li>
+						<% } %>
+						<% if(session.getAttribute("nomeUsuario") != null) { %>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${ sessionScope.nomeUsuario }</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="/cursosLeroLero/LogoutServlet">Logout</a>
+							</div>
+                        </li>
+                        <% } %>
 					</ul>
 				</div>
 			</div>
@@ -77,33 +76,30 @@
 
 			<div class="row">		
 				<c:forEach var="aluno" items="${ alunos }" >
-				 <c:if test = "${aluno.aprovado = true}">
-					<div class="col-lg-4 col-md-6 col-12 my-2">
-						<div class="card">
-							<img src="webResources/img/professor-1.jpg" alt="Aluno" class="card-img-top">
-	
-							<div class="card-body">
-								<h3 class="card-title h5">${ aluno.nome }</h3>
-								<p class="card-text">cpf: <span class="cpf">${ aluno.cpf }</span></p>
-								<p class="card-text">email: <span>${ aluno.email }</span></p>
-								<p class="card-text">celular: <span class="cellphone_with_ddd">${ aluno.celular }</span></p>
-								<p class="card-text">endereco: <span>${ aluno.endereco }</span></p>
-								<p class="card-text">cidade: <span>${ aluno.cidade }</span></p>
-								<p class="card-text">bairro: <span>${ aluno.bairro }</span></p>
-								<p class="card-text">cep: <span class="cep">${ aluno.cep }</span></p>
-								<a href="" class="btn btn-primary btn-sm">Ver</a>
-								<a href="/cursosLeroLero/LogicaServlet?logica=MostrarAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Alterar</a>
-								<a href="/cursosLeroLero/LogicaServlet?logica=DeleteAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Deletar</a> 
-								 
+					<c:if test = "${aluno.aprovado == false}">
+						<div class="col-lg-4 col-md-6 col-12 my-2">
+							<div class="card">
+								<img src="webResources/img/professor-1.jpg" alt="Aluno" class="card-img-top">
+		
+								<div class="card-body">
+									<h3 class="card-title h5">${ aluno.nome }</h3>
+									<p class="card-text">cpf: <span class="cpf">${ aluno.cpf }</span></p>
+									<p class="card-text">email: <span>${ aluno.email }</span></p>
+									<p class="card-text">celular: <span class="cellphone_with_ddd">${ aluno.celular }</span></p>
+									<p class="card-text">endereco: <span>${ aluno.endereco }</span></p>
+									<p class="card-text">cidade: <span>${ aluno.cidade }</span></p>
+									<p class="card-text">bairro: <span>${ aluno.bairro }</span></p>
+									<p class="card-text">cep: <span class="cep">${ aluno.cep }</span></p>
+									<a href="" class="btn btn-primary btn-sm">Ver</a>
+									<a href="/cursosLeroLero/LogicaServlet?logica=MostrarAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Alterar</a>
+									<a href="/cursosLeroLero/LogicaServlet?logica=DeleteAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Deletar</a> 
+								</div>
 							</div>
 						</div>
-					</div>
-				  </c:if>
+				  	</c:if>
 				</c:forEach>
-					
-			</div>
-            
-            </div>
+			</div>    
+    	</div>
     </section>
 
     <footer class="bg-dark text-white">

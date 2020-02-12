@@ -71,7 +71,7 @@ public class LoginServlet extends HttpServlet {
 			} 
 		} else if(tipoUsuario.compareTo("Aluno") == 0) {
 			for(AlunoModel aluno : new AlunoModel().listAllAlunosModel()) {
-				if(aluno.getLogin().equals(login) && aluno.getSenha().equals(senha)) {
+				if(aluno.getLogin().equals(login) && aluno.getSenha().equals(senha) && aluno.isAprovado()) {
 					HttpSession session = request.getSession();
 	                session.setAttribute("nomeUsuario", aluno.getNome());
 	                session.setAttribute("aluno", true);

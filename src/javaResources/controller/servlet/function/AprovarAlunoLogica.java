@@ -1,21 +1,24 @@
 package javaResources.controller.servlet.function;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import javaResources.controller.servlet.LogicaInterface;
 import javaResources.model.AlunoModel;
 
-public class ListaAlunosLogica implements LogicaInterface {
+public class AprovarAlunoLogica implements LogicaInterface {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		List<AlunoModel> alunos = new AlunoModel().listAllAlunosModel();
-		request.setAttribute("alunos", alunos);
+		int id = Integer.parseInt(request.getParameter("id"));
 		
-		return "/administrador/Registros.jsp";
+		AlunoModel aluno = new AlunoModel();
+		aluno.setId(id);
+		aluno.setAprovado(true);
+		
+		aluno.aprovarAlunoModel();
+		
+		return "LogicaServlet?logica=ListaAlunosLogica";
 	}
 
 }
