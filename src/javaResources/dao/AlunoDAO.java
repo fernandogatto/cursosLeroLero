@@ -98,6 +98,7 @@ public class AlunoDAO {
             	aluno.setCidade(rs.getString("cidade"));
             	aluno.setBairro(rs.getString("bairro"));
             	aluno.setCep(rs.getString("cep"));
+            	aluno.setAprovado(rs.getBoolean("aprovado"));
             	alunos.add(aluno);
             }        	
         } catch(SQLException e) {
@@ -116,7 +117,7 @@ public class AlunoDAO {
         
         try {
             connection = new ConnectionDatabase().getConnection();
-            stmt = connection.prepareStatement("UPDATE alunos SET cpf = ?, nome = ?, email = ?, celular = ?, login = ?, senha = ?, endereco = ?, cidade = ?, bairro = ?, cep = ?, comentario = ?, aprovado = ? WHERE id = ?");
+            stmt = connection.prepareStatement("UPDATE alunos SET cpf = ?, nome = ?, email = ?, celular = ?, login = ?, senha = ?, endereco = ?, cidade = ?, bairro = ?, cep = ? WHERE id = ?");
             stmt.setString(1, aluno.getCpf());
             stmt.setString(2, aluno.getNome());
             stmt.setString(3, aluno.getEmail());
@@ -127,9 +128,7 @@ public class AlunoDAO {
             stmt.setString(8, aluno.getCidade());
             stmt.setString(9, aluno.getBairro());
             stmt.setString(10, aluno.getCep());
-            stmt.setString(11, aluno.getComentario());
-            stmt.setBoolean(12, aluno.isAprovado());
-            stmt.setInt(13, aluno.getId());
+            stmt.setInt(11, aluno.getId());
             stmt.executeUpdate();
         } catch (Exception e) {
         	JOptionPane.showMessageDialog(null, "Erro ao atualizar aluno DAO: " + e.getMessage());

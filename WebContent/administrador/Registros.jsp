@@ -45,6 +45,9 @@
                     	<li class="nav-item">
 							<a class="nav-link" href="Cursos.jsp">Cursos</a>
                         </li>
+                        <li class="nav-item active">
+							<a class="nav-link" href="LogicaServlet?logica=ListaAlunosLogica">Registros</a>
+                        </li>
                         <%if(session.getAttribute("nomeUsuario") == null) { %>
                         <li class="nav-item">
 							<a class="nav-link" href="Login.jsp">Login</a>
@@ -67,16 +70,16 @@
 		</nav>
     </header>
     
-    <section class="cursos py-5">
+    <section class="alunos py-5">
         <div class="container">
             <div class="mb-3 text-center">
-                <span class="h6 uppercase">Quem aguarda aprovação</span>
+                <span class="h6 uppercase">Quem aguarda se cadastrar</span>
                 <h2 class="display-4 text-primary">Registros efetuados</h2>
             </div>
-
-			<div class="row">		
-				<c:forEach var="aluno" items="${ alunos }" >
-					<c:if test = "${aluno.aprovado == false}">
+		
+			<c:forEach var="aluno" items="${ alunos }" >
+				<c:if test = "${not aluno.aprovado}">
+					<div class="row">		
 						<div class="col-lg-4 col-md-6 col-12 my-2">
 							<div class="card">
 								<img src="webResources/img/professor-1.jpg" alt="Aluno" class="card-img-top">
@@ -94,9 +97,9 @@
 								</div>
 							</div>
 						</div>
-				  	</c:if>
-				</c:forEach>
-			</div>    
+					</div>    
+			  	</c:if>
+			</c:forEach>
     	</div>
     </section>
 

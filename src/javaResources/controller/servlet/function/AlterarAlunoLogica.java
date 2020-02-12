@@ -21,8 +21,6 @@ public class AlterarAlunoLogica implements LogicaInterface {
 		String cidade = request.getParameter("cidade");
 		String bairro = request.getParameter("bairro");
 		String cep = request.getParameter("cep").replaceAll("[.-]", "");
-//		String comentario = request.getParameter("comentario");
-		String aprovado = request.getParameter("aprovado");
 		
 		AlunoModel aluno = new AlunoModel();
 		aluno.setId(id);
@@ -36,8 +34,6 @@ public class AlterarAlunoLogica implements LogicaInterface {
 		aluno.setCidade(cidade);
 		aluno.setBairro(bairro);
 		aluno.setCep(cep);
-//		aluno.setComentario(comentario);
-		aluno.setAprovado(true);
 		
 		aluno.updateAlunoModel();
 		

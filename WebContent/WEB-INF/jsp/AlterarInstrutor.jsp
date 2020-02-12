@@ -36,12 +36,19 @@
                         <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
                         </li>
+                        <%if(session.getAttribute("administrador") != null) { %>
                         <li class="nav-item">
 							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
                         </li>
+                        <% } %>
                     	<li class="nav-item">
 							<a class="nav-link" href="Cursos.jsp">Cursos</a>
                         </li>
+                        <%if(session.getAttribute("administrador") != null) { %>
+                        <li class="nav-item">
+							<a class="nav-link" href="LogicaServlet?logica=ListaAlunosLogica">Registros</a>
+                        </li>
+                        <% } %>
                         <%if(session.getAttribute("nomeUsuario") == null) { %>
                         <li class="nav-item">
 							<a class="nav-link" href="Login.jsp">Login</a>
