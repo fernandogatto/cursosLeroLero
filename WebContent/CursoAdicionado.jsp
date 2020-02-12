@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>Cursos | Cursos Lero Lero</title>
+	<title>Curso Adicionado | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -15,13 +14,13 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
 			<div class="container">
-				<a class="navbar-brand" href="Index,jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
+				<a class="navbar-brand" href="Index.jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-
+	
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
@@ -31,10 +30,7 @@
 							<a class="nav-link" href="Sobre.jsp">Sobre</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaAlunosLogica">Alunos</a>
+							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
                         </li>
                         <li class="nav-item">
 							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
@@ -42,13 +38,13 @@
                         <li class="nav-item">
 							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
                         </li>
-                    	<li class="nav-item active dropdown">
+                    	<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Cursos
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="LogicaServlet?logica=ListaCursosLogica">Cursos</a>
+								<a class="dropdown-item" href="Cursos.jsp">Cursos</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#">HTML e CSS</a>
 								<a class="dropdown-item" href="#">Javascript</a>
@@ -66,37 +62,16 @@
 				</div>
 			</div>
 		</nav>
-    </header>
-    
-    <section class="cursos py-5">
-        <div class="container">
-            <div class="mb-3 text-center">
-                <span class="h6 uppercase">O que ensinamos</span>
-                <h2 class="display-4 text-primary">Nossos Cursos</h2>
-            </div>
+	</header>
+	<section>
+		<div class="container py-5">
+			<h1 class=" text-primary display-4">Curso adicionado</h1>
+			<p class="lead">Voltar à página inicial</p>
+			<a href="Index.jsp" class="btn btn-primary">Home</a>
+		</div>
+	</section>
 
-			<div class="row">		
-				<c:forEach var="curso" items="${ cursos }" >
-					<div class="col-lg-4 col-md-6 col-12 my-2">
-						<div class="card">
-							<img src="webResources/img/curso-js.jpg" alt="Curso" class="card-img-top">
-	
-							<div class="card-body">
-								<h3 class="card-title h5">${ curso.nome }</h3>
-								<p class="card-text">requisito: <span>${ curso.requisito }</span></p>
-								<p class="card-text">ementa: <span>${ curso.ementa }</span></p>
-								<p class="card-text">carga horária: <span>${ curso.cargaHoraria }</span> horas</p>
-								<p class="card-text">preço: R$<span>${ curso.preco }</span></p>
-								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
-							</div>
-						</div>
-					</div>
-				</c:forEach>	
-			</div>
-        </div>
-    </section>
-
-    <footer class="bg-dark text-white">
+	<footer class="bg-dark text-white">
 		<div class="container py-4">
 			<div class="row">
 				<div class="col-lg-4 col-12">
@@ -109,7 +84,7 @@
 					<ul class="list-unstyled">
 						<li><a href="Index.jsp">Home</a></li>
 						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
+						<li><a href="Instrutores.jsp">Instrutores</a></li>
 						<li><a href="Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>
