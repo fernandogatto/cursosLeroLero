@@ -7,15 +7,15 @@
 	<title>Novo Admin | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="webResources/css/bootstrap.css">
-	<link rel="stylesheet" href="webResources/css/style.css">
+	<link rel="stylesheet" href="../webResources/css/bootstrap.css">
+	<link rel="stylesheet" href="../webResources/css/style.css">
 </head>
 
 <body>
 	<header>
 		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
 			<div class="container">
-				<a class="navbar-brand" href="Index.jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
+				<a class="navbar-brand" href="Index.jsp"><img src="../webResources/img/logo-integrado.png" alt="logo"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
@@ -25,38 +25,30 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="Index.jsp">Home</a>
+							<a class="nav-link" href="/cursosLeroLero/Index.jsp">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="Sobre.jsp">Sobre</a>
+							<a class="nav-link" href="/cursosLeroLero/Sobre.jsp">Sobre</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
+							<a class="nav-link" href="/cursosLeroLero/LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
+							<a class="nav-link" href="/cursosLeroLero/Comentarios.jsp">Comentários</a>
                         </li>
                         <%if(session.getAttribute("administrador") != null) { %>
                         <li class="nav-item">
-							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
+							<a class="nav-link" href="/cursosLeroLero/administrador/Tabelas.jsp">Tabelas</a>
                         </li>
                         <% } %>
                     	<li class="nav-item">
-							<a class="nav-link" href="Cursos.jsp">Cursos</a>
+							<a class="nav-link" href="/cursosLeroLero/Cursos.jsp">Cursos</a>
                         </li>
                         <%if(session.getAttribute("administrador") != null) { %>
                         <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaAlunosLogica">Registros</a>
+							<a class="nav-link" href="/cursosLeroLero/administrador/AdminServlet?logica=ListaAlunosLogica">Registros</a>
                         </li>
                         <% } %>
-                        <%if(session.getAttribute("nomeUsuario") == null) { %>
-                        <li class="nav-item">
-							<a class="nav-link" href="Login.jsp">Login</a>
-						</li>
-						<li class="nav-item">
-							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
-						</li>
-						<% } %>
 						<% if(session.getAttribute("nomeUsuario") != null) { %>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${ sessionScope.nomeUsuario }</a>
@@ -75,7 +67,7 @@
 		<div class="container py-5">
 			<h1 class=" text-primary display-4">Novo admin</h1>
 			<p class="lead">Cadastra-se para administrar!</p>
-			<form class="py-3" id="form-novo-admin" method="POST">
+			<form class="py-3" id="form-novo-admin" action="AdminServlet" method="POST">
 				<div class="form-group">
 					<label for="nome">Nome completo*</label>
 					<input type="text" class="form-control" id="nome" name="nome" aria-describedby="nameHelp" placeholder="Digite seu nome">
@@ -104,10 +96,10 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 					<h4 class="h6 uppercase">Páginas</h4>
 					<ul class="list-unstyled">
-						<li><a href="Index.jsp">Home</a></li>
-						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
-						<li><a href="Comentarios.jsp">Comentários</a></li>
+						<li><a href="/cursosLeroLero/Index.jsp">Home</a></li>
+						<li><a href="/cursosLeroLero/Sobre.jsp">Sobre</a></li>
+						<li><a href="/cursosLeroLero/LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
+						<li><a href="/cursosLeroLero/Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>
 
@@ -122,12 +114,9 @@
 				<div class="col-lg-2 col-md-4 col-12" id="rede-social">
 					<h4 class="h6 uppercase">Redes sociais</h4>
 					<ul class="list-unstyled">
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Facebook</a></li>
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Linkedin</a></li>
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Youtube</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Facebook</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Linkedin</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Youtube</a></li>
 					</ul>
 				</div>
 			</div>
@@ -138,10 +127,10 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
-	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
-	<script type="text/javascript" src="webResources/js/bootstrap.js"></script>
-	<script type="text/javascript" src="webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="webResources/js/validation-admin.js"></script>
+	<script type="text/javascript" src="../webResources/js/jquery.min.js"></script>
+	<script type="text/javascript" src="../webResources/js/popper.min.js"></script>
+	<script type="text/javascript" src="../webResources/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="../webResources/js/validation-admin.js"></script>
 </body>
 </html>

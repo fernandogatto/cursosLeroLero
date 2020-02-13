@@ -24,36 +24,45 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="Index.jsp">Home</a>
+							<a class="nav-link" href="/cursosLeroLero/Index.jsp">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="Sobre.jsp">Sobre</a>
+							<a class="nav-link" href="/cursosLeroLero/Sobre.jsp">Sobre</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
+							<a class="nav-link" href="/cursosLeroLero/LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
                         </li>
                         <li class="nav-item">
-							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
+							<a class="nav-link" href="/cursosLeroLero/Comentarios.jsp">Comentários</a>
                         </li>
                         <%if(session.getAttribute("administrador") != null) { %>
                         <li class="nav-item">
-							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
+							<a class="nav-link" href="/cursosLeroLero/administrador/Tabelas.jsp">Tabelas</a>
                         </li>
                         <% } %>
                     	<li class="nav-item">
-							<a class="nav-link" href="Cursos.jsp">Cursos</a>
+							<a class="nav-link" href="/cursosLeroLero/Cursos.jsp">Cursos</a>
                         </li>
                         <%if(session.getAttribute("administrador") != null) { %>
                         <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaAlunosLogica">Registros</a>
+							<a class="nav-link" href="/cursosLeroLero/administrador/AdminServlet?logica=ListaAlunosLogica">Registros</a>
                         </li>
                         <% } %>
+                        <%if(session.getAttribute("nomeUsuario") == null) { %>
                         <li class="nav-item active">
-							<a class="nav-link" href="Login.jsp">Login</a>
+							<a class="nav-link" href="/cursosLeroLero/Login.jsp">Login</a>
 						</li>
 						<li class="nav-item">
-							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
+							<a class="btn btn-outline-primary" href="/cursosLeroLero/Registro.jsp">Cadastre-se</a>
 						</li>
+						<% } else if(session.getAttribute("nomeUsuario") != null ) { %>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${ sessionScope.nomeUsuario }</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="/cursosLeroLero/LogoutServlet">Logout</a>
+							</div>
+                        </li>
+                        <% } %>
 					</ul>
 				</div>
 			</div>
@@ -63,7 +72,7 @@
 	<div class="container py-5">
 		<h1 class=" text-primary display-4">Login</h1>
 		<p class="lead">Entre para acessar a área restrita. Se ainda não possui cadastro, <a href="Registro.jsp">clique aqui</a>.</p>
-		<form class="py-3" action="LoginServlet" method="POST">
+		<form class="py-3" action="Login" method="POST">
 			<div class="form-group">
 				<label for="login">Login</label>
 				<input type="text" class="form-control" id="login" name="login" aria-describedby="Digite seu email"
@@ -96,10 +105,10 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 					<h4 class="h6 uppercase">Páginas</h4>
 					<ul class="list-unstyled">
-						<li><a href="Index.jsp">Home</a></li>
-						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
-						<li><a href="Comentarios.jsp">Comentários</a></li>s
+						<li><a href="/cursosLeroLero/Index.jsp">Home</a></li>
+						<li><a href="/cursosLeroLero/Sobre.jsp">Sobre</a></li>
+						<li><a href="/cursosLeroLero/LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
+						<li><a href="/cursosLeroLero/Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>
 
@@ -114,12 +123,9 @@
 				<div class="col-lg-2 col-md-4 col-12" id="rede-social">
 					<h4 class="h6 uppercase">Redes sociais</h4>
 					<ul class="list-unstyled">
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Facebook</a></li>
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Linkedin</a></li>
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Youtube</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Facebook</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Linkedin</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Youtube</a></li>
 					</ul>
 				</div>
 			</div>

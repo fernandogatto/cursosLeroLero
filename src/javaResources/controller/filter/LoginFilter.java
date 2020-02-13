@@ -5,7 +5,6 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -17,7 +16,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter("/Login")
+@WebFilter(urlPatterns = {"/Login.jsp", "/Registro.jsp"})
 public class LoginFilter implements Filter {
 
 	 /**
@@ -39,10 +38,10 @@ public class LoginFilter implements Filter {
         HttpSession session = req.getSession();
         
         if (session.getAttribute("nomeUsuario") != null) {
-        	resp.sendRedirect("/Index.jsp");
-        } else {
-            chain.doFilter(request, response);
+        	resp.sendRedirect("/cursosLeroLero/Index.jsp");
         }
+        
+        chain.doFilter(request, response);
         
 	}
 

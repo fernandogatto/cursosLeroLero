@@ -17,7 +17,7 @@ import javaResources.model.InstrutorModel;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/LoginServlet")
+@WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -51,6 +51,7 @@ public class LoginServlet extends HttpServlet {
 			for(AdministradorModel administrador : new AdministradorModel().listarTodosAdministradoresModel()) {
 				if(administrador.getLogin().equals(login) && administrador.getSenha().equals(senha)) {
 					HttpSession session = request.getSession();
+					session.setAttribute("idAdministrador", administrador.getId());
 	                session.setAttribute("nomeUsuario", administrador.getNome());
 	                session.setAttribute("administrador", true);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
@@ -62,6 +63,7 @@ public class LoginServlet extends HttpServlet {
 			for(InstrutorModel instrutor : new InstrutorModel().listarTodosInstrutoresModel()) {
 				if(instrutor.getLogin().equals(login) && instrutor.getSenha().equals(senha)) {
 					HttpSession session = request.getSession();
+					session.setAttribute("idInstrutor", instrutor.getId());
 	                session.setAttribute("nomeUsuario", instrutor.getNome());
 	                session.setAttribute("instrutor", true);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
@@ -73,6 +75,7 @@ public class LoginServlet extends HttpServlet {
 			for(AlunoModel aluno : new AlunoModel().listAllAlunosModel()) {
 				if(aluno.getLogin().equals(login) && aluno.getSenha().equals(senha) && aluno.isAprovado()) {
 					HttpSession session = request.getSession();
+					session.setAttribute("idAluno", aluno.getId());
 	                session.setAttribute("nomeUsuario", aluno.getNome());
 	                session.setAttribute("aluno", true);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");

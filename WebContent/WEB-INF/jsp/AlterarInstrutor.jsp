@@ -56,11 +56,15 @@
 						<li class="nav-item">
 							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
 						</li>
-						<% } %>
-						<% if(session.getAttribute("nomeUsuario") != null) { %>
+						<% } else { %>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${ sessionScope.nomeUsuario }</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<% if(session.getAttribute("instrutor") != null) { %>
+								<a class="dropdown-item" href="/cursosLeroLero/PerfilInstrutor.jsp">Perfil</a>
+								<% } else if(session.getAttribute("aluno") != null) { %>
+								<a class="dropdown-item" href="/cursosLeroLero/PerfilAluno.jsp">Perfil</a>
+								<% } %>
 								<a class="dropdown-item" href="/cursosLeroLero/LogoutServlet">Logout</a>
 							</div>
                         </li>
@@ -123,10 +127,10 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 					<h4 class="h6 uppercase">Páginas</h4>
 					<ul class="list-unstyled">
-						<li><a href="Index.jsp">Home</a></li>
-						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
-						<li><a href="Comentarios.jsp">Comentários</a></li>
+						<li><a href="/cursosLeroLero/Index.jsp">Home</a></li>
+						<li><a href="/cursosLeroLero/Sobre.jsp">Sobre</a></li>
+						<li><a href="/cursosLeroLero/LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
+						<li><a href="/cursosLeroLero/Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>
 
@@ -141,12 +145,9 @@
 				<div class="col-lg-2 col-md-4 col-12" id="rede-social">
 					<h4 class="h6 uppercase">Redes sociais</h4>
 					<ul class="list-unstyled">
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Facebook</a></li>
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Linkedin</a></li>
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Youtube</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Facebook</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Linkedin</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Youtube</a></li>
 					</ul>
 				</div>
 			</div>

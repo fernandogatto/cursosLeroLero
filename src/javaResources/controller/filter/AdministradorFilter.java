@@ -38,7 +38,7 @@ public class AdministradorFilter implements Filter {
         HttpSession session = req.getSession();
         
         if(session.getAttribute("administrador") == null) {
-        	resp.sendRedirect("Index.jsp");
+        	resp.sendRedirect("/cursosLeroLero/Index.jsp");
         }
         
 		chain.doFilter(request, response);
