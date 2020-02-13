@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ page import="javaResources.model.CursoModel"%>
+    <%@ page import="java.util.List" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -69,15 +72,34 @@
 			<p class="lead">Cadastre sua turma para poder dar aulas!</p>
 			<form class="py-3 novaturma" name='novaturma' action="LogicaServlet" method="POST">
 				<input type="hidden" name="logica" value="InserirTurmaLogica">
+				<!-- 
 				<div class="form-group">
 					<label for="exampleInputName">ID do instrutor *</label>
 					<input type="text" class="form-control" id="exampleInputName" name='instrutores_id' aria-describedby="nameHelp"
 						placeholder="Digite o nome do instrutor">
 				</div>
+				 -->
+				<div class="form-group">
+					<label for="exampleInputName">ID do instrutor *</label>
+					<input type="text" class="form-control" id="exampleInputName" name='instrutores_id' aria-describedby="nameHelp"
+						placeholder="Digite o nome do instrutor">
+				</div>
+				<!--  
 				<div class="form-group">
 					<label for="exampleInputCPF">ID do curso *</label>
 					<input type="text" class="form-control" id="exampleInputCPF" name='cursos_id' aria-describedby="cpfHelp"
 						placeholder="Digite o nome do curso">
+				</div>
+				-->
+				<div class="form-group">
+					<label for="exampleInputCPF">ID do curso *</label>
+					<select name='cursos_id'>
+					
+					<% for(CursoModel curso : new CursoModel().listarTodosCursosModel()) { %>
+						<option name="cursos_id" value="<%out.print(curso.getId()); %>"><%out.print(curso.getNome()); %></option>
+					<%} %> 
+
+					</select>
 				</div>
 				<div class="form-group data">
 					<label for="exampleInputPhone">Data de início *</label>
