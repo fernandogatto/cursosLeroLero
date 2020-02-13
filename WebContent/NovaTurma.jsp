@@ -81,12 +81,12 @@
 				</div>
 				<div class="form-group data">
 					<label for="exampleInputPhone">Data de início *</label>
-					<input type="date" class="form-control" id="date" name='data_inicio' aria-describedby="phoneHelp"
+					<input type="text" class="form-control" id="date" name='data_inicio' aria-describedby="phoneHelp"
 						placeholder="Digite quando irá começar" rows="10">
 				</div>
 				<div class="form-group data">
 					<label for="exampleInputEmail1">Data de fim *</label>
-					<input type="date" class="form-control" id="date" name='data_final' aria-describedby="emailHelp"
+					<input type="text" class="form-control" id="date" name='data_final' aria-describedby="emailHelp"
 						placeholder="Digite quando irá terminar">
 				</div>
 				<div class="form-group">

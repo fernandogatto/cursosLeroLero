@@ -1,7 +1,7 @@
 package javaResources.model;
 
-import java.sql.Date;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import javaResources.dao.TurmaDAO;

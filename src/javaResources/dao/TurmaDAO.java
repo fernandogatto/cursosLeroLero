@@ -1,6 +1,7 @@
 package javaResources.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,14 +11,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import javaResources.dao.connection.ConnectionDatabase;
-import javaResources.model.InstrutorModel;
-import javaResources.model.CursoModel;
 import javaResources.model.TurmaModel;
 
 public class TurmaDAO {
-
-	private static InstrutorModel instrutor;
-	private static CursoModel curso;
 	
 	public void inserirTurmaDAO(TurmaModel turma) {
 		Connection connection = null;
@@ -28,11 +24,19 @@ public class TurmaDAO {
 			stmt = connection.prepareStatement("INSERT INTO turmas (instrutores_id, cursos_id, data_inicio, data_final, carga_horaria) VALUES (?, ?, ?, ?, ?)");
 			stmt.setInt(1, turma.getIdInstrutor());
 			stmt.setInt(2, turma.getIdCurso());
-			stmt.setDate(3, turma.getDataInicio());
-			stmt.setDate(4, turma.getDataFinal());
+			
+			java.util.Date dataInicio = turma.getDataInicio();
+			java.sql.Date dtinicio = new java.sql.Date (dataInicio.getTime());
+			
+			java.util.Date dataFinal = turma.getDataFinal();
+			java.sql.Date dtfinal = new java.sql.Date (dataFinal.getTime());	
+			
+			stmt.setDate(3, dtinicio);
+			stmt.setDate(4, dtfinal);
 			stmt.setInt(5, turma.getCargaHoraria());
 			stmt.execute();
-		} catch(SQLException e) {
+			
+		} catch(Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro ao registrar turma DAO: " + e.getMessage());
 		} finally {
 			ConnectionDatabase.closeConnection(connection, stmt);
@@ -105,8 +109,8 @@ public class TurmaDAO {
             stmt = connection.prepareStatement("UPDATE turmas SET instrutores_id = ?, cursos_id = ?, data_inicio = ?, data_final = ?, carga_horaria = ? WHERE id = ?");
             stmt.setInt(1, turma.getIdInstrutor());
             stmt.setInt(2, turma.getIdCurso());
-            stmt.setDate(3, turma.getDataInicio());
-            stmt.setDate(4, turma.getDataFinal());
+            stmt.setDate(3, (Date) turma.getDataInicio());
+            stmt.setDate(4, (Date) turma.getDataFinal());
             stmt.setInt(5, turma.getCargaHoraria());
             stmt.setInt(6, turma.getId());
             stmt.executeUpdate();
