@@ -1,4 +1,4 @@
-package javaResources.controller.servlet.function;
+package javaResources.controller.servlet.administrador.function;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,10 +6,11 @@ import javax.servlet.http.HttpServletResponse;
 import javaResources.controller.servlet.LogicaInterface;
 import javaResources.model.AlunoModel;
 
-public class InserirAlunoLogica implements LogicaInterface {
+public class AlterarAlunoAdmin implements LogicaInterface {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int id = Integer.parseInt(request.getParameter("id"));
 		String cpf = request.getParameter("cpf").replaceAll("[.-]", "");
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
@@ -17,12 +18,12 @@ public class InserirAlunoLogica implements LogicaInterface {
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String endereco = request.getParameter("endereco");
-		String cidade  = request.getParameter("cidade");
+		String cidade = request.getParameter("cidade");
 		String bairro = request.getParameter("bairro");
 		String cep = request.getParameter("cep").replaceAll("[.-]", "");
-		Boolean aprovado = false;
 		
 		AlunoModel aluno = new AlunoModel();
+		aluno.setId(id);
 		aluno.setCpf(cpf);
 		aluno.setNome(nome);
 		aluno.setEmail(email);
@@ -33,11 +34,9 @@ public class InserirAlunoLogica implements LogicaInterface {
 		aluno.setCidade(cidade);
 		aluno.setBairro(bairro);
 		aluno.setCep(cep);
-		aluno.setAprovado(aprovado);
 		
-		aluno.insertAlunoModel();
+		aluno.updateAlunoModel();
 		
-		return "AdminServlet?logica=ListaRegistrosAdmin";
+		return "AdminServlet?logica=ListaAlunosAprovadosAdmin";
 	}
-
 }

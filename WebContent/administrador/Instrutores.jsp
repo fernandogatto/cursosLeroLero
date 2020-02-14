@@ -1,11 +1,12 @@
+<%@page import="javaResources.model.InstrutorModel"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
 <head>
-	<title>Perfil | Cursos Lero Lero</title>
+	<title>Instrutores | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -13,10 +14,42 @@
 </head>
 
 <body>
-	<c:import url="include/Header.jsp" />
+	<c:import url="../include/Header.jsp" />
 
-	<section>
-		
+	<section class="instrutores py-5">
+		<div class="container">
+			<div class="mb-3 text-center">
+				<span class="h6 uppercase">Quem ensina</span>
+				<h2 class="display-4 text-primary">Nossos Instrutores</h2>
+			</div>
+			
+			<table class="table">
+		 		<thead>
+			    	<tr>
+				      	<th scope="col">ID</th>
+				      	<th scope="col">Nome</th>
+				        <th scope="col">E-mail</th>
+				        <th scope="col">Ver</th>
+				    	<th scope="col">Alterar</th>
+				    	<th scope="col">Deletar</th>
+			    	</tr>
+			 	</thead>
+				 <tbody>
+					<c:forEach var="instrutor" items="${ instrutores }" >
+						<c:if test = "${instrutor.aprovado }">
+						    <tr>
+						      <th scope="row">${ instrutor.id }</th>
+						      <td>${ instrutor.nome }</td>
+						      <td>${ instrutor.email }</td>
+						      <td><a href="#" class="btn btn-primary btn-sm">Ver</a></td>
+						      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=MostrarInstrutorAdmin&id=${ instrutor.id }" class="btn btn-primary btn-sm">Alterar</a></td>
+						      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteinstrutorAdmin&id=${ instrutor.id }" class="btn btn-primary btn-sm">Deletar</a></td>
+						    </tr>
+					  	</c:if>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 	</section>
 
 	<footer class="bg-dark text-white">
@@ -57,7 +90,7 @@
 		</div>
 
 		<div class="bg-primary text-center py-3">
-			<p class="mb-0">Cursos Lero Lero &copy; 2020. Nenhum direito reservado.</p>
+			<p class="mb-0">Integrado &copy; 2019. Nenhum direito reservado.</p>
 		</div>
 	</footer>
 

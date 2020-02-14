@@ -27,7 +27,7 @@ public class AdminServlet extends HttpServlet {
 	 */
     protected void service(HttpServletRequest request, HttpServletResponse response) {
 		String parametro = request.getParameter("logica");
-		String nomeDaClasse = "javaResources.controller.servlet.function." + parametro;
+		String nomeDaClasse = "javaResources.controller.servlet.administrador.function." + parametro;
 	    
 		try {
 			Class classe = Class.forName(nomeDaClasse);

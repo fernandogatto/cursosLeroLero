@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,54 +12,7 @@
 </head>
 
 <body>
-	<header>
-		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
-			<div class="container">
-				<a class="navbar-brand" href="Index.jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="Index.jsp">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="Sobre.jsp">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
-                        </li>
-                        <%if(session.getAttribute("administrador") != null) { %>
-                        <li class="nav-item">
-							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
-                        </li>
-                        <% } %>
-                    	<li class="nav-item">
-							<a class="nav-link" href="Cursos.jsp">Cursos</a>
-                        </li>
-                        <%if(session.getAttribute("administrador") != null) { %>
-                        <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaAlunosLogica">Registros</a>
-                        </li>
-                        <% } %>
-                        <li class="nav-item">
-							<a class="nav-link" href="Login.jsp">Login</a>
-						</li>
-						<li class="nav-item active">
-							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
+	<c:import url="include/Header.jsp" />
 
 	<section>
 		<div class="container py-5">

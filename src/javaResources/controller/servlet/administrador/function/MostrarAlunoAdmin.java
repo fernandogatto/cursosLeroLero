@@ -1,4 +1,4 @@
-package javaResources.controller.servlet.function;
+package javaResources.controller.servlet.administrador.function;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,19 +6,16 @@ import javax.servlet.http.HttpServletResponse;
 import javaResources.controller.servlet.LogicaInterface;
 import javaResources.model.AlunoModel;
 
-public class AprovarAlunoLogica implements LogicaInterface {
+public class MostrarAlunoAdmin implements LogicaInterface {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int id = Integer.parseInt(request.getParameter("id"));
+		AlunoModel aluno = new AlunoModel().listAlunoByIdModel(id);
+		request.setAttribute("aluno", aluno);
+		request.setAttribute("id", id);
 		
-		AlunoModel aluno = new AlunoModel();
-		aluno.setId(id);
-		aluno.setAprovado(true);
-		
-		aluno.aprovarAlunoModel();
-		
-		return "LogicaServlet?logica=ListaAlunosLogica";
+		return "/administrador/AlterarAluno.jsp";
 	}
 
 }

@@ -1,23 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<title>Alterar Aluno | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="webResources/css/bootstrap.css">
-	<link rel="stylesheet" href="webResources/css/style.css">
+	<link rel="stylesheet" href="../webResources/css/bootstrap.css">
+	<link rel="stylesheet" href="../webResources/css/style.css">
 </head>
 
 <body>
-	<c:import url="../../include/Header.jsp" />
+	<c:import url="../include/Header.jsp" />
+	
 	<section>
 		<div class="container py-5">
 			<h1 class=" text-primary display-4">Alterar aluno</h1>
 			<p class="lead">Altere os dados!</p>
-			<form class="py-3" name='novoaluno' action="LogicaServlet" method="POST">
-				<input type="hidden" name="logica" value="AlterarAlunoLogica">
+			<form class="py-3" name='novoaluno' action="AdminServlet" method="POST">
+				<input type="hidden" name="logica" value="AlterarAlunoAdmin">
 				<input type="hidden" name="id" value="${ id }">
 				<div class="form-group">
 					<label for="cpf">CPF*</label>
@@ -116,12 +119,12 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
-	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
-    <script type="text/javascript" src="webResources/js/bootstrap.js"></script>
-    <script type="text/javascript" src="webResources/js/jquery.mask.min.js"></script>
-    <script type="text/javascript" src="webResources/js/masks-input.js"></script>
-	<script type="text/javascript" src="webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="webResources/js/validation-instrutor.js"></script>
+	<script type="text/javascript" src="../webResources/js/jquery.min.js"></script>
+	<script type="text/javascript" src="../webResources/js/popper.min.js"></script>
+    <script type="text/javascript" src="../webResources/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../webResources/js/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="../webResources/js/masks-input.js"></script>
+	<script type="text/javascript" src="../webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="../webResources/js/validation-instrutor.js"></script>
 </body>
 </html>

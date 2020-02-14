@@ -1,4 +1,4 @@
-package javaResources.controller.servlet.function;
+package javaResources.controller.servlet.administrador.function;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javaResources.controller.servlet.LogicaInterface;
 import javaResources.model.AlunoModel;
 
-public class ListaAlunosLogica implements LogicaInterface {
+public class ListaRegistrosAdmin implements LogicaInterface {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {

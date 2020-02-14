@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,63 +12,7 @@
 </head>
 
 <body>
-	<header>
-		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
-			<div class="container">
-				<a class="navbar-brand" href="Index,jsp"><img src="../webResources/img/logo-integrado.png" alt="logo"></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="/cursosLeroLero/Index.jsp">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/cursosLeroLero/Sobre.jsp">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="/cursosLeroLero/LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="/cursosLeroLero/Comentarios.jsp">Comentários</a>
-                        </li>
-                        <%if(session.getAttribute("administrador") != null) { %>
-                        <li class="nav-item">
-							<a class="nav-link" href="/cursosLeroLero/administrador/Tabelas.jsp">Tabelas</a>
-                        </li>
-                        <% } %>
-                    	<li class="nav-item">
-							<a class="nav-link" href="/cursosLeroLero/Cursos.jsp">Cursos</a>
-                        </li>
-                        <%if(session.getAttribute("administrador") != null) { %>
-                        <li class="nav-item active">
-							<a class="nav-link" href="/cursosLeroLero/administrador/AdminServlet?logica=ListaAlunosLogica">Registros</a>
-                        </li>
-                        <% } %>
-                        <%if(session.getAttribute("nomeUsuario") == null) { %>
-                        <li class="nav-item">
-							<a class="nav-link" href="/cursosLeroLero/Login.jsp">Login</a>
-						</li>
-						<li class="nav-item">
-							<a class="btn btn-outline-primary" href="/cursosLeroLero/Registro.jsp">Cadastre-se</a>
-						</li>
-						<% } else if(session.getAttribute("nomeUsuario") != null ) { %>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${ sessionScope.nomeUsuario }</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="/cursosLeroLero/LogoutServlet">Logout</a>
-							</div>
-                        </li>
-                        <% } %>
-					</ul>
-				</div>
-			</div>
-		</nav>
-    </header>
+	<c:import url="../include/Header.jsp" />
     
     <section class="alunos py-5">
         <div class="container">
@@ -77,29 +21,30 @@
                 <h2 class="display-4 text-primary">Registros efetuados</h2>
             </div>
 		
-			<c:forEach var="aluno" items="${ alunos }" >
-				<c:if test = "${not aluno.aprovado}">
-					<div class="row">		
-						<div class="col-lg-4 col-md-6 col-12 my-2">
-							<div class="card">
-								<img src="../webResources/img/professor-1.jpg" alt="Aluno" class="card-img-top">
-		
-								<div class="card-body">
-									<h3 class="card-title h5">${ aluno.nome }</h3>
-									<p class="card-text">cpf: <span class="cpf">${ aluno.cpf }</span></p>
-									<p class="card-text">email: <span>${ aluno.email }</span></p>
-									<p class="card-text">celular: <span class="cellphone_with_ddd">${ aluno.celular }</span></p>
-									<p class="card-text">endereco: <span>${ aluno.endereco }</span></p>
-									<p class="card-text">cidade: <span>${ aluno.cidade }</span></p>
-									<p class="card-text">bairro: <span>${ aluno.bairro }</span></p>
-									<p class="card-text">cep: <span class="cep">${ aluno.cep }</span></p>
-									<a href="/cursosLeroLero/LogicaServlet?logica=AprovarAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Aprovar</a>
-								</div>
-							</div>
-						</div>
-					</div>    
-			  	</c:if>
-			</c:forEach>
+			<table class="table">
+		 		<thead>
+			    	<tr>
+				      	<th scope="col">ID</th>
+				      	<th scope="col">Nome</th>
+				        <th scope="col">E-mail</th>
+				    	<th scope="col">Aprovar</th>
+				    	<th scope="col">Deletar</th>
+			    	</tr>
+			 	</thead>
+				 <tbody>
+					<c:forEach var="aluno" items="${ alunos }" >
+						<c:if test = "${not aluno.aprovado}">
+						    <tr>
+						      <th scope="row">${ aluno.id }</th>
+						      <td>${ aluno.nome }</td>
+						      <td>${ aluno.email }</td>
+						      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=AprovarAlunoAdmin&id=${ aluno.id }" class="btn btn-primary btn-sm">Aprovar</a></td>
+						      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteAlunoAdmin&id=${ aluno.id }" class="btn btn-primary btn-sm">Deletar</a></td>
+						    </tr>
+					  	</c:if>
+					</c:forEach>
+				</tbody>
+			</table>
     	</div>
     </section>
 
