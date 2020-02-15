@@ -85,11 +85,14 @@ public class TurmaDAO {
             
             while(rs.next()) {
             	turma = new TurmaModel();
+            	turma.setId(rs.getInt("id"));
         		turma.setIdInstrutor(rs.getInt("instrutores_id"));
         		turma.setIdCurso(rs.getInt("cursos_id"));
         		turma.setDataInicio(rs.getDate("data_inicio"));
         		turma.setDataFinal(rs.getDate("data_final"));
         		turma.setCargaHoraria(rs.getInt("carga_horaria"));
+        		
+        		turmas.add(turma);
         	}     	
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao listar todas as turmas: " + e.getMessage());

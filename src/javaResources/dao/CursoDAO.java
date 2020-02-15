@@ -3,7 +3,6 @@ package javaResources.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,6 +81,7 @@ public class CursoDAO {
             	curso.setEmenta(rs.getString("ementa"));
             	curso.setCargaHoraria(rs.getInt("carga_horaria"));
             	curso.setPreco(rs.getDouble("preco"));
+            	
             	cursos.add(curso);
             }        	
         } catch(Exception e) {

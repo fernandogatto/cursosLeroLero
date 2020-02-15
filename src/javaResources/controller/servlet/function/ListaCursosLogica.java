@@ -15,7 +15,7 @@ public class ListaCursosLogica implements LogicaInterface {
 		List<CursoModel> cursos = new CursoModel().listarTodosCursosModel();
 		request.setAttribute("cursos", cursos);
 		
-		return "/WEB-INF/jsp/Cursos.jsp" + "NovaTurma.jsp";
+		return "/WEB-INF/jsp/Cursos.jsp";
 	}
 
 }
