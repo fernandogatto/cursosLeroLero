@@ -84,9 +84,12 @@
 								<p class="card-text">ementa: <span>${ curso.ementa }</span></p>
 								<p class="card-text">carga horária: <span>${ curso.cargaHoraria }</span> horas</p>
 								<p class="card-text">preço: R$<span>${ curso.preco }</span></p>
+								<% if(session.getAttribute("aluno") != null) { %>
 								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
+								<% } else if(session.getAttribute("administrador") != null) { %>
 								<a href="/cursosLeroLero/LogicaServlet?logica=MostrarCursoLogica&id=${ curso.id }" class="btn btn-primary btn-sm">Alterar</a>
 								<a href="/cursosLeroLero/LogicaServlet?logica=DeleteCursoLogica&id=${ curso.id }" class="btn btn-primary btn-sm">Deletar</a>
+								<% } %>
 							</div>
 						</div>
 					</div>

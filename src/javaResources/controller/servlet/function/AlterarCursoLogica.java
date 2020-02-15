@@ -16,7 +16,7 @@ public class AlterarCursoLogica implements LogicaInterface {
 		String ementa = request.getParameter("ementa");
 		int cargaHoraria = Integer.parseInt(request.getParameter("carga_horaria"));
 		String precoString = request.getParameter("preco");
-		  double preco = Double.parseDouble(precoString.substring (0, precoString.length() - 2).replaceAll("[,]", ""));
+		double preco = Double.parseDouble(precoString.substring (0, precoString.length() - 2).replaceAll("[,]", ""));
 		
 		CursoModel curso = new CursoModel();
 		curso.setId(id);
