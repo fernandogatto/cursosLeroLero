@@ -89,8 +89,8 @@
 								<p class="card-text">Data de início: <span>${ turma.dataInicio }</span></p>
 								<p class="card-text">Data de final: <span>${ turma.dataFinal }</span></p>
 								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
-								<a href="/cursosLeroLero/LogicaServlet?logica=MostrarTurmaLogica&id=${ turma.id }" class="btn btn-primary btn-sm">Alterar</a>
-								<a href="/cursosLeroLero/LogicaServlet?logica=DeleteTurmaLogica&id=${ turma.id }" class="btn btn-primary btn-sm">Deletar</a>
+								<a href="/cursosLeroLero/LogicaServlet?logica=MostrarTurmaLogica&id=${ id }" class="btn btn-primary btn-sm">Alterar</a>
+								<a href="/cursosLeroLero/LogicaServlet?logica=DeleteTurmaLogica&id=${ id }" class="btn btn-primary btn-sm">Deletar</a>
 							</div>
 						</div>
 					</div>
