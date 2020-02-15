@@ -15,7 +15,7 @@ public class ListaTurmasLogica implements LogicaInterface {
 		List<TurmaModel> turmas = new TurmaModel().listarTodasTurmasModel();
 		request.setAttribute("turmas", turmas);
 		
-		return "/WEB-INF/jsp/Index.jsp";
+		return "Index.jsp";
 	}
 
 }

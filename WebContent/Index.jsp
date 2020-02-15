@@ -99,6 +99,7 @@
 					String cursoNome = curso.getNome();
 					InstrutorModel instrutor = new InstrutorModel().listarInstrutorPorIdModel(turma.getIdInstrutor());
 					String instrutorNome = instrutor.getNome();
+					Integer turmaId = turma.getId();
 				%>	 	
 					<div class="col-lg-4 col-md-6 col-12 my-2">
 						<div class="card">
@@ -110,10 +111,14 @@
 								<p class="card-text">Início: <span><%out.print(turma.getDataInicio());%></span></p>
 								<p class="card-text">Fim: <span><%out.print(turma.getDataFinal());%></span></p>
 								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
+								<a href="/cursosLeroLero/LogicaServlet?logica=VerTurmaLogica&id=<%out.print(turma.getId());%>" class="btn btn-primary btn-sm">Ver</a>
 							</div>
 						</div>
 					</div>
-				<%} %>	
+				<%} %>
+				<c:forEach var="turma" items="${ turma }" >
+				<p>${turma.cargaHoraria} horas</p>
+				</c:forEach>	
 			</div>
 		</div>
 	</section>

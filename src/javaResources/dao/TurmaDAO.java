@@ -51,7 +51,7 @@ public class TurmaDAO {
 		
         try {
         	connection = new ConnectionDatabase().getConnection();
-        	stmt = connection.prepareStatement("SELECT * FROM turmas WHERE id = ?");
+        	stmt = connection.prepareStatement("SELECT * FROM turmas WHERE id =" + id);
         	rs = stmt.executeQuery();
         	
         	if(rs.next()) {
@@ -61,6 +61,7 @@ public class TurmaDAO {
         		turma.setDataInicio(rs.getDate("data_inicio"));
         		turma.setDataFinal(rs.getDate("data_final"));
         		turma.setCargaHoraria(rs.getInt("carga_horaria"));
+        		return turma;
         	}
         } catch(SQLException e) {
         	JOptionPane.showMessageDialog(null, "Erro ao listar turma pelo ID: " + e.getMessage());

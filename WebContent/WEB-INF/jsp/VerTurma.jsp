@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ page import="javaResources.model.CursoModel"%>
+<%@ page import="javaResources.model.InstrutorModel"%>
+<%@ page import="javaResources.model.TurmaModel"%>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>Ver Curso | Cursos Lero Lero</title>
+	<title>Ver Turma | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -72,22 +76,21 @@
         <div class="container">
             <div class="mb-3 text-center">
                 <span class="h6 uppercase">O que ensinamos</span>
-                <h2 class="display-4 text-primary">${ curso.nome }</h2>
+                <h2 class="display-4 text-primary">${ cursoNome }</h2>
             </div>
             <div class="row">
 					<div class="col-lg-5 col-md-6 col-12 my-4" style="max-width: 400px; margin: 0 auto;">
 						<div class="card">
 							<img src="webResources/img/curso-js.jpg" alt="Curso" class="card-img-top">
-	
+							
 							<div class="card-body">
-								<p>Instrutor:</p>
-								<p class="card-text">requisito: <span>${ curso.requisito }</span></p>
-								<p class="card-text">ementa: <span>${ curso.ementa }</span></p>
-								<p class="card-text">carga horária: <span>${ curso.cargaHoraria }</span> horas</p>
-								<p class="card-text">preço: R$<span>${ curso.preco }</span></p>
+								<p class="card-text">Instrutor: <span>${ instrutorNome }</span></p>
+								<p class="card-text">Carga horária: <span>${ turma.cargaHoraria }</span> horas</p>
+								<p class="card-text">Data de início: <span>${ turma.dataInicio }</span></p>
+								<p class="card-text">Data de final: <span>${ turma.dataFinal }</span></p>
 								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
-								<a href="/cursosLeroLero/LogicaServlet?logica=MostrarCursoLogica&id=${ curso.id }" class="btn btn-primary btn-sm">Alterar</a>
-								<a href="/cursosLeroLero/LogicaServlet?logica=DeleteCursoLogica&id=${ curso.id }" class="btn btn-primary btn-sm">Deletar</a>
+								<a href="/cursosLeroLero/LogicaServlet?logica=MostrarTurmaLogica&id=${ turma.id }" class="btn btn-primary btn-sm">Alterar</a>
+								<a href="/cursosLeroLero/LogicaServlet?logica=DeleteTurmaLogica&id=${ turma.id }" class="btn btn-primary btn-sm">Deletar</a>
 							</div>
 						</div>
 					</div>
