@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,58 +12,8 @@
 </head>
 
 <body>
-	<header>
-		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
-			<div class="container">
-				<a class="navbar-brand" href="Index.jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+	<c:import url="../../include/Header.jsp" />
 	
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="Index.jsp">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="Sobre.jsp">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaCursosLogica">Instrutores</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
-                        </li>
-                    	<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Cursos
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="Cursos.jsp">Cursos</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">HTML e CSS</a>
-								<a class="dropdown-item" href="#">Javascript</a>
-								<a class="dropdown-item" href="#">Bootstrap</a>
-								<a class="dropdown-item" href="#">WordPress</a>
-							</div>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Login.jsp">Login</a>
-						</li>
-						<li class="nav-item">
-							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
 	<section>
 		<div class="container py-5">
 			<h1 class=" text-primary display-4">Alterar curso</h1>
