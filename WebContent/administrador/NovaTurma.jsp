@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ page import="javaResources.model.CursoModel"%>
+    <%@ page import="javaResources.model.InstrutorModel"%>
+    <%@ page import="java.util.List" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,25 +20,32 @@
 		<div class="container py-5">
 			<h1 class=" text-primary display-4">Nova turma</h1>
 			<p class="lead">Cadastre sua turma para poder dar aulas!</p>
-			<form class="py-3 novaturma" action="AdminServlet" name='novaturma'>
+			<form class="py-3 novaturma" name='novaturma' action="AdminServlet" method="POST">
+				<input type="hidden" name="logica" value="InserirTurmaAdmin">
 				<div class="form-group">
-					<label for="exampleInputName">ID do instrutor *</label>
-					<input type="text" class="form-control" id="exampleInputName" name='instrutor' aria-describedby="nameHelp"
-						placeholder="Digite o nome do instrutor">
+					<label for="exampleInputCPF">ID do instrutor *</label>
+					<select name='instrutores_id'>
+					<% for(InstrutorModel instrutor : new InstrutorModel().listarTodosInstrutoresModel()) { %>
+						<option name="instrutores_id" value="<%out.print(instrutor.getId()); %>"><%out.print(instrutor.getNome()); %></option>
+					<%} %> 
+					</select>
 				</div>
 				<div class="form-group">
 					<label for="exampleInputCPF">ID do curso *</label>
-					<input type="text" class="form-control" id="exampleInputCPF" name='curso' aria-describedby="cpfHelp"
-						placeholder="Digite o nome do curso">
+					<select name='cursos_id'>
+					<% for(CursoModel curso : new CursoModel().listarTodosCursosModel()) { %>
+						<option name="cursos_id" value="<%out.print(curso.getId()); %>"><%out.print(curso.getNome()); %></option>
+					<%} %> 
+					</select>
 				</div>
 				<div class="form-group data">
 					<label for="exampleInputPhone">Data de início *</label>
-					<input type="date" class="form-control" id="exampleInputPhone" name='data_inicio' aria-describedby="phoneHelp"
+					<input type="text" class="form-control" id="date" name='data_inicio' aria-describedby="phoneHelp"
 						placeholder="Digite quando irá começar" rows="10">
 				</div>
 				<div class="form-group data">
 					<label for="exampleInputEmail1">Data de fim *</label>
-					<input type="date" class="form-control" id="exampleInputEmail1" name='data_fim' aria-describedby="emailHelp"
+					<input type="text" class="form-control" id="date" name='data_final' aria-describedby="emailHelp"
 						placeholder="Digite quando irá terminar">
 				</div>
 				<div class="form-group">
@@ -47,6 +57,7 @@
 			</form>
 		</div>
 	</section>
+
 
 	<footer class="bg-dark text-white">
 		<div class="container py-4">

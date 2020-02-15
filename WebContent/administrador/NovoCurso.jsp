@@ -18,33 +18,36 @@
 		<div class="container py-5">
 			<h1 class=" text-primary display-4">Novo curso</h1>
 			<p class="lead">Cadastre seu próprio curso!</p>
-			<form class="py-3" action="AdminServlet" name="novocurso" action="AdminServlet" method="POST">
+			<form class="py-3" name="novocurso" id="form-curso" action="AdminServlet" method="POST">
 				<input type="hidden" name="logica" value="InserirCursoAdmin">
 				<div class="form-group">
 					<label for="nome_curso">Nome do curso *</label>
 					<input type="text" class="form-control" name="nome" id="nome" aria-describedby="Digite o nome" placeholder="Digite o nome">
+
 				</div>
 				<div class="form-group">
 					<label for="requisito">Requisito</label>
-					<input type="text" class="form-control" name="requisito" id="requisito" aria-describedby="Digite o requisito" placeholder="Digite o requisito">
+					<input type="text" class="form-control" name="requisito" id="requisito" aria-describedby="cpfHelp" placeholder="Digite o requisito">
 				</div>
 				<div class="form-group">
 					<label for="ementa">Ementa</label>
-					<textarea type="text" class="form-control" name="ementa" id="ementa" aria-describedby="Digite a ementa" placeholder="Digite a ementa" rows="10"></textarea>
+					<textarea type="text" class="form-control" name="ementa" id="ementa" aria-describedby="phoneHelp" placeholder="Digite a ementa" rows="10"></textarea>
 				</div>
 				<div class="form-group">
 					<label for="carga_horaria">Carga horária</label>
-					<input type="text" class="form-control" name="carga_horaria" id="carga_horaria" aria-describedby="Digite a carga horário" placeholder="Digite a carga horário">
+					<input type="text" class="form-control" name="carga_horaria" id="carga_horaria" aria-describedby="emailHelp"
+						placeholder="Digite a carga horário">
 				</div>
 				<div class="form-group">
 					<label for="preco">Preço</label>
 					<input type="text" class="form-control" id="preco" name="preco" placeholder="Digite o preço">
+
 				</div>
 				<button type="submit" class="btn btn-primary my-3">Cadastrar curso</button>
 			</form>
 		</div>
 	</section>
-
+	
 	<footer class="bg-dark text-white">
 		<div class="container py-4">
 			<div class="row">

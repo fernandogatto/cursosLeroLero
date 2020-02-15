@@ -24,7 +24,7 @@
 						<a class="nav-link" href="/cursosLeroLero/Comentarios.jsp">Comentários</a>
                        </li>
                    	<li class="nav-item">
-						<a class="nav-link" href="/cursosLeroLero/Cursos.jsp">Cursos</a>
+						<a class="nav-link" href="/cursosLeroLero/LogicaServlet?logica=ListaCursosLogica">Cursos</a>
                        </li>
                        <%if(session.getAttribute("administrador") != null) { %>
                        <li class="nav-item dropdown">
