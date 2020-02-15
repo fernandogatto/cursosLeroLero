@@ -81,6 +81,7 @@ public class CursoDAO {
             	curso.setEmenta(rs.getString("ementa"));
             	curso.setCargaHoraria(rs.getInt("carga_horaria"));
             	curso.setPreco(rs.getDouble("preco"));
+            	
             	cursos.add(curso);
             }        	
         } catch(Exception e) {

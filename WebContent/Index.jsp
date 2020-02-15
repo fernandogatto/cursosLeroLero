@@ -1,5 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="javaResources.model.CursoModel"%>
+<%@ page import="javaResources.model.InstrutorModel"%>
+<%@ page import="javaResources.model.TurmaModel"%>
+<%@ page import="java.util.List" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -83,61 +90,30 @@
 		<div class="container">
 			<div class="mb-3 text-center">
 				<span class="h6 uppercase">O que ensinamos</span>
-				<h2 class="display-4 text-primary">Nossos Cursos</h2>
+				<h2 class="display-4 text-primary">Nossas Turmas</h2>
 			</div>
-
+			
 			<div class="row">
-				<div class="col-lg-3 col-md-6 col-12 my-2">
-					<div class="card">
-						<img src="webResources/img/curso-html-css.jpg" alt="curso de html e css" class="card-img-top">
-
-						<div class="card-body">
-							<h3 class="card-title h5">HTML e CSS</h3>
-							<p class="info text-secondary">24 aulas | 1 hora | Intermediário</p>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<a href="#" class="btn btn-outline-primary">Inscreva-se</a>
+				<% for(TurmaModel turma : new TurmaModel().listarTodasTurmasModel()) { 
+					CursoModel curso = new CursoModel().listarCursoPorIdModel(turma.getIdCurso());
+					String cursoNome = curso.getNome();
+					InstrutorModel instrutor = new InstrutorModel().listarInstrutorPorIdModel(turma.getIdInstrutor());
+					String instrutorNome = instrutor.getNome();
+				%>	 	
+					<div class="col-lg-4 col-md-6 col-12 my-2">
+						<div class="card">
+							<img src="webResources/img/curso-js.jpg" alt="Turma" class="card-img-top">
+							<div class="card-body">
+								<h3 class="card-title h5"><%out.print(cursoNome);%></h3>
+								<p class="card-title h5"><%out.print(instrutorNome);%></p>
+								<p class="card-text">carga horária: <span><%out.print(turma.getCargaHoraria()); %></span> horas</p>
+								<p class="card-text">Início: <span><%out.print(turma.getDataInicio());%></span></p>
+								<p class="card-text">Fim: <span><%out.print(turma.getDataFinal());%></span></p>
+								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
+							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 col-12 my-2">
-					<div class="card">
-						<img src="webResources/img/curso-js.jpg" alt="curso de javascript" class="card-img-top">
-
-						<div class="card-body">
-							<h3 class="card-title h5">Javascript</h3>
-							<p class="info text-secondary">24 aulas | 1 hora | Intermediário</p>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<a href="#" class="btn btn-outline-primary">Inscreva-se</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 col-12 my-2">
-					<div class="card">
-						<img src="webResources/img/curso-bootstrap.jpeg" alt="curso de bootstrap" class="card-img-top">
-
-						<div class="card-body">
-							<h3 class="card-title h5">Bootstrap</h3>
-							<p class="info text-secondary">24 aulas | 1 hora | Intermediário</p>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<a href="#" class="btn btn-outline-primary">Inscreva-se</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 col-12 my-2">
-					<div class="card">
-						<img src="webResources/img/curso-wordpress.jpg" alt="curso de wordpress" class="card-img-top">
-
-						<div class="card-body">
-							<h3 class="card-title h5">WordPress</h3>
-							<p class="info text-secondary">24 aulas | 1 hora | Intermediário</p>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<a href="#" class="btn btn-outline-primary">Inscreva-se</a>
-						</div>
-					</div>
-				</div>
+				<%} %>	
 			</div>
 		</div>
 	</section>

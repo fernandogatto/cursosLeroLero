@@ -37,7 +37,7 @@ public class InserirAlunoLogica implements LogicaInterface {
 		
 		aluno.insertAlunoModel();
 		
-		return "AdminServlet?logica=ListaRegistrosAdmin";
+		return "Index.jsp";
 	}
 
 }
