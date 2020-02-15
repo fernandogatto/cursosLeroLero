@@ -9,8 +9,8 @@
 	<title>Instrutores | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="webResources/css/bootstrap.css">
-	<link rel="stylesheet" href="webResources/css/style.css">
+	<link rel="stylesheet" href="../webResources//css/bootstrap.css">
+	<link rel="stylesheet" href="../webResources//css/style.css">
 </head>
 
 <body>
@@ -36,16 +36,14 @@
 			 	</thead>
 				 <tbody>
 					<c:forEach var="instrutor" items="${ instrutores }" >
-						<c:if test = "${instrutor.aprovado }">
-						    <tr>
-						      <th scope="row">${ instrutor.id }</th>
-						      <td>${ instrutor.nome }</td>
-						      <td>${ instrutor.email }</td>
-						      <td><a href="#" class="btn btn-primary btn-sm">Ver</a></td>
-						      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=MostrarInstrutorAdmin&id=${ instrutor.id }" class="btn btn-primary btn-sm">Alterar</a></td>
-						      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteinstrutorAdmin&id=${ instrutor.id }" class="btn btn-primary btn-sm">Deletar</a></td>
-						    </tr>
-					  	</c:if>
+					    <tr>
+					      <th scope="row">${ instrutor.id }</th>
+					      <td>${ instrutor.nome }</td>
+					      <td>${ instrutor.email }</td>
+					      <td><a href="#" class="btn btn-primary btn-sm">Ver</a></td>
+					      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=MostrarInstrutorAdmin&id=${ instrutor.id }" class="btn btn-primary btn-sm">Alterar</a></td>
+					      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteInstrutorAdmin&id=${ instrutor.id }" class="btn btn-primary btn-sm">Deletar</a></td>
+					    </tr>
 					</c:forEach>
 				</tbody>
 			</table>
@@ -94,8 +92,10 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
-	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
-	<script type="text/javascript" src="webResources/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../webResources//js/jquery.min.js"></script>
+	<script type="text/javascript" src="../webResources//js/popper.min.js"></script>
+	<script type="text/javascript" src="../webResources//js/bootstrap.js"></script>
+	<script type="text/javascript" src="../webResources//js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="../webResources//js/masks-input.js"></script>
 </body>
 </html>

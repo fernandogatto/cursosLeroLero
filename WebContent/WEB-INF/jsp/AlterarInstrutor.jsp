@@ -30,11 +30,6 @@
 						placeholder="Digite seu email" value="${ instrutor.email }">
 				</div>
 				<div class="form-group">
-					<label for="exampleInputPhone">Valor hora</label>
-					<input type="number" class="form-control" id="valorHoraInstrutor" name="valor_hora" aria-describedby="phoneHelp"
-						placeholder="Digite o valor da sua hora" rows="10" value="${ instrutor.valorHora }">
-				</div>
-				<div class="form-group">
 					<label for="exampleInputEmail1">Login *</label>
 					<input type="text" class="form-control" id="loginInstrutor" name='login' aria-describedby="emailHelp"
 						placeholder="Digite seu nome para login" value="${ instrutor.login }">

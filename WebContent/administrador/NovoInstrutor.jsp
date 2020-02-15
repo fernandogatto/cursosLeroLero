@@ -18,7 +18,7 @@
 			<h1 class=" text-primary display-4">Novo instrutor</h1>
 			<p class="lead">Cadastre-se para poder dar aulas!</p>
 			<form class="py-3" name='novoinstrutor' action="AdminServlet" method="POST">
-				<input type="hidden" name="logica" value="InserirAlunoAdmin">
+				<input type="hidden" name="logica" value="InserirInstrutorAdmin">
 				<div class="form-group">
 					<label for="nome">Nome completo *</label>
 					<input type="text" class="form-control" id="nomeInstrutor" name='nome' aria-describedby="nameHelp"
@@ -28,11 +28,6 @@
 					<label for="email">Email *</label>
 					<input type="email" class="form-control" id="emailInstrutor" name="email" aria-describedby="cpfHelp"
 						placeholder="Digite seu email">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPhone">Valor hora</label>
-					<input type="number" class="form-control" id="valorHoraInstrutor" name="valor_hora" aria-describedby="phoneHelp"
-						placeholder="Digite o valor da sua hora" rows="10">
 				</div>
 				<div class="form-group">
 					<label for="exampleInputEmail1">Login *</label>

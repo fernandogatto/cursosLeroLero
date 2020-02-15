@@ -39,7 +39,7 @@
 							<a href="/cursosLeroLero/LogicaServlet?logica=MostrarInstrutorLogica&id=${ instrutor.id }" class="btn btn-primary btn-sm">Alterar</a>
 							<% } %>
 							<% if(session.getAttribute("administrador") != null) { %>
-							<a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteInstrutorLogica&id=${ instrutor.id }" class="btn btn-primary btn-sm">Deletar</a>
+							<a href="/cursosLeroLero/LogicaServlet?logica=DeleteInstrutorLogica&id=${ instrutor.id }" class="btn btn-primary btn-sm">Deletar</a>
 							<% } %>
 						</div>
 					</div>

@@ -1,4 +1,4 @@
-package javaResources.controller.servlet.function;
+package javaResources.controller.servlet.administrador.function;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,20 +6,18 @@ import javax.servlet.http.HttpServletResponse;
 import javaResources.controller.servlet.LogicaInterface;
 import javaResources.model.InstrutorModel;
 
-public class AlterarInstrutorLogica implements LogicaInterface {
+public class InserirInstrutorAdmin implements LogicaInterface {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		int id = Integer.parseInt(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
-		int valorHora = 100;
+		int valorHora = 100; // valor fixo
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String experiencia = request.getParameter("experiencia");
 		
 		InstrutorModel instrutor = new InstrutorModel();
-		instrutor.setId(id);
 		instrutor.setNome(nome);
 		instrutor.setEmail(email);
 		instrutor.setValorHora(valorHora);
@@ -27,9 +25,9 @@ public class AlterarInstrutorLogica implements LogicaInterface {
 		instrutor.setSenha(senha);
 		instrutor.setExperiencia(experiencia);
 		
-		instrutor.alterarInstrutorModel();
+		instrutor.inserirInstrutorModel();
 		
-		return "LogicaServlet?logica=ListaInstrutoresLogica";
+		return "AdminServlet?logica=ListaInstrutoresAdmin";
 	}
-
+	
 }
