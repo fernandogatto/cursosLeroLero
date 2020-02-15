@@ -14,7 +14,7 @@
 </head>
 
 <body>
-	<c:import url="../include/Header.jsp" />
+	<c:import url="../include/HeaderAdmin.jsp" />
 
 	<section class="instrutores py-5">
 		<div class="container">

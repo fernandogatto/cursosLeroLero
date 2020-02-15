@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../webResources/css/style.css">
 </head>
 <body>
-	<c:import url="../include/Header.jsp" />
+	<c:import url="../include/HeaderAdmin.jsp" />
 
 </body>
 </html>

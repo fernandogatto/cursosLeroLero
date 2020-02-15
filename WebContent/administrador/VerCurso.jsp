@@ -14,36 +14,31 @@
 	<c:import url="../include/HeaderAdmin.jsp" />
 	
 	<section class="cursos py-5">
-		<div class="container">
-			<div class="mb-3 text-center">
-				<span class="h6 uppercase">O que ensinamos</span>
-				<h2 class="display-4 text-primary">Nossos Cursos</h2>
+        <div class="container">
+            <div class="mb-3 text-center">
+                <span class="h6 uppercase">O que ensinamos</span>
+                <h2 class="display-4 text-primary">${ curso.nome }</h2>
+            </div>
+            
+            <div class="row">
+					<div class="col-lg-5 col-md-6 col-12 my-4" style="max-width: 500px; margin: 0 auto;">
+						<div class="card">
+							<img src="webResources/img/curso-js.jpg" alt="Curso" class="card-img-top">
+	
+							<div class="card-body">
+								<p class="card-text">requisito: <span>${ curso.requisito }</span></p>
+								<p class="card-text">ementa: <span>${ curso.ementa }</span></p>
+								<p class="card-text">carga horária: <span>${ curso.cargaHoraria }</span> horas</p>
+								<p class="card-text">preço: R$<span>${ curso.preco }</span></p>
+								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
+								<td><a href="/cursosLeroLero/administrador/AdminServlet?logica=MostrarCursoAdmin&id=${ curso.id }" class="btn btn-primary btn-sm">Alterar</a></td>
+	  					      	<td><a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteCursoAdmin&id=${ curso.id }" class="btn btn-primary btn-sm">Deletar</a></td>
+							</div>
+						</div>
+					</div>
 			</div>
-			
-			<table class="table">
-		 		<thead>
-			    	<tr>
-				      	<th scope="col">ID</th>
-				      	<th scope="col">Nome</th>
-				        <th scope="col">Ver</th>
-				    	<th scope="col">Alterar</th>
-				    	<th scope="col">Deletar</th>
-			    	</tr>
-			 	</thead>
-				 <tbody>
-					<c:forEach var="curso" items="${ cursos }" >
-					    <tr>
-					      <th scope="row">${ curso.id }</th>
-					      <td>${ curso.nome }</td>
-					      <td><a href="#" class="btn btn-primary btn-sm">Ver</a></td>
-					      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=MostrarCursoAdmin&id=${ curso.id }" class="btn btn-primary btn-sm">Alterar</a></td>
-					      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteCursoAdmin&id=${ curso.id }" class="btn btn-primary btn-sm">Deletar</a></td>
-					    </tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
-	</section>
+        </div>
+    </section>
 	
 	<footer class="bg-dark text-white">
 		<div class="container py-4">

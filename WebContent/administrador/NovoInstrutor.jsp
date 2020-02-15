@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<c:import url="../include/Header.jsp" />
+	<c:import url="../include/HeaderAdmin.jsp" />
 	<section>
 		<div class="container py-5">
 			<h1 class=" text-primary display-4">Novo instrutor</h1>

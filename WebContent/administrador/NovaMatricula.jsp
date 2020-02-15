@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<c:import url="../include/Header.jsp" />
+	<c:import url="../include/HeaderAdmin.jsp" />
 
 	<section>
 		<div class="container py-5">

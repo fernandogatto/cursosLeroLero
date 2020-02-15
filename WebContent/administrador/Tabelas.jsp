@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<c:import url="../include/Header.jsp" />
+	<c:import url="../include/HeaderAdmin.jsp" />
 
     <section>
         <div class="container py-5 my-2">
@@ -21,7 +21,6 @@
                 <a href="/cursosLeroLero/administrador/NovoCurso.jsp" class="btn btn-outline-primary mr-3">Novo curso</a>
                 <a href="/cursosLeroLero/administrador/NovoInstrutor.jsp" class="btn btn-outline-primary mr-3">Novo instrutor</a>
                 <a href="/cursosLeroLero/administrador/NovaTurma.jsp" class="btn btn-outline-primary mr-3">Nova turma</a>
-                <a href="/cursosLeroLero/administrador/NovoAdmin.jsp" class="btn btn-outline-primary mr-3">Novo admin</a>
 				<a href="/cursosLeroLero/administrador/NovoAluno.jsp" class="btn btn-outline-primary mr-3">Novo aluno</a>
                 <a href="/cursosLeroLero/administrador/NovaMatricula.jsp" class="btn btn-outline-primary">Nova matrícula</a>
             </div>

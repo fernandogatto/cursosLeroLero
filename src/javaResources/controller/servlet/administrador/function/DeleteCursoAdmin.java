@@ -1,21 +1,21 @@
 package javaResources.controller.servlet.administrador.function;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import javaResources.controller.servlet.LogicaInterface;
 import javaResources.model.CursoModel;
 
-public class ListaCursosAdmin implements LogicaInterface {
+public class DeleteCursoAdmin implements LogicaInterface {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		List<CursoModel> cursos = new CursoModel().listarTodosCursosModel();
-		request.setAttribute("cursos", cursos);
+		int id = Integer.parseInt(request.getParameter("id"));
+		CursoModel curso = new CursoModel();
+		curso.setId(id);
+		curso.deletarCursoModel();
 		
-		return "/administrador/Cursos.jsp";
+		return "AdminServlet?logica=ListaCursosAdmin";
 	}
-
+	
 }

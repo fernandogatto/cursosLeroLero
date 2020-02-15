@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>Novo Aluno | Cursos Lero Lero</title>
+	<title>Alterar Curso | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="../webResources/css/bootstrap.css">
@@ -16,49 +16,30 @@
 
 	<section>
 		<div class="container py-5">
-			<h1 class=" text-primary display-4">Novo aluno</h1>
-			<p class="lead">Cadastre-se!</p>
-			<form class="py-3" id="form-aluno" name='novoaluno' action="AdminServlet" method="POST">
-				<input type="hidden" name="logica" value="InserirAlunoAdmin">
+			<h1 class=" text-primary display-4">Alterar curso</h1>
+			<p class="lead">Altere os dados!</p>
+			<form class="py-3" name='novocurso' action="AdminServlet" method="POST">
+				<input type="hidden" name="logica" value="AlterarCursoAdmin">
+				<input type="hidden" name="id" value="${ id }">
 				<div class="form-group">
-					<label for="cpf">CPF*</label>
-					<input type="text" class="form-control cpf" id="cpfAluno" name="cpf" aria-describedby="cpfHelp"	placeholder="Digite seu CPF">
+					<label for="nome">Nome completo *</label>
+					<input type="text" class="form-control" id="nomeCurso" name='nome' aria-describedby="Digite o nome" placeholder="Digite o nome" value="${ curso.nome }">
 				</div>
 				<div class="form-group">
-					<label for="nome">Nome*</label>
-					<input type="text" class="form-control" id="nomeAluno" name="nome" aria-describedby="nameHelp" placeholder="Digite seu nome">
+					<label for="email">Requisito *</label>
+					<input type="text" class="form-control" id="requisitoCurso" name="requisito" aria-describedby="Digite o requisito" placeholder="Digite o requisito" value="${ curso.requisito }">
 				</div>
 				<div class="form-group">
-					<label for="email">Email*</label>
-					<input type="email" class="form-control" id="emailAluno" name="email" aria-describedby="emailHelp" placeholder="Digite seu email" rows="10">
+					<label for="exampleInputPhone">Ementa *</label>
+					<input type="text" class="form-control" id="ementaCurso" name="ementa" aria-describedby="Digite a ementa" placeholder="Digite a ementa" rows="10" value="${ curso.ementa }"></input>
 				</div>
 				<div class="form-group">
-					<label for="celular">Celular*</label>
-					<input type="text" class="form-control cellphone_with_ddd" id="celularAluno" name="celular" aria-describedby="phoneHelp" placeholder="Digite seu número de celular">
-                </div>
-				<div class="form-group">
-					<label for="endereco">Endereço*</label>
-					<input type="text" class="form-control" id="enderecoAluno" name="endereco" aria-describedby="addressHelp" placeholder="Digite seu endereço">
+					<label for="exampleInputEmail1">Carga Horaria *</label>
+					<input type="text" class="form-control" id="cargaHorariaCurso" name='carga_horaria' aria-describedby="Digite a carga horária" placeholder="Digite a carga horária" value="${ curso.cargaHoraria }">
 				</div>
 				<div class="form-group">
-					<label for="cidade">Cidade*</label>
-					<input type="text" class="form-control" id="cidadeAluno" name="cidade" aria-describedby="cityHelp" placeholder="Digite sua cidade">
-				</div>
-				<div class="form-group">
-					<label for="bairro">Bairro*</label>
-					<input type="text" class="form-control" id="bairroAluno" name="bairro" aria-describedby="neighborhoodHelp" placeholder="Digite seu bairro">
-				</div>
-				<div class="form-group">
-					<label for="cep">CEP*</label>
-					<input type="text" class="form-control cep" id="cepAluno" name="cep" aria-describedby="cepHelp" placeholder="Digite seu CEP">
-				</div>
-				<div class="form-group">
-					<label for="login">Login*</label>
-					<input type="text" class="form-control" id="loginAluno" name="login" aria-describedby="loginHelp" placeholder="Digite seu usuário para login">
-				</div>
-				<div class="form-group">
-					<label for="senha">Senha*</label>
-					<input type="password" class="form-control" id="senhaAluno" name="senha" aria-describedby="passwordHelp" placeholder="Escolha uma senha">
+					<label for="exampleInputPassword1">Preço *</label>
+					<input type="text" class="form-control" id="precoCurso" name="preco" aria-describedby="Digite o preço" placeholder="Digite o preço" value="${ curso.preco }">
 				</div>
 				<button type="submit" class="btn btn-primary my-3">Salvar</button>
 			</form>
@@ -111,8 +92,8 @@
 	<script type="text/javascript" src="../webResources/js/popper.min.js"></script>
     <script type="text/javascript" src="../webResources/js/bootstrap.js"></script>
     <script type="text/javascript" src="../webResources/js/jquery.mask.min.js"></script>
-	<script type="text/javascript" src="../webResources/js/masks-input.js"></script>
+    <script type="text/javascript" src="../webResources/js/masks-input.js"></script>
 	<script type="text/javascript" src="../webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="../webResources/js/validation-aluno.js"></script>
+	<script type="text/javascript" src="../webResources/js/validation-instrutor.js"></script>
 </body>
 </html>
