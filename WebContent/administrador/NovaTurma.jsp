@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ page import="javaResources.model.CursoModel"%>
-    <%@ page import="javaResources.model.InstrutorModel"%>
-    <%@ page import="java.util.List" %>
+<%@ page import="javaResources.model.CursoModel"%>
+<%@ page import="javaResources.model.InstrutorModel"%>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,7 +22,7 @@
 			<form class="py-3 novaturma" name='novaturma' action="AdminServlet" method="POST">
 				<input type="hidden" name="logica" value="InserirTurmaAdmin">
 				<div class="form-group">
-					<label for="exampleInputCPF">ID do instrutor *</label>
+					<label for="exampleInputCPF">Intrutor *</label>
 					<select name='instrutores_id'>
 					<% for(InstrutorModel instrutor : new InstrutorModel().listarTodosInstrutoresModel()) { %>
 						<option name="instrutores_id" value="<%out.print(instrutor.getId()); %>"><%out.print(instrutor.getNome()); %></option>
@@ -31,7 +30,7 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<label for="exampleInputCPF">ID do curso *</label>
+					<label for="exampleInputCPF">Curso *</label>
 					<select name='cursos_id'>
 					<% for(CursoModel curso : new CursoModel().listarTodosCursosModel()) { %>
 						<option name="cursos_id" value="<%out.print(curso.getId()); %>"><%out.print(curso.getNome()); %></option>
@@ -40,20 +39,17 @@
 				</div>
 				<div class="form-group data">
 					<label for="exampleInputPhone">Data de início *</label>
-					<input type="text" class="form-control" id="date" name='data_inicio' aria-describedby="phoneHelp"
-						placeholder="Digite quando irá começar" rows="10">
+					<input type="text" class="form-control" id="dataInicio" name='data_inicio' aria-describedby="Digite quando irá começar" placeholder="Digite quando irá começar" rows="10">
 				</div>
 				<div class="form-group data">
 					<label for="exampleInputEmail1">Data de fim *</label>
-					<input type="text" class="form-control" id="date" name='data_final' aria-describedby="emailHelp"
-						placeholder="Digite quando irá terminar">
+					<input type="text" class="form-control" id="dataFinal" name='data_final' aria-describedby="Digite quando irá terminar" placeholder="Digite quando irá terminar">
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1">Carga horária</label>
-					<input type="number" class="form-control" id="exampleInputPassword1" name='carga_horaria' 
-						placeholder="Digite a carga horária do seu curso">
+					<input type="number" class="form-control" id="exampleInputPassword1" name='carga_horaria' placeholder="Digite a carga horária do seu curso">
 				</div>
-				<button type="submit" class="btn btn-primary my-3">Cadastrar turma</button>
+				<button type="submit" class="btn btn-primary my-3">Cadastrar</button>
 			</form>
 		</div>
 	</section>
@@ -105,6 +101,6 @@
 	<script type="text/javascript" src="../webResources/js/popper.min.js"></script>
 	<script type="text/javascript" src="../webResources/js/bootstrap.js"></script>
 	<script type="text/javascript" src="../webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="../webResources/js/validation-turma.js"></script>
+	<!-- <script type="text/javascript" src="../webResources/js/validation-turma.js"></script>  -->
 </body>
 </html>

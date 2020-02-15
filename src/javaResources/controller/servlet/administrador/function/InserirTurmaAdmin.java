@@ -1,4 +1,4 @@
-package javaResources.controller.servlet.function;
+package javaResources.controller.servlet.administrador.function;
 
 import java.text.SimpleDateFormat;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javaResources.controller.servlet.LogicaInterface;
 import javaResources.model.TurmaModel;
 
-public class InserirTurmaLogica implements LogicaInterface {
+public class InserirTurmaAdmin implements LogicaInterface {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -28,7 +28,7 @@ public class InserirTurmaLogica implements LogicaInterface {
 		
 		turma.inserirTurmaModel();
 		
-		return "TurmaAdicionada.jsp";
+		return "AdminServlet?logica=ListaTurmasAdmin";
 	}
 
 }
