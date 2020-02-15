@@ -35,7 +35,7 @@
 					    <tr>
 					      <th scope="row">${ curso.id }</th>
 					      <td>${ curso.nome }</td>
-					      <td><a href="#" class="btn btn-primary btn-sm">Ver</a></td>
+					      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=VerCursoAdmin&id=${ curso.id }" class="btn btn-primary btn-sm">Ver</a></td>
 					      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=MostrarCursoAdmin&id=${ curso.id }" class="btn btn-primary btn-sm">Alterar</a></td>
 					      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteCursoAdmin&id=${ curso.id }" class="btn btn-primary btn-sm">Deletar</a></td>
 					    </tr>
