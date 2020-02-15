@@ -14,8 +14,7 @@ public class InserirCursoAdmin implements LogicaInterface {
 		String requisito = request.getParameter("requisito");
 		String ementa = request.getParameter("ementa");
 		int cargaHoraria = Integer.parseInt(request.getParameter("carga_horaria"));
-		String precoString = request.getParameter("preco");
-		double preco = Double.parseDouble(precoString.substring (0, precoString.length() - 2).replaceAll("[,]", ""));
+		double preco = Double.parseDouble(request.getParameter("preco"));
 		
 		CursoModel curso = new CursoModel();
 		curso.setNome(nome);

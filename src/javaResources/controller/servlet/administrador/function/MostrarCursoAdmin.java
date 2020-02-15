@@ -12,8 +12,10 @@ public class MostrarCursoAdmin implements LogicaInterface {
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int id = Integer.parseInt(request.getParameter("id"));
 		CursoModel curso = new CursoModel().listarCursoPorIdModel(id);
+		String precoString = Double.toString(curso.getPreco()).replace(".", "");
 		request.setAttribute("curso", curso);
 		request.setAttribute("id", id);
+		request.setAttribute("precoCurso",precoString);
 		
 		return "/administrador/AlterarCurso.jsp";
 	}

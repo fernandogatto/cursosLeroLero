@@ -22,7 +22,7 @@
 				<input type="hidden" name="logica" value="InserirCursoAdmin">
 				<div class="form-group">
 					<label for="nome_curso">Nome do curso *</label>
-					<input type="text" class="form-control" name="nome_curso" id="nome_curso" aria-describedby="Digite o nome" placeholder="Digite o nome">
+					<input type="text" class="form-control" name="nome" id="nome" aria-describedby="Digite o nome" placeholder="Digite o nome">
 				</div>
 				<div class="form-group">
 					<label for="requisito">Requisito</label>
@@ -38,7 +38,7 @@
 				</div>
 				<div class="form-group">
 					<label for="preco">Preço</label>
-					<input type="text" class="form-control money" id="preco" name="preco" placeholder="Digite o preço">
+					<input type="text" class="form-control" id="preco" name="preco" placeholder="Digite o preço">
 				</div>
 				<button type="submit" class="btn btn-primary my-3">Cadastrar curso</button>
 			</form>

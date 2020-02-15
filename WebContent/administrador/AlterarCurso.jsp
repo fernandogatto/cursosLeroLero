@@ -39,7 +39,7 @@
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1">Preço *</label>
-					<input type="text" class="form-control" id="precoCurso" name="preco" aria-describedby="Digite o preço" placeholder="Digite o preço" value="${ curso.preco }">
+					<input type="text" class="form-control" id="precoCurso" name="preco" aria-describedby="Digite o preço" placeholder="Digite o preço" value="<% out.println(request.getAttribute("precoCurso")); %>">
 				</div>
 				<button type="submit" class="btn btn-primary my-3">Salvar</button>
 			</form>

@@ -3,7 +3,7 @@ $(document).ready(function () {
   $(function () {
     $("form[name='novocurso']").validate({
       rules: {
-        nome_curso: {required: true, minlength: 3, maxlength: 50},
+        nome: {required: true, minlength: 3, maxlength: 50},
         requisito: {maxlength: 255},
         ementa: {maxlength: 255},
       },
