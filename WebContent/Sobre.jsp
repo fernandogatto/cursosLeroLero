@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,64 +12,13 @@
 </head>
 
 <body>
-	<header>
-		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
-			<div class="container">
-				<a class="navbar-brand" href="index.html"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="Index.jsp">Home</a>
-						</li>
-						<li class="nav-item active">
-							<a class="nav-link" href="Sobre.jsp">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Comentarios.jsp">Coment·rios</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
-                        </li>
-                    	<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Cursos
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="Cursos.jsp">Cursos</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">HTML e CSS</a>
-								<a class="dropdown-item" href="#">Javascript</a>
-								<a class="dropdown-item" href="#">Bootstrap</a>
-								<a class="dropdown-item" href="#">WordPress</a>
-							</div>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Login.jsp">Login</a>
-						</li>
-						<li class="nav-item">
-							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
+	<c:import url="include/Header.jsp" />
 
 	<section class="sobre py-5">
 		<div class="container">
 			<div class="mb-3 text-center">
 				<span class="h6 uppercase">Quem somos</span>
-				<h2 class="display-4 text-primary">Nossa HistÛria</h2>
+				<h2 class="display-4 text-primary">Nossa Hist√≥ria</h2>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus possimus, cumque dignissimos eos quae minus, sequi a dolor quo nesciunt vitae debitis iusto et tempora corporis. Nisi veniam amet quidem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus possimus, cumque dignissimos eos quae minus, sequi a dolor quo nesciunt vitae debitis iusto et tempora corporis. Nisi veniam amet quidem.</p>
             <div class="d-flex justify-content-center">
@@ -79,14 +29,14 @@
     
     <section class="perguntas pb-5">
         <div class="my-5 text-center">
-            <span class="h6 uppercase d-block">Est· com d˙vidas?</span>
+            <span class="h6 uppercase d-block">Est√° com d√∫vidas?</span>
             <h2 class="display-4 text-primary">Perguntas frequentes</h2>
         </div>
   
         <div class="row justify-content-center">
             <div class="col-md-6" id="perguntas-frequentes" data-children=".pergunta">
                 <div class="pergunta py-2">
-                    <a href="#pergunta-1" class="lead" data-toggle="collapse" data-parent="#perguntas-frequentes" aria-expanded="true" aria-controls="pergunta-1">Onde È o curso?</a>
+                    <a href="#pergunta-1" class="lead" data-toggle="collapse" data-parent="#perguntas-frequentes" aria-expanded="true" aria-controls="pergunta-1">Onde √© o curso?</a>
                     <div id="pergunta-1" class="collapse show" role="tabpanel">
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, molestias? Laboriosam excepturi cupiditate quia maiores omnis odio, dolorem soluta voluptate optio quisquam incidunt veritatis iure fugiat nihil, alias sed explicabo.</p>
                     </div>
@@ -95,7 +45,7 @@
                 <div class="dropdown-divider"></div>
   
                 <div class="pergunta py-2">
-                    <a href="#pergunta-2" class="lead" data-toggle="collapse" data-parent="#perguntas-frequentes" aria-expanded="false" aria-controls="pergunta-2">Precisa comprar algum material did·tico?</a>
+                    <a href="#pergunta-2" class="lead" data-toggle="collapse" data-parent="#perguntas-frequentes" aria-expanded="false" aria-controls="pergunta-2">Precisa comprar algum material did√°tico?</a>
                     <div id="pergunta-2" class="collapse" role="tabpanel">
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, molestias? Laboriosam excepturi cupiditate quia maiores omnis odio, dolorem soluta voluptate optio quisquam incidunt veritatis iure fugiat nihil, alias sed explicabo.</p>
                     </div>
@@ -113,7 +63,7 @@
                 <div class="dropdown-divider"></div>
 
                 <div class="pergunta py-2">
-                    <a href="#pergunta-4" class="lead" data-toggle="collapse" data-parent="#perguntas-frequentes" aria-expanded="false" aria-controls="pergunta-4">O curso d· direito a bolsa de desconto?</a>
+                    <a href="#pergunta-4" class="lead" data-toggle="collapse" data-parent="#perguntas-frequentes" aria-expanded="false" aria-controls="pergunta-4">O curso d√° direito a bolsa de desconto?</a>
                     <div id="pergunta-4" class="collapse" role="tabpanel">
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, molestias? Laboriosam excepturi cupiditate quia maiores omnis odio, dolorem soluta voluptate optio quisquam incidunt veritatis iure fugiat nihil, alias sed explicabo.</p>
                     </div>
@@ -137,12 +87,12 @@
 				</div>
 
 				<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-					<h4 class="h6 uppercase">P·ginas</h4>
+					<h4 class="h6 uppercase">P√°ginas</h4>
 					<ul class="list-unstyled">
-						<li><a href="Index.jsp">Home</a></li>
-						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="Instrutores.jsp">Instrutores</a></li>
-						<li><a href="Comentarios.jsp">Coment·rios</a></li>
+						<li><a href="/cursosLeroLero/Index.jsp">Home</a></li>
+						<li><a href="/cursosLeroLero/Sobre.jsp">Sobre</a></li>
+						<li><a href="/cursosLeroLero/LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
+						<li><a href="/cursosLeroLero/Comentarios.jsp">Coment√°rios</a></li>
 					</ul>
 				</div>
 
@@ -157,12 +107,9 @@
 				<div class="col-lg-2 col-md-4 col-12" id="rede-social">
 					<h4 class="h6 uppercase">Redes sociais</h4>
 					<ul class="list-unstyled">
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Facebook</a></li>
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Linkedin</a></li>
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Youtube</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Facebook</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Linkedin</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Youtube</a></li>
 					</ul>
 				</div>
 			</div>

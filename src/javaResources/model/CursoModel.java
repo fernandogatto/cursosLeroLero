@@ -1,6 +1,7 @@
 package javaResources.model;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javaResources.dao.CursoDAO;
 
@@ -61,20 +62,24 @@ public class CursoModel {
 		this.preco = preco;
 	}
 	
-	public void insertCursoModel() throws SQLException {
-		new CursoDAO().insertCursoDAO(this);
+	public void inserirCursoModel() throws SQLException {
+		new CursoDAO().inserirCursoDAO(this);
 	}
 	
-	public CursoModel listCursoByIdModel(int id) {
+	public CursoModel listarCursoPorIdModel(int id) {
 		this.setId(id);
-		return new CursoDAO().listCursoByIdDAO(this.getId());
+		return new CursoDAO().listarCursoPorIdDAO(this.getId());
 	}
 	
-	public void updateCursoModel() {
-        new CursoDAO().updateCursoDAO(this);
+	public List<CursoModel> listarTodosCursosModel() {
+		return new CursoDAO().listarTodosCursosDAO();
+	}
+	
+	public void alterarCursoModel() throws Exception {
+        new CursoDAO().alterarCursoDAO(this);
     }
 
-    public void deleteCursoModel() {
-        new CursoDAO().deleteCursoDAO(this.getId());
+    public void deletarCursoModel() {
+        new CursoDAO().deletarCursoDAO(this.getId());
     }
 }

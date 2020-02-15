@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -12,58 +12,7 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
-            <div class="container">
-                <a class="navbar-brand" href="index.html"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-							<a class="nav-link" href="Index.jsp">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="Sobre.jsp">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
-                        </li>
-                        <li class="nav-item active">
-							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
-                        </li>
-                    	<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Cursos
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="Cursos.jsp">Cursos</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">HTML e CSS</a>
-								<a class="dropdown-item" href="#">Javascript</a>
-								<a class="dropdown-item" href="#">Bootstrap</a>
-								<a class="dropdown-item" href="#">WordPress</a>
-							</div>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Login.jsp">Login</a>
-						</li>
-						<li class="nav-item">
-							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
-						</li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <c:import url="include/Header.jsp" />
     
     <section class="comentarios py-5">
 		<div class="container">
@@ -120,10 +69,10 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                     <h4 class="h6 uppercase">Páginas</h4>
                     <ul class="list-unstyled">
-                        <li><a href="Index.jsp">Home</a></li>
-						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="Instrutores.jsp">Instrutores</a></li>
-						<li><a href="Comentarios.jsp">Comentários</a></li>
+                        <li><a href="/cursosLeroLero/Index.jsp">Home</a></li>
+						<li><a href="/cursosLeroLero/Sobre.jsp">Sobre</a></li>
+						<li><a href="/cursosLeroLero/LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
+						<li><a href="/cursosLeroLero/Comentarios.jsp">Comentários</a></li>
                     </ul>
                 </div>
 
@@ -138,12 +87,9 @@
                 <div class="col-lg-2 col-md-4 col-12" id="rede-social">
                     <h4 class="h6 uppercase">Redes sociais</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-                                style="max-width: 140px;">Facebook</a></li>
-                        <li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-                                style="max-width: 140px;">Linkedin</a></li>
-                        <li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-                                style="max-width: 140px;">Youtube</a></li>
+                        <li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Facebook</a></li>
+                        <li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Linkedin</a></li>
+                        <li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Youtube</a></li>
                     </ul>
                 </div>
             </div>

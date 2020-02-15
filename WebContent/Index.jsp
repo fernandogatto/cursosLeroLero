@@ -1,5 +1,12 @@
+<%@ page import="javaResources.model.CursoModel"%>
+<%@ page import="javaResources.model.InstrutorModel"%>
+<%@ page import="javaResources.model.TurmaModel"%>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -12,65 +19,14 @@
 </head>
 
 <body>
-	<header>
-		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
-			<div class="container">
-				<a class="navbar-brand" href="Index.jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active">
-							<a class="nav-link" href="Index.jsp">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="Sobre.jsp">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
-                        </li>
-                    	<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Cursos
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="Cursos.jsp">Cursos</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">HTML e CSS</a>
-								<a class="dropdown-item" href="#">Javascript</a>
-								<a class="dropdown-item" href="#">Bootstrap</a>
-								<a class="dropdown-item" href="#">WordPress</a>
-							</div>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Login.jsp">Login</a>
-						</li>
-						<li class="nav-item">
-							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
+	<c:import url="include/Header.jsp" />
 
 	<section class="intro bg-light">
 		<div class="d-flex flex-row justify-content-center h-100 content">
 			<div class="intro-item align-self-center">
 				<h1 class="display-3 mb-3">Cursos Lero Lero</h1>
 				<p class="lead">Onde a união cria laços e estabelece um novo futuro</p>
-				<a class="btn btn-primary btn-lg" href="Sobre.jsp">Saiba mais</a>
+				<a class="btn btn-primary btn-lg" href="/cursosLeroLero/Sobre.jsp">Saiba mais</a>
 			</div>
 			<div class="intro-item align-self-end">
 				<img src="webResources/img/estudante.png" alt="estudante">
@@ -117,7 +73,7 @@
 						minus eveniet est ratione.</p>
 				</div>
 
-				<a class="btn btn-primary mx-auto" href="Instrutores.jsp">Conheça nossos instrutores</a>
+				<a class="btn btn-primary mx-auto" href="/cursosLeroLero/LogicaServlet?logica=ListaInstrutoresLogica">Conheça nossos instrutores</a>
 			</div>
 		</div>
 	</section>
@@ -134,61 +90,30 @@
 		<div class="container">
 			<div class="mb-3 text-center">
 				<span class="h6 uppercase">O que ensinamos</span>
-				<h2 class="display-4 text-primary">Nossos Cursos</h2>
+				<h2 class="display-4 text-primary">Nossas Turmas</h2>
 			</div>
-
+			
 			<div class="row">
-				<div class="col-lg-3 col-md-6 col-12 my-2">
-					<div class="card">
-						<img src="webResources/img/curso-html-css.jpg" alt="curso de html e css" class="card-img-top">
-
-						<div class="card-body">
-							<h3 class="card-title h5">HTML e CSS</h3>
-							<p class="info text-secondary">24 aulas | 1 hora | Intermediário</p>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<a href="#" class="btn btn-outline-primary">Inscreva-se</a>
+				<% for(TurmaModel turma : new TurmaModel().listarTodasTurmasModel()) { 
+					CursoModel curso = new CursoModel().listarCursoPorIdModel(turma.getIdCurso());
+					String cursoNome = curso.getNome();
+					InstrutorModel instrutor = new InstrutorModel().listarInstrutorPorIdModel(turma.getIdInstrutor());
+					String instrutorNome = instrutor.getNome();
+				%>	 	
+					<div class="col-lg-4 col-md-6 col-12 my-2">
+						<div class="card">
+							<img src="webResources/img/curso-js.jpg" alt="Turma" class="card-img-top">
+							<div class="card-body">
+								<h3 class="card-title h5"><%out.print(cursoNome);%></h3>
+								<p class="card-title h5"><%out.print(instrutorNome);%></p>
+								<p class="card-text">carga horária: <span><%out.print(turma.getCargaHoraria()); %></span> horas</p>
+								<p class="card-text">Início: <span><%out.print(turma.getDataInicio());%></span></p>
+								<p class="card-text">Fim: <span><%out.print(turma.getDataFinal());%></span></p>
+								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
+							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 col-12 my-2">
-					<div class="card">
-						<img src="webResources/img/curso-js.jpg" alt="curso de javascript" class="card-img-top">
-
-						<div class="card-body">
-							<h3 class="card-title h5">Javascript</h3>
-							<p class="info text-secondary">24 aulas | 1 hora | Intermediário</p>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<a href="#" class="btn btn-outline-primary">Inscreva-se</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 col-12 my-2">
-					<div class="card">
-						<img src="webResources/img/curso-bootstrap.jpeg" alt="curso de bootstrap" class="card-img-top">
-
-						<div class="card-body">
-							<h3 class="card-title h5">Bootstrap</h3>
-							<p class="info text-secondary">24 aulas | 1 hora | Intermediário</p>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<a href="#" class="btn btn-outline-primary">Inscreva-se</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 col-12 my-2">
-					<div class="card">
-						<img src="webResources/img/curso-wordpress.jpg" alt="curso de wordpress" class="card-img-top">
-
-						<div class="card-body">
-							<h3 class="card-title h5">WordPress</h3>
-							<p class="info text-secondary">24 aulas | 1 hora | Intermediário</p>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<a href="#" class="btn btn-outline-primary">Inscreva-se</a>
-						</div>
-					</div>
-				</div>
+				<%} %>	
 			</div>
 		</div>
 	</section>
@@ -204,10 +129,10 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 					<h4 class="h6 uppercase">Páginas</h4>
 					<ul class="list-unstyled">
-						<li><a href="Index.jsp">Home</a></li>
-						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="Instrutores.jsp">Instrutores</a></li>
-						<li><a href="Comentarios.jsp">Comentários</a></li>
+						<li><a href="/cursosLeroLero/Index.jsp">Home</a></li>
+						<li><a href="/cursosLeroLero/Sobre.jsp">Sobre</a></li>
+						<li><a href="/cursosLeroLero/LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
+						<li><a href="/cursosLeroLero/Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>
 
@@ -222,12 +147,9 @@
 				<div class="col-lg-2 col-md-4 col-12" id="rede-social">
 					<h4 class="h6 uppercase">Redes sociais</h4>
 					<ul class="list-unstyled">
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Facebook</a></li>
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Linkedin</a></li>
-						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2"
-								style="max-width: 140px;">Youtube</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Facebook</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Linkedin</a></li>
+						<li><a href="#" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="max-width: 140px;">Youtube</a></li>
 					</ul>
 				</div>
 			</div>

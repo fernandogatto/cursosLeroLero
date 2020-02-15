@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,87 +12,53 @@
 </head>
 
 <body>
-	<header>
-		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
-			<div class="container">
-				<a class="navbar-brand" href="index.html"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="Index.jsp">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="Sobre.jsp">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Instrutores.jsp">Instrutores</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
-                        </li>
-                    	<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Cursos
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="Cursos.jsp">Cursos</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">HTML e CSS</a>
-								<a class="dropdown-item" href="#">Javascript</a>
-								<a class="dropdown-item" href="#">Bootstrap</a>
-								<a class="dropdown-item" href="#">WordPress</a>
-							</div>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Login.jsp">Login</a>
-						</li>
-						<li class="nav-item active">
-							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
+	<c:import url="include/Header.jsp" />
 
 	<section>
 		<div class="container py-5">
 			<h1 class=" text-primary display-4">Cadastre-se</h1>
 			<p class="lead">Cria sua conta para acessar nossos cursos!</p>
-			<form class="py-3" id="form-registro" method="POST">
-				<div class="form-group">
-					<label for="nome">Nome completo*</label>
-					<input type="text" class="form-control" id="nome" name="nome" aria-describedby="nameHelp" placeholder="Digite seu nome completo">
-				</div>
+			<form class="py-3" id="form-aluno" name='novoaluno' action="LogicaServlet" method="POST">
+				<input type="hidden" name="logica" value="InserirAlunoLogica">
 				<div class="form-group">
 					<label for="cpf">CPF*</label>
-					<input type="text" class="form-control cpf" id="cpf" name="cpf" aria-describedby="cpfHelp" placeholder="Digite seu CPF">
+					<input type="text" class="form-control cpf" id="cpfAluno" name="cpf" aria-describedby="cpfHelp"	placeholder="Digite seu CPF">
 				</div>
 				<div class="form-group">
-					<label for="celular">Celular*</label>
-					<input type="text" class="form-control cellphone_with_ddd" id="celular" name="celular" aria-describedby="phoneHelp" placeholder="Digite seu celular">
+					<label for="nome">Nome*</label>
+					<input type="text" class="form-control" id="nomeAluno" name="nome" aria-describedby="nameHelp" placeholder="Digite seu nome">
 				</div>
 				<div class="form-group">
 					<label for="email">Email*</label>
-					<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Digite seu email">
+					<input type="email" class="form-control" id="emailAluno" name="email" aria-describedby="emailHelp" placeholder="Digite seu email" rows="10">
+				</div>
+				<div class="form-group">
+					<label for="celular">Celular*</label>
+					<input type="text" class="form-control cellphone_with_ddd" id="celularAluno" name="celular" aria-describedby="phoneHelp" placeholder="Digite seu número de celular">
+                </div>
+				<div class="form-group">
+					<label for="endereco">Endereço*</label>
+					<input type="text" class="form-control" id="enderecoAluno" name="endereco" aria-describedby="addressHelp" placeholder="Digite seu endereço">
+				</div>
+				<div class="form-group">
+					<label for="cidade">Cidade*</label>
+					<input type="text" class="form-control" id="cidadeAluno" name="cidade" aria-describedby="cityHelp" placeholder="Digite sua cidade">
+				</div>
+				<div class="form-group">
+					<label for="bairro">Bairro*</label>
+					<input type="text" class="form-control" id="bairroAluno" name="bairro" aria-describedby="neighborhoodHelp" placeholder="Digite seu bairro">
+				</div>
+				<div class="form-group">
+					<label for="cep">CEP*</label>
+					<input type="text" class="form-control cep" id="cepAluno" name="cep" aria-describedby="cepHelp" placeholder="Digite seu CEP">
+				</div>
+				<div class="form-group">
+					<label for="login">Login*</label>
+					<input type="text" class="form-control" id="loginAluno" name="login" aria-describedby="loginHelp" placeholder="Digite seu usuário para login">
 				</div>
 				<div class="form-group">
 					<label for="senha">Senha*</label>
-					<input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha">
-				</div>
-				<div class="form-check">
-					<input type="checkbox" class="form-check-input" id="check-form-registro">
-					<label class="form-check-label" for="check-form-registro">Lembrar de mim</label>
+					<input type="password" class="form-control" id="senhaAluno" name="senha" aria-describedby="passwordHelp" placeholder="Escolha uma senha">
 				</div>
 				<button type="submit" class="btn btn-primary my-3">Cadastrar</button>
 			</form>
@@ -111,7 +78,7 @@
 					<ul class="list-unstyled">
 						<li><a href="Index.jsp">Home</a></li>
 						<li><a href="Sobre.jsp">Sobre</a></li>
-						<li><a href="Instrutores.jsp">Instrutores</a></li>
+						<li><a href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a></li>
 						<li><a href="Comentarios.jsp">Comentários</a></li>
 					</ul>
 				</div>
@@ -145,10 +112,10 @@
 
 	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
 	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
-	<script type="text/javascript" src="webResources/js/bootstrap.js"></script>
+    <script type="text/javascript" src="webResources/js/bootstrap.js"></script>
     <script type="text/javascript" src="webResources/js/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="webResources/js/masks-input.js"></script>
 	<script type="text/javascript" src="webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="webResources/js/validation-registro.js"></script>
+	<script type="text/javascript" src="webResources/js/validation-aluno.js"></script>
 </body>
 </html>

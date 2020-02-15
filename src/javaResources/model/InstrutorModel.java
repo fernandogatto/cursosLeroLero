@@ -1,6 +1,7 @@
 package javaResources.model;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javaResources.dao.InstrutorDAO;
 
@@ -13,6 +14,11 @@ public class InstrutorModel {
 	private String login;
 	private String senha;
 	private String experiencia;
+	private String tipoUsuario;
+	
+	public InstrutorModel() {
+		this.tipoUsuario = "Instrutor";
+	}
 	
 	public int getId() {
 		return id;
@@ -70,20 +76,32 @@ public class InstrutorModel {
 		this.experiencia = experiencia;
 	}
 	
-	public void insertInstrutorModel() throws SQLException {
-		new InstrutorDAO().insertInstrutorDAO(this);
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+
+	public void inserirInstrutorModel() throws SQLException {
+		new InstrutorDAO().inserirInstrutorDAO(this);
 	}
 	
-	public InstrutorModel listInstrutorByIdModel(int id) {
+	public InstrutorModel listarInstrutorPorIdModel(int id) {
 		this.setId(id);
-		return new InstrutorDAO().listInstrutorByIdDAO(this.getId());
+		return new InstrutorDAO().listarInstrutorPorIdDAO(this.getId());
 	}
 	
-	public void updateInstrutorModel() {
-        new InstrutorDAO().updateInstrutorDAO(this);
+	public List<InstrutorModel> listarTodosInstrutoresModel() {
+		return new InstrutorDAO().listarTodosInstrutoresDAO();
+	}
+	
+	public void alterarInstrutorModel() {
+        new InstrutorDAO().alterarInstrutorDAO(this);
     }
 
-    public void deleteInstrutorModel() {
-        new InstrutorDAO().deleteInstrutorDAO(this.getId());
+    public void deletarInstrutorModel() {
+        new InstrutorDAO().deletarInstrutorDAO(this.getId());
     }
 }

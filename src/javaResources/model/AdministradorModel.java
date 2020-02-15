@@ -1,6 +1,7 @@
 package javaResources.model;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javaResources.dao.AdministradorDAO;
 
@@ -10,6 +11,11 @@ public class AdministradorModel {
 	private String nome;
 	private String login;
 	private String senha;
+	private String tipoUsuario;
+	
+	public AdministradorModel() {
+		this.tipoUsuario = "Administrador";
+	}
 	
 	public int getId() {
 		return id;
@@ -43,20 +49,32 @@ public class AdministradorModel {
 		this.senha = senha;
 	}
 	
-	public void insertAdministradorModel() throws SQLException {
-		new AdministradorDAO().insertAdministradorDAO(this);
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+
+	public void inserirAdministradorModel() throws SQLException {
+		new AdministradorDAO().inserirAdministradorDAO(this);
 	}
 	
-	public AdministradorModel listAdministradorByIdModel(int id) {
+	public AdministradorModel listarAdministradorPorIdModel(int id) {
 		this.setId(id);
-		return new AdministradorDAO().listAdministradorByIdDAO(this.getId());
+		return new AdministradorDAO().listarAdministradorPorIdDAO(this.getId());
 	}
 	
-	public void updateAdministradorModel() {
-        new AdministradorDAO().updateAdministradorDAO(this);
+	public List<AdministradorModel> listarTodosAdministradoresModel() {
+		return new AdministradorDAO().listarTodosAdministradoresDAO();
+	}
+	
+	public void alterarAdministradorModel() {
+        new AdministradorDAO().alterarAdministradorDAO(this);
     }
 
-    public void deleteAdministradorModel() {
-        new AdministradorDAO().deleteAdministradorDAO(this.getId());
+    public void deletarAdministradorModel() {
+        new AdministradorDAO().deletarAdministradorDAO(this.getId());
     }
 }
