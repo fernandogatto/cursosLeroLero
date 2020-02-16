@@ -1,6 +1,8 @@
 package javaResources.controller.servlet.function;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,9 +17,14 @@ public class InserirMatriculaLogica implements LogicaInterface {
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int turmaId = Integer.parseInt(request.getParameter("id"));
 		int alunoId = Integer.parseInt(request.getParameter("alunoId"));
-		Date dateNow = new Date();	
-		double nota = Double.parseDouble(request.getParameter("nota"));
 		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate localDate = LocalDate.now();
+		String dateString = (dtf.format(localDate));
+		Date dateNow = new SimpleDateFormat("dd/MM/yyyy").parse(dateString);
+		
+		double nota = 0.0;
+//		double nota = Double.parseDouble(request.getParameter("nota"));
 		
 		MatriculaModel matricula = new MatriculaModel();
 		matricula.setIdTurma(turmaId);
