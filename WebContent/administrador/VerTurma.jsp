@@ -47,9 +47,11 @@
 						<div class="card">
 							<h3 class="card-text" style="text-align: center; padding: 20px 0">Alunos inscritos</h3>
 							<div style="padding: 15px 30px">
-								<p>aluno 1</p>
-								<p>aluno 2</p>
-								<p>aluno 3</p>
+								<ol>	
+									<c:forEach var="aluno" items="${ alunos }">
+										<li>${ aluno.nome }</li>									
+									</c:forEach>									
+								</ol>	
 							</div>
 							
 						</div>

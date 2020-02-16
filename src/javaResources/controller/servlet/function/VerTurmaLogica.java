@@ -39,7 +39,6 @@ public class VerTurmaLogica implements LogicaInterface {
 		
 		List<AlunoModel> alunos = new ArrayList<>();
         AlunoModel aluno = null;
-		
 		for(Integer aluno_id : new MatriculaModel().listarAlunosPorTurmaModel(id)) {
 			aluno = new AlunoModel().listAlunoByIdModel(aluno_id);	
     		alunos.add(aluno);
