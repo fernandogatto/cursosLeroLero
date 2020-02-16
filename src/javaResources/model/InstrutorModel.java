@@ -97,6 +97,10 @@ public class InstrutorModel {
 		return new InstrutorDAO().listarTodosInstrutoresDAO();
 	}
 	
+	public List<TurmaModel> listarTodasTurmasPorInstrutorIdModel(int id) {
+		return new InstrutorDAO().listarTodasTurmasPorInstrutorIdDAO(id);
+	}
+	
 	public void alterarInstrutorModel() {
         new InstrutorDAO().alterarInstrutorDAO(this);
     }

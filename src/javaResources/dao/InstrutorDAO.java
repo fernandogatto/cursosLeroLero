@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import javaResources.dao.connection.ConnectionDatabase;
 import javaResources.model.InstrutorModel;
+import javaResources.model.TurmaModel;
 
 public class InstrutorDAO {
 
@@ -93,6 +94,38 @@ public class InstrutorDAO {
         }
 
         return instrutores;
+	}
+	
+	public List<TurmaModel> listarTodasTurmasPorInstrutorIdDAO(int id) {
+		Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList<TurmaModel> turmas = new ArrayList<>();
+        TurmaModel turma = null;
+        
+        try {
+        	connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("SELECT * FROM turmas WHERE instrutores_id = " + id);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+            	turma = new TurmaModel();
+            	turma.setId(rs.getInt("id"));
+        		turma.setIdInstrutor(rs.getInt("instrutores_id"));
+        		turma.setIdCurso(rs.getInt("cursos_id"));
+        		turma.setDataInicio(rs.getDate("data_inicio"));
+        		turma.setDataFinal(rs.getDate("data_final"));
+        		turma.setCargaHoraria(rs.getInt("carga_horaria"));
+        		
+        		turmas.add(turma);
+            }
+        } catch(SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar todas as turmas de instrutor: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt, rs);
+        }
+        
+        return turmas;
 	}
 	
 	public void alterarInstrutorDAO(InstrutorModel instrutor) {

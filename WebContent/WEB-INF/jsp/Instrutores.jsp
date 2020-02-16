@@ -32,9 +32,9 @@
 
 						<div class="card-body">
 							<h3 class="card-title h5">${ instrutor.nome }</h3>
-							<p class="info text-secondary">Professor de Programação Orientada a Objetos</p>
+							<p class="info text-secondary">${ instrutor.email }</p>
 							<p class="card-text">${ instrutor.experiencia }</p>
-							<a href="#" class="btn btn-primary btn-sm">Ver</a>
+							<a href="/cursosLeroLero/LogicaServlet?logica=VerInstrutorLogica&id=${ instrutor.id }" class="btn btn-primary btn-sm">Ver</a>
 							<% if(session.getAttribute("instrutor") != null || session.getAttribute("administrador") != null) { %>
 							<a href="/cursosLeroLero/LogicaServlet?logica=MostrarInstrutorLogica&id=${ instrutor.id }" class="btn btn-primary btn-sm">Alterar</a>
 							<% } %>

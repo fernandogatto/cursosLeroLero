@@ -5,7 +5,7 @@
 
 <html>
 <head>
-	<title>Perfil | Cursos Lero Lero</title>
+	<title>Ver Aluno | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -13,8 +13,8 @@
 </head>
 
 <body>
-	<c:import url="include/Header.jsp" />
-
+	<c:import url="../../include/Header.jsp" />
+	
 	<section>
 		
 	</section>
