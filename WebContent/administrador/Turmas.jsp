@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ page import="javaResources.model.CursoModel"%>
+<%@ page import="javaResources.model.InstrutorModel"%>
+<%@ page import="javaResources.model.TurmaModel"%>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,18 +35,22 @@
 			    	</tr>
 			 	</thead>
 				 <tbody>
-					<c:forEach var="turma" items="${ turmas }" >
-						<!-- pegar nome do curso e do instrutor -->
-						<%  %>
+					<%for(TurmaModel turma : new TurmaModel().listarTodasTurmasModel()) { 
+						CursoModel curso = new CursoModel().listarCursoPorIdModel(turma.getIdCurso());
+						String cursoNome = curso.getNome();
+						InstrutorModel instrutor = new InstrutorModel().listarInstrutorPorIdModel(turma.getIdInstrutor());
+						String instrutorNome = instrutor.getNome();
+						Integer turmaId = turma.getId();
+					%>	 	
 					    <tr>
-					      <th scope="row">${ turma.id }</th>
-					      <td>${ turma.idCurso }</td>
-					      <td>${ turma.idInstrutor }</td>
-					      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=VerTurmaAdmin&id=${ turma.id }" class="btn btn-primary btn-sm">Ver</a></td>
-					      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=MostrarTurmaAdmin&id=${ turma.id }" class="btn btn-primary btn-sm">Alterar</a></td>
-					      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteTurmaAdmin&id=${ turma.id }" class="btn btn-primary btn-sm">Deletar</a></td>
+					      <th scope="row"><%out.print(turma.getId());%></th>
+					      <td><%out.print(cursoNome);%></td>
+					      <td><%out.print(instrutorNome);%> </td>
+					      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=VerTurmaAdmin&id=<%out.print(turma.getId());%>" class="btn btn-primary btn-sm">Ver</a></td>
+					      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=MostrarTurmaAdmin&id=<%out.print(turma.getId());%>" class="btn btn-primary btn-sm">Alterar</a></td>
+					      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteTurmaAdmin&id=<%out.print(turma.getId());%>" class="btn btn-primary btn-sm">Deletar</a></td>
 					    </tr>
-					</c:forEach>
+					<%} %>
 				</tbody>
 			</table>
 		</div>
