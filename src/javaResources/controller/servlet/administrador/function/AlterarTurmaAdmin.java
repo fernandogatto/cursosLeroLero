@@ -12,6 +12,7 @@ public class AlterarTurmaAdmin implements LogicaInterface {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int id = Integer.parseInt(request.getParameter("id"));
 		int instrutoresId = Integer.parseInt(request.getParameter("instrutores_id"));
 		int cursosId = Integer.parseInt(request.getParameter("cursos_id"));
 		java.util.Date dataInicio = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("data_inicio"));
@@ -19,6 +20,7 @@ public class AlterarTurmaAdmin implements LogicaInterface {
 		int cargaHoraria = Integer.parseInt(request.getParameter("carga_horaria"));
 		
 		TurmaModel turma = new TurmaModel();
+		turma.setId(id);
 		turma.setIdInstrutor(instrutoresId);
 		turma.setIdCurso(cursosId);
 		turma.setDataInicio(dataInicio);

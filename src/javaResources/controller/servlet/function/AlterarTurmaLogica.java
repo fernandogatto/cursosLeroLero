@@ -19,7 +19,6 @@ public class AlterarTurmaLogica implements LogicaInterface {
 		java.util.Date dataInicio = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("data_inicio"));
 		java.util.Date dataFinal = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("data_final"));
 
-		
 		TurmaModel turma = new TurmaModel();
 		turma.setId(id);
 		turma.setIdInstrutor(instrutorId);
