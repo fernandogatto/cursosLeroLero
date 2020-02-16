@@ -64,6 +64,29 @@ public class MatriculaDAO {
         return null;
     }
 	
+	public List<Integer> listarTurmasPorAlunoDAO(int id) {
+        Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Integer> turmas = new ArrayList<>();
+        
+        try {
+        	connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("SELECT turmas_id FROM matriculas WHERE alunos_id =" + id);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+            	turmas.add(rs.getInt("turmas_id"));
+        	}    
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar turmas pelo ID do aluno: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt);
+        }
+
+        return turmas;
+    }
+	
 	public List<Integer> listarNotasPorAlunoDAO(int id) {
         Connection connection = null;
         PreparedStatement stmt = null;

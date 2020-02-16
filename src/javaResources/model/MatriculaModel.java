@@ -75,6 +75,10 @@ public class MatriculaModel {
 		return new MatriculaDAO().listarNotasPorAlunoDAO(id);
 	}
 	
+	public List<Integer> listarTurmasPorAlunoModel(int id) {
+		return new MatriculaDAO().listarTurmasPorAlunoDAO(id);
+	}
+	
 	public void alterarMatriculaModel() throws Exception {
         new MatriculaDAO().alterarMatriculaDAO(this);
     }
