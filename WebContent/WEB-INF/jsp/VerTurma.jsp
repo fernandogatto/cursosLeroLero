@@ -16,62 +16,8 @@
 </head>
 
 <body>
-	<header>
-		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3">
-			<div class="container">
-				<a class="navbar-brand" href="Index,jsp"><img src="webResources/img/logo-integrado.png" alt="logo"></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="Index.jsp">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="Sobre.jsp">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaInstrutoresLogica">Instrutores</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="LogicaServlet?logica=ListaAlunosLogica">Alunos</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Comentarios.jsp">Comentários</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Tabelas.jsp">Tabelas</a>
-                        </li>
-                    	<li class="nav-item active dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Cursos
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="LogicaServlet?logica=ListaCursosLogica">Cursos</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">HTML e CSS</a>
-								<a class="dropdown-item" href="#">Javascript</a>
-								<a class="dropdown-item" href="#">Bootstrap</a>
-								<a class="dropdown-item" href="#">WordPress</a>
-							</div>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="Login.jsp">Login</a>
-						</li>
-						<li class="nav-item">
-							<a class="btn btn-outline-primary" href="Registro.jsp">Cadastre-se</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-    </header>
-    
+	<c:import url="../../include/Header.jsp" />
+	        
     <section class="cursos py-5">
         <div class="container">
             <div class="mb-3 text-center">
