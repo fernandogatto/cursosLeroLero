@@ -3,6 +3,8 @@
 <%@ page import="javaResources.model.TurmaModel"%>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -107,7 +109,14 @@
 					
 					Date dataFinal = turma.getDataFinal();
 					String dataFinalString = new SimpleDateFormat("dd/MM/yyyy").format(dataFinal);
+					
+					DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+					LocalDate localDate = LocalDate.now();
+					String dateString = (dtf.format(localDate));
+					Date dateNow = new SimpleDateFormat("dd/MM/yyyy").parse(dateString);
+					//d1.compareTo(d2) "greater than 0" if date1 is after date2 
 				%>	 	
+				<% if(dataFinal.compareTo(dateNow) >= 0 ) { %>
 					<div class="col-lg-4 col-md-6 col-12 my-2">
 						<div class="card">
 							<img src="webResources/img/curso-js.jpg" alt="Turma" class="card-img-top">
@@ -124,6 +133,7 @@
 							</div>
 						</div>
 					</div>
+				<% } %>
 				<%} %>	
 			</div>
 		</div>
