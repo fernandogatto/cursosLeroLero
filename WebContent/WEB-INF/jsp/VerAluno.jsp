@@ -5,7 +5,7 @@
 
 <html>
 <head>
-	<title>Perfil | Cursos Lero Lero</title>
+	<title>Ver Aluno | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="webResources/css/bootstrap.css">
@@ -13,10 +13,21 @@
 </head>
 
 <body>
-	<c:import url="include/Header.jsp" />
-
-	<section>
-		
+	<c:import url="../../include/Header.jsp" />
+	
+	<section class="aluno py-5">
+		<div class="container">
+            <div class="mb-3 text-center">
+                <span class="h6 uppercase">Aluno</span>
+                <h2 class="display-4 text-primary">${ aluno.nome }</h2>
+            </div>
+            
+            <div class="row">
+            	<div class="col-12 mb-3 text-center">
+            		<img src="webResources/img/aluna-1.jpg" alt="Imagem de perfil">
+            	</div>
+			</div>
+		</div>
 	</section>
 
 	<footer class="bg-dark text-white">

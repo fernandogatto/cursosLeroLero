@@ -51,9 +51,9 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${ sessionScope.nomeUsuario }</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<% if(session.getAttribute("instrutor") != null) { %>
-							<a class="dropdown-item" href="/cursosLeroLero/PerfilInstrutor.jsp">Perfil</a>
+							<a class="dropdown-item" href="/cursosLeroLero/LogicaServlet?logica=VerInstrutorLogica&id=${ sessionScope.idInstrutor }">Perfil</a>
 							<% } else if(session.getAttribute("aluno") != null) { %>
-							<a class="dropdown-item" href="/cursosLeroLero/PerfilAluno.jsp">Perfil</a>
+							<a class="dropdown-item" href="/cursosLeroLero/LogicaServlet?logica=VerAlunoLogica&id=${ sessionScope.idAluno }">Perfil</a>
 							<% } %>
 							<a class="dropdown-item" href="/cursosLeroLero/LogoutServlet">Logout</a>
 						</div>
