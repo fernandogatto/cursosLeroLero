@@ -22,7 +22,6 @@
                 <a href="/cursosLeroLero/administrador/NovoInstrutor.jsp" class="btn btn-outline-primary mr-3">Novo instrutor</a>
                 <a href="/cursosLeroLero/administrador/NovoCurso.jsp" class="btn btn-outline-primary mr-3">Novo curso</a>
                 <a href="/cursosLeroLero/administrador/NovaTurma.jsp" class="btn btn-outline-primary mr-3">Nova turma</a>
-                <a href="/cursosLeroLero/administrador/NovaMatricula.jsp" class="btn btn-outline-primary">Nova matrícula</a>
             </div>
         </div>
     </section>

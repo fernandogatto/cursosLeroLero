@@ -118,16 +118,13 @@
 								<p class="card-text">Início: <span><%out.print(dataInicioString); %></span></p>
 								<p class="card-text">Fim: <span><% out.print(dataFinalString); %></span></p>
 								<% if(session.getAttribute("aluno") != null) { %>
-								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
+								<a href="/cursosLeroLero/LogicaServlet?logica=InserirMatriculaLogica&id=<%out.print(turma.getId());%>&alunoId=<%out.print(session.getAttribute("idAluno"));%>" class="btn btn-primary btn-sm">Inscreva-se</a>
 								<% } %>
 								<a href="/cursosLeroLero/LogicaServlet?logica=VerTurmaLogica&id=<%out.print(turma.getId());%>" class="btn btn-primary btn-sm">Ver</a>
 							</div>
 						</div>
 					</div>
-				<%} %>
-				<c:forEach var="turma" items="${ turma }" >
-				<p>${turma.cargaHoraria} horas</p>
-				</c:forEach>	
+				<%} %>	
 			</div>
 		</div>
 	</section>
