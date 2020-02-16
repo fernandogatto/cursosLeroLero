@@ -32,11 +32,14 @@
 							<div class="card-body">
 								<p class="card-text">Instrutor: <span>${ instrutorNome }</span></p>
 								<p class="card-text">Carga horária: <span>${ turma.cargaHoraria }</span> horas</p>
-								<p class="card-text">Data de início: <span>${ turma.dataInicio }</span></p>
-								<p class="card-text">Data de final: <span>${ turma.dataFinal }</span></p>
+								<p class="card-text">Data de início: <span>${ dataInicio }</span></p>
+								<p class="card-text">Data de final: <span>${ dataFinal }</span></p>
+								<% if(session.getAttribute("aluno") != null) { %>
 								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
-								<a href="/cursosLeroLero/LogicaServlet?logica=MostrarTurmaLogica&id=${ id }" class="btn btn-primary btn-sm">Alterar</a>
-								<a href="/cursosLeroLero/LogicaServlet?logica=DeleteTurmaLogica&id=${ id }" class="btn btn-primary btn-sm">Deletar</a>
+								<% } else if(session.getAttribute("administrador") != null) { %>
+								<a href="/cursosLeroLero/administrador/AdminServlet?logica=MostrarTurmaAdmin&id=${ id }" class="btn btn-primary btn-sm">Alterar</a>
+								<a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteTurmaAdmin&id=${ id }" class="btn btn-primary btn-sm">Deletar</a>
+								<% } %>
 							</div>
 						</div>
 					</div>

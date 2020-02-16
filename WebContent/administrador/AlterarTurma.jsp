@@ -42,11 +42,11 @@
 				</div>
 				<div class="form-group data">
 					<label for="exampleInputPhone">Data de início *</label>
-					<input type="text" class="form-control" id="dataInicio" name='data_inicio' aria-describedby="Digite quando irá começar" placeholder="Digite quando irá começar" rows="10" value="${ turma.dataInicio }">
+					<input type="text" class="form-control date" id="dataInicio" name='data_inicio' aria-describedby="Digite quando irá começar" placeholder="Digite quando irá começar" rows="10" value="${ dataInicio }">
 				</div>
 				<div class="form-group data">
 					<label for="exampleInputEmail1">Data de fim *</label>
-					<input type="text" class="form-control" id="dataFinal" name='data_final' aria-describedby="Digite quando irá terminar" placeholder="Digite quando irá terminar" value="${ turma.dataFinal }">
+					<input type="text" class="form-control date" id="dataFinal" name='data_final' aria-describedby="Digite quando irá terminar" placeholder="Digite quando irá terminar" value="${ dataFinal }">
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1">Carga horária</label>

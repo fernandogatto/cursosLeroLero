@@ -1,5 +1,8 @@
 package javaResources.controller.servlet.administrador.function;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,6 +28,14 @@ public class MostrarTurmaAdmin implements LogicaInterface {
 		request.setAttribute("id", id);
 		request.setAttribute("curso", curso);
 		request.setAttribute("instrutor", instrutor);
+		
+		Date dataInicio = turma.getDataInicio();
+		String dataInicioString = new SimpleDateFormat("dd/MM/yyyy").format(dataInicio);
+		request.setAttribute("dataInicio", dataInicioString);
+		
+		Date dataFinal = turma.getDataFinal();
+		String dataFinalString = new SimpleDateFormat("dd/MM/yyyy").format(dataFinal);
+		request.setAttribute("dataFinal", dataFinalString);
 		
 		return "/administrador/AlterarTurma.jsp";
 	}

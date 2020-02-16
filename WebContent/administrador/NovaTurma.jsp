@@ -39,15 +39,13 @@
 				</div>
 				<div class="form-group data">
 					<label for="exampleInputPhone">Data de início *</label>
-					<input type="text" class="form-control" id="date" name='data_inicio' aria-describedby="phoneHelp"
-						placeholder="Digite quando irá começar" rows="10">
-						<p style="color: #a0a0a0">Digite a data nesse formato: 01/01/2010.</p>
+					<input type="text" class="form-control date" id="date" name='data_inicio' aria-describedby="phoneHelp" placeholder="Digite quando irá começar" rows="10">
+					<p style="color: #a0a0a0">Digite a data nesse formato: 01/01/2010.</p>
 				</div>
 				<div class="form-group data">
 					<label for="exampleInputEmail1">Data de fim *</label>
-					<input type="text" class="form-control" id="date" name='data_final' aria-describedby="emailHelp"
-						placeholder="Digite quando irá terminar">
-						<p style="color: #a0a0a0">Digite a data nesse formato: 01/01/2010.</p>
+					<input type="text" class="form-control date" id="date" name='data_final' aria-describedby="emailHelp" placeholder="Digite quando irá terminar">
+					<p style="color: #a0a0a0">Digite a data nesse formato: 01/01/2010.</p>
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1">Carga horária</label>
@@ -105,6 +103,9 @@
 	<script type="text/javascript" src="../webResources/js/popper.min.js"></script>
 	<script type="text/javascript" src="../webResources/js/bootstrap.js"></script>
 	<script type="text/javascript" src="../webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="../webResources/js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="../webResources/js/masks-input.js"></script>
+	
 	<!-- <script type="text/javascript" src="../webResources/js/validation-turma.js"></script>  -->
 </body>
 </html>

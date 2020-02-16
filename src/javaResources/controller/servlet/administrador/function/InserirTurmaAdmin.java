@@ -18,7 +18,6 @@ public class InserirTurmaAdmin implements LogicaInterface {
 		java.util.Date dataFinal = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("data_final"));
 		int cargaHoraria = Integer.parseInt(request.getParameter("carga_horaria"));
 		
-
 		TurmaModel turma = new TurmaModel();
 		turma.setIdInstrutor(instrutoresId);
 		turma.setIdCurso(cursosId);

@@ -1,43 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
-	<title>Nova Matrícula | Cursos Lero Lero</title>
+	<title>Alterar Registrado | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="../webResources/css/bootstrap.css">
-	<link rel="stylesheet" href="../webResources/css/style.css">
+	<link rel="stylesheet" href="webResources/css/bootstrap.css">
+	<link rel="stylesheet" href="webResources/css/style.css">
 </head>
 
 <body>
-	<c:import url="../include/HeaderAdmin.jsp" />
+	<c:import url="../../include/Header.jsp" />
 
 	<section>
 		<div class="container py-5">
-			<h1 class=" text-primary display-4">Nova matrícula</h1>
-			<p class="lead">Faça sua matrícula!</p>
-			<form class="py-3" id="form-matricula" action="AdminServlet" method="POST">
-				<div class="form-group">
-					<label for="id_turma">Id da turma*</label>
-					<input type="text" class="form-control" id="id_turma" name="id_turma" aria-describedby="idTurmaHelp" placeholder="Digite o código da turma">
-				</div>
-				<div class="form-group">
-					<label for="id_aluno">Id do aluno*</label>
-					<input type="email" class="form-control" id="id_aluno" name="id_aluno" aria-describedby="idAlunoHelp" placeholder="Digite o código do aluno">
-				</div>
-				<div class="form-group">
-					<label for="data_matricula">Data*</label>
-					<input type="text" class="form-control date" id="data_matricula" name="data_matricula" aria-describedby="dataMatriculaHelp"	placeholder="Digite a data da matrícula" rows="10">
-				</div>
-				<div class="form-group">
-					<label for="nota_matricula">Nota*</label>
-					<input type="number" class="form-control" id="nota_matricula" name="nota_matricula" aria-describedby="notaMatriculaHelp" placeholder="Digite a nota">
-				</div>
-				<button type="submit" class="btn btn-primary my-3">Cadastrar</button>
-			</form>
+			<h1 class=" text-primary display-4">Cadastro com sucesso</h1>
+			<p class="lead">Aguarde pela sua aprovação</p>
+			<p class="lead">Voltar à página inicial</p>
+			<a href="../../cursosLeroLero/Index.jsp" class="btn btn-primary">Home</a>
 		</div>
 	</section>
 
@@ -83,12 +64,8 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="../webResources/js/jquery.min.js"></script>
-	<script type="text/javascript" src="../webResources/js/popper.min.js"></script>
-	<script type="text/javascript" src="../webResources/js/bootstrap.js"></script>
-	<script type="text/javascript" src="../webResources/js/jquery-validation/dist/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="../webResources/js/jquery-validation/dist/masks-input.js"></script>
-	<script type="text/javascript" src="../webResources/js/validation-matricula.js"></script>
-</body>
-
+	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
+	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
+    <script type="text/javascript" src="webResources/js/bootstrap.js"></script>
+   </body>
 </html>

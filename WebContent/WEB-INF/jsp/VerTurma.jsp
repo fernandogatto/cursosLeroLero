@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ page import="javaResources.model.CursoModel"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="javaResources.model.CursoModel"%>
 <%@ page import="javaResources.model.InstrutorModel"%>
 <%@ page import="javaResources.model.TurmaModel"%>
 <%@ page import="java.util.List" %>
@@ -32,11 +31,14 @@
 							<div class="card-body">
 								<p class="card-text">Instrutor: <span>${ instrutorNome }</span></p>
 								<p class="card-text">Carga horária: <span>${ turma.cargaHoraria }</span> horas</p>
-								<p class="card-text">Data de início: <span>${ turma.dataInicio }</span></p>
-								<p class="card-text">Data de final: <span>${ turma.dataFinal }</span></p>
+								<p class="card-text">Data de início: <span>${ dataInicio }</span></p>
+								<p class="card-text">Data de final: <span>${ dataFinal }</span></p>
+								<% if(session.getAttribute("aluno") != null) { %>
 								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
+								<% } else if(session.getAttribute("administrador") != null) { %>
 								<a href="/cursosLeroLero/LogicaServlet?logica=MostrarTurmaLogica&id=${ id }" class="btn btn-primary btn-sm">Alterar</a>
 								<a href="/cursosLeroLero/LogicaServlet?logica=DeleteTurmaLogica&id=${ id }" class="btn btn-primary btn-sm">Deletar</a>
+								<% } %>
 							</div>
 						</div>
 					</div>

@@ -2,8 +2,9 @@
 <%@ page import="javaResources.model.InstrutorModel"%>
 <%@ page import="javaResources.model.TurmaModel"%>
 <%@ page import="java.util.List" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
     
@@ -100,6 +101,12 @@
 					InstrutorModel instrutor = new InstrutorModel().listarInstrutorPorIdModel(turma.getIdInstrutor());
 					String instrutorNome = instrutor.getNome();
 					Integer turmaId = turma.getId();
+					
+					Date dataInicio = turma.getDataInicio();
+					String dataInicioString = new SimpleDateFormat("dd/MM/yyyy").format(dataInicio);
+					
+					Date dataFinal = turma.getDataFinal();
+					String dataFinalString = new SimpleDateFormat("dd/MM/yyyy").format(dataFinal);
 				%>	 	
 					<div class="col-lg-4 col-md-6 col-12 my-2">
 						<div class="card">
@@ -108,9 +115,11 @@
 								<h3 class="card-title h5"><%out.print(cursoNome);%></h3>
 								<p class="card-title h5"><%out.print(instrutorNome);%></p>
 								<p class="card-text">carga horária: <span><%out.print(turma.getCargaHoraria()); %></span> horas</p>
-								<p class="card-text">Início: <span><%out.print(turma.getDataInicio());%></span></p>
-								<p class="card-text">Fim: <span><%out.print(turma.getDataFinal());%></span></p>
+								<p class="card-text">Início: <span><%out.print(dataInicioString); %></span></p>
+								<p class="card-text">Fim: <span><% out.print(dataFinalString); %></span></p>
+								<% if(session.getAttribute("aluno") != null) { %>
 								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
+								<% } %>
 								<a href="/cursosLeroLero/LogicaServlet?logica=VerTurmaLogica&id=<%out.print(turma.getId());%>" class="btn btn-primary btn-sm">Ver</a>
 							</div>
 						</div>
