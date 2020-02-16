@@ -1,7 +1,6 @@
 package javaResources.dao;
 
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -47,11 +46,10 @@ public class MatriculaDAO {
 
         try {
             connection = new ConnectionDatabase().getConnection();
-            stmt = connection.prepareStatement("SELECT * FROM matricula WHERE id = " + id);
+            stmt = connection.prepareStatement("SELECT * FROM matriculas WHERE id = " + id);
             rs = stmt.executeQuery();
             if (rs.next()) {
                 matricula = new MatriculaModel();
-                TurmaModel turma;
                 matricula.setIdTurma(rs.getInt("turmas_id"));
                 matricula.setIdAluno(rs.getInt("alunos_id"));
                 matricula.setDataMatricula(rs.getDate("data_matricula"));
@@ -65,6 +63,29 @@ public class MatriculaDAO {
         }
 
         return null;
+    }
+	
+	public List<Integer> listarAlunosPorTurmaDAO(int id) {
+        Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Integer> alunos = new ArrayList<>();
+        
+        try {
+        	connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("SELECT alunos_id FROM matriculas WHERE turmas_id =" + id);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+            	alunos.add(rs.getInt("alunos_id"));
+        	}    
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar alunos pelo ID da turma: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt);
+        }
+
+        return alunos;
     }
 	
 	public List<MatriculaModel> listarTodasMatriculasDAO() {
