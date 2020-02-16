@@ -28,17 +28,20 @@
             </div>
             
             <div class="row">
-            	<div class="col-md-6 col-12">
+            	<div class="col-12 mb-3 text-center">
+            		<img src="webResources/img/professor-1.jpg" alt="Imagem de perfil">
+            	</div>
+            	<div class="col-md-6 col-12 mb-3">
             		<h3>Dados pessoais</h3>
             		<p>E-mail: <span>${ instrutor.email }</span></p>
             		<p>Experiência: <span>${ instrutor.experiencia }</span></p>
-            		<% if(session.getAttribute("idInstrutor") == request.getAttribute("id")) { %>
+            		<% if(session.getAttribute("instrutor") != null && session.getAttribute("idInstrutor") == request.getAttribute("id") || session.getAttribute("administrador") != null) { %>
             			<p>Login: <span>${ instrutor.login }</span></p>
             			<p>Senha: <span>${ instrutor.senha }</span></p>
             			<a href="/cursosLeroLero/LogicaServlet?logica=MostrarInstrutorLogica&id=${ id }" class="btn btn-primary btn-sm">Alterar</a>
             		<% } %>
             	</div>
-            	<div class="col-md-6 col-12">
+            	<div class="col-md-6 col-12 mb-3">
             		<h3>Turmas</h3>
             		<%for(TurmaModel turma : new TurmaModel().listarTodasTurmasModel()) { 
 						CursoModel curso = new CursoModel().listarCursoPorIdModel(turma.getIdCurso());
@@ -49,7 +52,7 @@
 						int valorReceber = turma.getCargaHoraria() * instrutor.getValorHora();
 					%>
 						<p><% out.println(cursoNome); %>: <% out.println(dataInicioString); %> - <% out.println(dataFinalString); %></p>
-						<% if(session.getAttribute("idInstrutor") == request.getAttribute("id")) { %>
+						<% if(session.getAttribute("instrutor") != null && session.getAttribute("idInstrutor") == request.getAttribute("id") || session.getAttribute("administrador") != null) { %>
 							<p>Valor a receber: <% out.println(valorReceber); %></p>
 						<% } %>
 						<div class="border-bottom"></div>
