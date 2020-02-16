@@ -18,10 +18,10 @@
         <div class="container py-5 my-2">
             <h1 class="text-center text-primary display-4">Formulários</h1>
             <div class="py-5 text-center">
-                <a href="/cursosLeroLero/administrador/NovoCurso.jsp" class="btn btn-outline-primary mr-3">Novo curso</a>
-                <a href="/cursosLeroLero/administrador/NovoInstrutor.jsp" class="btn btn-outline-primary mr-3">Novo instrutor</a>
-                <a href="/cursosLeroLero/administrador/NovaTurma.jsp" class="btn btn-outline-primary mr-3">Nova turma</a>
 				<a href="/cursosLeroLero/administrador/NovoAluno.jsp" class="btn btn-outline-primary mr-3">Novo aluno</a>
+                <a href="/cursosLeroLero/administrador/NovoInstrutor.jsp" class="btn btn-outline-primary mr-3">Novo instrutor</a>
+                <a href="/cursosLeroLero/administrador/NovoCurso.jsp" class="btn btn-outline-primary mr-3">Novo curso</a>
+                <a href="/cursosLeroLero/administrador/NovaTurma.jsp" class="btn btn-outline-primary mr-3">Nova turma</a>
                 <a href="/cursosLeroLero/administrador/NovaMatricula.jsp" class="btn btn-outline-primary">Nova matrícula</a>
             </div>
         </div>

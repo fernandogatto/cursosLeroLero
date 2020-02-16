@@ -1,4 +1,4 @@
-package javaResources.controller.servlet.function;
+package javaResources.controller.servlet.administrador.function;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,7 +8,7 @@ import javaResources.model.CursoModel;
 import javaResources.model.InstrutorModel;
 import javaResources.model.TurmaModel;
 
-public class MostrarTurmaLogica implements LogicaInterface {
+public class MostrarTurmaAdmin implements LogicaInterface {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -26,7 +26,7 @@ public class MostrarTurmaLogica implements LogicaInterface {
 		request.setAttribute("curso", curso);
 		request.setAttribute("instrutor", instrutor);
 		
-		return "/WEB-INF/jsp/AlterarTurma.jsp";
+		return "/administrador/AlterarTurma.jsp";
 	}
 
 }

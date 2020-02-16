@@ -21,21 +21,20 @@
             </div>
             
             <div class="row">
-					<div class="col-lg-5 col-md-6 col-12 my-4" style="max-width: 500px; margin: 0 auto;">
-						<div class="card">
-							<img src="webResources/img/curso-js.jpg" alt="Curso" class="card-img-top">
-	
-							<div class="card-body">
-								<p class="card-text">requisito: <span>${ curso.requisito }</span></p>
-								<p class="card-text">ementa: <span>${ curso.ementa }</span></p>
-								<p class="card-text">carga horária: <span>${ curso.cargaHoraria }</span> horas</p>
-								<p class="card-text">preço: R$<span>${ curso.preco }</span></p>
-								<a href="" class="btn btn-primary btn-sm">Inscreva-se</a>
-								<td><a href="/cursosLeroLero/administrador/AdminServlet?logica=MostrarCursoAdmin&id=${ curso.id }" class="btn btn-primary btn-sm">Alterar</a></td>
-	  					      	<td><a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteCursoAdmin&id=${ curso.id }" class="btn btn-primary btn-sm">Deletar</a></td>
-							</div>
+				<div class="col-lg-5 col-md-6 col-12 my-4" style="max-width: 500px; margin: 0 auto;">
+					<div class="card">
+						<img src="../webResources/img/curso-js.jpg" alt="Curso" class="card-img-top">
+
+						<div class="card-body">
+							<p class="card-text">requisito: <span>${ curso.requisito }</span></p>
+							<p class="card-text">ementa: <span>${ curso.ementa }</span></p>
+							<p class="card-text">carga horária: <span>${ curso.cargaHoraria }</span> horas</p>
+							<p class="card-text">preço: R$<span>${ curso.preco }</span></p>
+							<td><a href="/cursosLeroLero/administrador/AdminServlet?logica=MostrarCursoAdmin&id=${ id }" class="btn btn-primary btn-sm">Alterar</a></td>
+  					      	<td><a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteCursoAdmin&id=${ id }" class="btn btn-primary btn-sm">Deletar</a></td>
 						</div>
 					</div>
+				</div>
 			</div>
         </div>
     </section>

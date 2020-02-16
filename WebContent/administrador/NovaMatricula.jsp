@@ -36,7 +36,7 @@
 					<label for="nota_matricula">Nota*</label>
 					<input type="number" class="form-control" id="nota_matricula" name="nota_matricula" aria-describedby="notaMatriculaHelp" placeholder="Digite a nota">
 				</div>
-				<button type="submit" class="btn btn-primary my-3">Salvar</button>
+				<button type="submit" class="btn btn-primary my-3">Cadastrar</button>
 			</form>
 		</div>
 	</section>

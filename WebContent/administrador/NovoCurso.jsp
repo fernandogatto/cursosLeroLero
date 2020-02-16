@@ -35,7 +35,7 @@
 				</div>
 				<div class="form-group">
 					<label for="carga_horaria">Carga horária</label>
-					<input type="text" class="form-control" name="carga_horaria" id="carga_horaria" aria-describedby="emailHelp"
+					<input type="number" class="form-control" name="carga_horaria" id="carga_horaria" aria-describedby="emailHelp"
 						placeholder="Digite a carga horário">
 				</div>
 				<div class="form-group">
@@ -43,7 +43,7 @@
 					<input type="text" class="form-control" id="preco" name="preco" placeholder="Digite o preço">
 
 				</div>
-				<button type="submit" class="btn btn-primary my-3">Cadastrar curso</button>
+				<button type="submit" class="btn btn-primary my-3">Cadastrar</button>
 			</form>
 		</div>
 	</section>

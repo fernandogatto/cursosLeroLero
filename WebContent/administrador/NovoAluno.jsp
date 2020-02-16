@@ -60,7 +60,7 @@
 					<label for="senha">Senha*</label>
 					<input type="password" class="form-control" id="senhaAluno" name="senha" aria-describedby="passwordHelp" placeholder="Escolha uma senha">
 				</div>
-				<button type="submit" class="btn btn-primary my-3">Salvar</button>
+				<button type="submit" class="btn btn-primary my-3">Cadastrar</button>
 			</form>
 		</div>
 	</section>
