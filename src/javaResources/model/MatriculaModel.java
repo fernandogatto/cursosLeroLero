@@ -1,6 +1,10 @@
 package javaResources.model;
 
-import java.sql.Date;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.List;
+
+import javaResources.dao.MatriculaDAO;
 
 public class MatriculaModel {
 
@@ -49,4 +53,25 @@ public class MatriculaModel {
 	public void setNota(double nota) {
 		this.nota = nota;
 	}
+	
+	public void inserirMatriculaModel() throws SQLException {
+		new MatriculaDAO().inserirMatriculaDAO(this);
+	}
+	
+	public MatriculaModel listarMatriculaPorIdModel(int id) {
+		this.setId(id);
+		return new MatriculaDAO().listarMatriculaPorIdDAO(this.getId());
+	}
+	
+	public List<MatriculaModel> listarTodasMatriculasModel() {
+		return new MatriculaDAO().listarTodasMatriculasDAO();
+	}
+	
+	public void alterarMatriculaModel() throws Exception {
+        new MatriculaDAO().alterarMatriculaDAO(this);
+    }
+
+    public void deletarMatriculaModel() {
+        new MatriculaDAO().deletarMatriculaDAO(this.getId());
+    }
 }

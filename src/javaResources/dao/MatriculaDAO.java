@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -14,7 +16,7 @@ import javaResources.model.TurmaModel;
 
 public class MatriculaDAO {
 
-	public void insertMatriculaDAO(MatriculaModel matricula) {
+	public void inserirMatriculaDAO(MatriculaModel matricula) {
 		Connection connection = null;
 		PreparedStatement stmt = null;
 		
@@ -23,7 +25,11 @@ public class MatriculaDAO {
 			stmt = connection.prepareStatement("INSERT INTO matriculas (turmas_id, alunos_id, data_matricula, nota) VALUES (?, ?, ?, ?)");
 			stmt.setInt(1, matricula.getIdTurma());
 			stmt.setInt(2, matricula.getIdAluno());
-			stmt.setDate(3, matricula.getDataMatricula());
+			
+			java.util.Date data = matricula.getDataMatricula();
+			java.sql.Date dataMatricula = new java.sql.Date (data.getTime());
+			stmt.setDate(3, dataMatricula);
+			
 			stmt.setDouble(4, matricula.getNota());
 			stmt.execute();
 		} catch(SQLException e) {
@@ -33,7 +39,7 @@ public class MatriculaDAO {
 		}
 	}
 	
-	public MatriculaModel listMatriculaByIdDAO(int id) {
+	public MatriculaModel listarMatriculaPorIdDAO(int id) {
         Connection connection = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -61,7 +67,38 @@ public class MatriculaDAO {
         return null;
     }
 	
-	public void updateMatriculaDAO(MatriculaModel matricula) {
+	public List<MatriculaModel> listarTodasMatriculasDAO() {
+		Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<MatriculaModel> matriculas = new ArrayList<>();
+        MatriculaModel matricula = null;
+        
+        try {
+        	connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("SELECT * FROM matriculas");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+            	matricula = new MatriculaModel();
+            	matricula.setId(rs.getInt("id"));
+        		matricula.setIdTurma(rs.getInt("turma_id"));
+        		matricula.setIdAluno(rs.getInt("aluno_id"));
+        		matricula.setDataMatricula(rs.getDate("data"));
+        		matricula.setNota(rs.getInt("nota"));
+        		
+        		matriculas.add(matricula);
+        	}     	
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar todas as matriculas: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt, rs);
+        }
+
+        return matriculas;
+	}
+	
+	public void alterarMatriculaDAO(MatriculaModel matricula) {
         Connection connection = null;
         PreparedStatement stmt = null;
 
@@ -70,8 +107,12 @@ public class MatriculaDAO {
             stmt = connection.prepareStatement("UPDATE matriculas SET turmas_id = ?, alunos_id = ?, data_matricula = ?, nota = ? WHERE id = ?");
             stmt.setInt(1, matricula.getIdTurma());
             stmt.setInt(2, matricula.getIdAluno());
-            stmt.setDate(3, matricula.getDataMatricula());
-            stmt.setDouble(4, matricula.getNota());
+            
+            java.util.Date data = matricula.getDataMatricula();
+			java.sql.Date dataMatricula = new java.sql.Date (data.getTime());
+			stmt.setDate(3, dataMatricula);
+            
+			stmt.setDouble(4, matricula.getNota());
             stmt.setInt(5, matricula.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -81,7 +122,7 @@ public class MatriculaDAO {
         }
     }
 	
-	public void deleteMatriculaDAO(int id) {
+	public void deletarMatriculaDAO(int id) {
         Connection connection = null;
         PreparedStatement stmt = null;
 
