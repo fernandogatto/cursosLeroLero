@@ -113,8 +113,15 @@ public class TurmaDAO {
             stmt = connection.prepareStatement("UPDATE turmas SET instrutores_id = ?, cursos_id = ?, data_inicio = ?, data_final = ?, carga_horaria = ? WHERE id = ?");
             stmt.setInt(1, turma.getIdInstrutor());
             stmt.setInt(2, turma.getIdCurso());
-            stmt.setDate(3, (Date) turma.getDataInicio());
-            stmt.setDate(4, (Date) turma.getDataFinal());
+            java.util.Date dataInicio = turma.getDataInicio();
+			java.sql.Date dtinicio = new java.sql.Date (dataInicio.getTime());
+			
+			java.util.Date dataFinal = turma.getDataFinal();
+			java.sql.Date dtfinal = new java.sql.Date (dataFinal.getTime());	
+			
+			stmt.setDate(3, dtinicio);
+			stmt.setDate(4, dtfinal);
+			
             stmt.setInt(5, turma.getCargaHoraria());
             stmt.setInt(6, turma.getId());
             stmt.executeUpdate();
