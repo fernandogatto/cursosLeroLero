@@ -51,6 +51,7 @@ public class AlunoDAO {
         	rs = stmt.executeQuery();
         	if(rs.next()) {
         		aluno = new AlunoModel();
+        		aluno.setId(rs.getInt("id"));
         		aluno.setCpf(rs.getString("cpf"));
         		aluno.setNome(rs.getString("nome"));
         		aluno.setEmail(rs.getString("email"));

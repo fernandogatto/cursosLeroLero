@@ -25,7 +25,7 @@ public class VerTurmaLogica implements LogicaInterface {
 		InstrutorModel instrutor = new InstrutorModel().listarInstrutorPorIdModel(turma.getIdInstrutor());
 		
 		request.setAttribute("turma", turma);
-		request.setAttribute("id", id);
+		request.setAttribute("turmaId", id);
 		request.setAttribute("cursoNome", curso.getNome());
 		request.setAttribute("instrutorNome", instrutor.getNome());
 		

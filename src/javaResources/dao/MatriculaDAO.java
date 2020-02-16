@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 
 import javaResources.dao.connection.ConnectionDatabase;
 import javaResources.model.MatriculaModel;
-import javaResources.model.TurmaModel;
 
 public class MatriculaDAO {
 
@@ -138,6 +137,51 @@ public class MatriculaDAO {
             stmt.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar matricula DAO: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt);
+        }
+    }
+	
+	public MatriculaModel listarMatriculaPorAlunoETurmaDAO(int aluno_id, int turma_id) {
+        Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        MatriculaModel matricula = null;
+        try {
+        	connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("SELECT * FROM matriculas WHERE alunos_id =" + aluno_id + " AND turmas_id=" + turma_id);
+            rs = stmt.executeQuery();
+            
+            if (rs.next()) {
+            	matricula = new MatriculaModel();
+            	matricula.setId(rs.getInt("id"));
+        		matricula.setIdTurma(rs.getInt("turmas_id"));
+        		matricula.setIdAluno(rs.getInt("alunos_id"));
+        		matricula.setDataMatricula(rs.getDate("data_matricula"));
+        		matricula.setNota(rs.getDouble("nota"));
+        		
+        		return matricula;
+        	}     	
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao buscar matricula pelo aluno e turma: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt, rs);
+        }
+        return null;
+	}
+        
+    public void darNotaMatriculaDAO(MatriculaModel matricula, double nota) {
+    	 Connection connection = null;
+         PreparedStatement stmt = null;
+         ResultSet rs = null;
+      
+        try {
+            connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("UPDATE matriculas SET nota = "+ nota +" WHERE id = " + matricula.getId());
+            
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar nota na matricula DAO: " + e.getMessage());
         } finally {
             ConnectionDatabase.closeConnection(connection, stmt);
         }

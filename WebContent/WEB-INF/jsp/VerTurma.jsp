@@ -48,7 +48,11 @@
 							<div style="padding: 15px 20px">
 								<ol>	
 									<c:forEach var="aluno" items="${ alunos }">
-										<li>${ aluno.nome }</li>									
+										<li style="padding: 5px">${ aluno.nome }
+										<% if(session.getAttribute("instrutor") != null) { %>
+											<a href="/cursosLeroLero/LogicaServlet?logica=MostrarMatriculaLogica&idAluno=${ aluno.id }&idTurma=${turmaId}" class="btn btn-primary btn-sm">Dar nota</a>
+										<% } %> 
+										</li>									
 									</c:forEach>									
 								</ol>								
 							</div>

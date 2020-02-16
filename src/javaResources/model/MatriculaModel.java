@@ -74,6 +74,14 @@ public class MatriculaModel {
 	public void alterarMatriculaModel() throws Exception {
         new MatriculaDAO().alterarMatriculaDAO(this);
     }
+	
+	public MatriculaModel listarMatriculaPorAlunoETurmaModel(int aluno_id, int turma_id) {
+		return new MatriculaDAO().listarMatriculaPorAlunoETurmaDAO(aluno_id, turma_id);
+	}
+	
+	public void darNotaMatriculaModel(MatriculaModel matricula, double nota) throws Exception {
+        new MatriculaDAO().darNotaMatriculaDAO(matricula, nota);
+    }
 
     public void deletarMatriculaModel() {
         new MatriculaDAO().deletarMatriculaDAO(this.getId());
