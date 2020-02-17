@@ -76,7 +76,9 @@
 						minus eveniet est ratione.</p>
 				</div>
 
+				<div>
 				<a class="btn btn-primary mx-auto" href="/cursosLeroLero/LogicaServlet?logica=ListaInstrutoresLogica">Conheça nossos instrutores</a>
+				</div>
 			</div>
 		</div>
 	</section>
