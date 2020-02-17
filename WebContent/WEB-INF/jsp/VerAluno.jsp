@@ -37,7 +37,6 @@
             		<p>CPF: <span>${ aluno.cpf }</span></p>
             		<% if(session.getAttribute("aluno") != null && session.getAttribute("idAluno") == request.getAttribute("id") || session.getAttribute("administrador") != null) { %>
             			<p>Login: <span>${ aluno.login }</span></p>
-            			<p>Senha: <span>${ aluno.senha }</span></p>
             			<a href="/cursosLeroLero/LogicaServlet?logica=MostrarAlunoLogica&id=${ id }" class="btn btn-primary btn-sm">Alterar</a>
             		<% } %>
             	</div>

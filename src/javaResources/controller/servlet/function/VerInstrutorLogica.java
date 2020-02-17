@@ -1,13 +1,10 @@
 package javaResources.controller.servlet.function;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import javaResources.controller.servlet.LogicaInterface;
 import javaResources.model.InstrutorModel;
-import javaResources.model.TurmaModel;
 
 public class VerInstrutorLogica implements LogicaInterface {
 

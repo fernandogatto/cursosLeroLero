@@ -7,18 +7,16 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
 <head>
-	<title>Ver Instrutor | Cursos Lero Lero</title>
+	<title>Cursos | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="webResources/css/bootstrap.css">
-	<link rel="stylesheet" href="webResources/css/style.css">
+	<link rel="stylesheet" href="../webResources//css/bootstrap.css">
+	<link rel="stylesheet" href="../webResources//css/style.css">
 </head>
-
 <body>
-	<c:import url="../../include/Header.jsp" />
+	<c:import url="../include/HeaderAdmin.jsp" />
 
 	<section class="instrutor py-5">
 		<div class="container">
@@ -29,7 +27,7 @@
             
             <div class="row">
             	<div class="col-12 mb-3 text-center">
-            		<img src="webResources/img/professor-1.jpg" alt="Imagem de perfil">
+            		<img src="../webResources/img/professor-1.jpg" alt="Imagem de perfil">
             	</div>
             	<div class="col-md-6 col-12 mb-3">
             		<h3>Dados pessoais</h3>
@@ -37,7 +35,7 @@
             		<p>Experiência: <span>${ instrutor.experiencia }</span></p>
             		<% if(session.getAttribute("instrutor") != null && session.getAttribute("idInstrutor") == request.getAttribute("id") || session.getAttribute("administrador") != null) { %>
             			<p>Login: <span>${ instrutor.login }</span></p>
-            			<a href="/cursosLeroLero/LogicaServlet?logica=MostrarInstrutorLogica&id=${ id }" class="btn btn-primary btn-sm">Alterar</a>
+            			<a href="/cursosLeroLero/administrador/AdminServlet?logica=MostrarInstrutorAdmin&id=${ id }" class="btn btn-primary btn-sm">Alterar</a>
             		<% } %>
             	</div>
             	<div class="col-md-6 col-12 mb-3">
@@ -99,12 +97,12 @@
 		</div>
 
 		<div class="bg-primary text-center py-3">
-			<p class="mb-0">Cursos Lero Lero &copy; 2020. Nenhum direito reservado.</p>
+			<p class="mb-0">Integrado &copy; 2019. Nenhum direito reservado.</p>
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="webResources/js/jquery.min.js"></script>
-	<script type="text/javascript" src="webResources/js/popper.min.js"></script>
-	<script type="text/javascript" src="webResources/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../webResources//js/jquery.min.js"></script>
+	<script type="text/javascript" src="../webResources//js/popper.min.js"></script>
+	<script type="text/javascript" src="../webResources//js/bootstrap.js"></script>
 </body>
 </html>
