@@ -18,9 +18,6 @@ public class VerInstrutorLogica implements LogicaInterface {
 		request.setAttribute("instrutor", instrutor);
 		request.setAttribute("id", id);
 		
-		List<TurmaModel> turmas = new InstrutorModel().listarTodasTurmasPorInstrutorIdModel(id);
-		request.setAttribute("turmas", turmas);
-		
 		return "/WEB-INF/jsp/VerInstrutor.jsp";
 	}
 

@@ -67,6 +67,10 @@ public class MatriculaModel {
 		return new MatriculaDAO().listarTodasMatriculasDAO();
 	}
 	
+	public List<MatriculaModel> listarTodasMatriculasPorAlunoIdModel(int id) {
+		return new MatriculaDAO().listarTodasMatriculasPorAlunoIdDAO(id);
+	}
+	
 	public List<Integer> listarAlunosPorTurmaModel(int id) {
 		return new MatriculaDAO().listarAlunosPorTurmaDAO(id);
 	}

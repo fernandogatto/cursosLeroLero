@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="javaResources.model.CursoModel"%>
+<%@ page import="javaResources.model.TurmaModel"%>
+<%@ page import="javaResources.model.MatriculaModel"%>
+<%@ page import="java.util.List" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -25,6 +30,26 @@
             <div class="row">
             	<div class="col-12 mb-3 text-center">
             		<img src="webResources/img/aluna-1.jpg" alt="Imagem de perfil">
+            	</div>
+            	<div class="col-md-6 col-12 mb-3">
+            		<h3>Dados pessoais</h3>
+            		<p>E-mail: <span>${ aluno.email }</span></p>
+            		<p>CPF: <span>${ aluno.cpf }</span></p>
+            		<% if(session.getAttribute("aluno") != null && session.getAttribute("idAluno") == request.getAttribute("id") || session.getAttribute("administrador") != null) { %>
+            			<p>Login: <span>${ aluno.login }</span></p>
+            			<p>Senha: <span>${ aluno.senha }</span></p>
+            			<a href="/cursosLeroLero/LogicaServlet?logica=MostrarAlunoLogica&id=${ id }" class="btn btn-primary btn-sm">Alterar</a>
+            		<% } %>
+            	</div>
+            	<div class="col-md-6 col-12 mb-3">
+            		<h3>Turmas</h3>
+            		<%
+            		int idAluno = (Integer) request.getAttribute("id");
+            		for(MatriculaModel matricula : new MatriculaModel().listarTodasMatriculasPorAlunoIdModel(idAluno)) {
+					%>
+						<p>Nota: <span><% out.println(matricula.getNota()); %></span></p>
+						<div class="border-bottom"></div>
+					<% } %>
             	</div>
 			</div>
 		</div>

@@ -164,6 +164,37 @@ public class MatriculaDAO {
         return matriculas;
 	}
 	
+	public List<MatriculaModel> listarTodasMatriculasPorAlunoIdDAO(int id) {
+		Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<MatriculaModel> matriculas = new ArrayList<>();
+        MatriculaModel matricula = null;
+        
+        try {
+        	connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("SELECT * FROM matriculas WHERE alunos_id = " + id);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+            	matricula = new MatriculaModel();
+            	matricula.setId(rs.getInt("id"));
+        		matricula.setIdTurma(rs.getInt("turma_id"));
+        		matricula.setIdAluno(rs.getInt("aluno_id"));
+        		matricula.setDataMatricula(rs.getDate("data"));
+        		matricula.setNota(rs.getInt("nota"));
+        		
+        		matriculas.add(matricula);
+        	}     	
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar todas as matriculas por aluno id: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt, rs);
+        }
+
+        return matriculas;
+	}
+	
 	public void alterarMatriculaDAO(MatriculaModel matricula) {
         Connection connection = null;
         PreparedStatement stmt = null;
