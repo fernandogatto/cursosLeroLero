@@ -12,7 +12,6 @@ public class MostrarMatriculaLogica implements LogicaInterface {
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int aluno_id = Integer.parseInt(request.getParameter("idAluno"));
 		int turma_id = Integer.parseInt(request.getParameter("idTurma"));
-		aluno_id = 1;
 		MatriculaModel matricula = new MatriculaModel().listarMatriculaPorAlunoETurmaModel(aluno_id, turma_id);
 		request.setAttribute("matriculaId", matricula.getId());
 		

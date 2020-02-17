@@ -39,7 +39,7 @@
 						      <th scope="row">${ aluno.id }</th>
 						      <td>${ aluno.nome }</td>
 						      <td>${ aluno.email }</td>
-						      <td><a href="/cursosLeroLero/LogicaServlet?logica=VerAlunoLogica&id=${ aluno.id }" class="btn btn-primary btn-sm">Ver</a></td>
+						      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=VerAlunoAdmin&id=${ aluno.id }" class="btn btn-primary btn-sm">Ver</a></td>
 						      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=MostrarAlunoAdmin&id=${ aluno.id }" class="btn btn-primary btn-sm">Alterar</a></td>
 						      <td><a href="/cursosLeroLero/administrador/AdminServlet?logica=DeleteAlunoAdmin&id=${ aluno.id }" class="btn btn-primary btn-sm">Deletar</a></td>
 						    </tr>

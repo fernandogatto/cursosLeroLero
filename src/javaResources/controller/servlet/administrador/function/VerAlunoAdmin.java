@@ -1,4 +1,4 @@
-package javaResources.controller.servlet.function;
+package javaResources.controller.servlet.administrador.function;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import javaResources.controller.servlet.LogicaInterface;
 import javaResources.model.AlunoModel;
 
-public class VerAlunoLogica implements LogicaInterface {
+public class VerAlunoAdmin implements LogicaInterface {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -15,7 +15,7 @@ public class VerAlunoLogica implements LogicaInterface {
 		request.setAttribute("aluno", aluno);
 		request.setAttribute("id", id);
 
-		return "/WEB-INF/jsp/VerAluno.jsp";
+		return "/administrador/VerAluno.jsp";
 	}
 
 }

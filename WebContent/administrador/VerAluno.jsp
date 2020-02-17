@@ -13,12 +13,12 @@
 	<title>Ver Aluno | Cursos Lero Lero</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="webResources/css/bootstrap.css">
-	<link rel="stylesheet" href="webResources/css/style.css">
+	<link rel="stylesheet" href="../webResources//css/bootstrap.css">
+	<link rel="stylesheet" href="../webResources//css/style.css">
 </head>
 
 <body>
-	<c:import url="../../include/Header.jsp" />
+	<c:import url="../include/HeaderAdmin.jsp" />
 	
 	<section class="aluno py-5">
 		<div class="container">
@@ -29,7 +29,7 @@
             
             <div class="row">
             	<div class="col-12 mb-3 text-center">
-            		<img src="webResources/img/aluna-1.jpg" alt="Imagem de perfil">
+            		<img src="../webResources/img/aluna-1.jpg" alt="Imagem de perfil">
             	</div>
             	<div class="col-md-6 col-12 mb-3">
             		<h3>Dados pessoais</h3>
@@ -51,7 +51,7 @@
             			CursoModel curso = new CursoModel().listarCursoPorIdModel(turma.getIdCurso());
 						String cursoNome = curso.getNome();
 					%>
-						<p>Em <span><%out.print(cursoNome);%></span>, sua nota foi <%out.print(matricula.getNota());%>.</p>
+						<p>Em <span><%out.print(cursoNome);%></span>, a nota foi <%out.print(matricula.getNota());%>.</p>
 						
 					<% } %>
 					<div class="border-bottom"></div>
