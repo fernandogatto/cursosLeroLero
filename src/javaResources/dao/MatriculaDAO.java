@@ -179,9 +179,9 @@ public class MatriculaDAO {
             while(rs.next()) {
             	matricula = new MatriculaModel();
             	matricula.setId(rs.getInt("id"));
-        		matricula.setIdTurma(rs.getInt("turma_id"));
-        		matricula.setIdAluno(rs.getInt("aluno_id"));
-        		matricula.setDataMatricula(rs.getDate("data"));
+        		matricula.setIdTurma(rs.getInt("turmas_id"));
+        		matricula.setIdAluno(rs.getInt("alunos_id"));
+        		matricula.setDataMatricula(rs.getDate("data_matricula"));
         		matricula.setNota(rs.getInt("nota"));
         		
         		matriculas.add(matricula);
