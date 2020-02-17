@@ -39,6 +39,7 @@
             			<p>Login: <span>${ aluno.login }</span></p>
             			<a href="/cursosLeroLero/LogicaServlet?logica=MostrarAlunoLogica&id=${ id }" class="btn btn-primary btn-sm">Alterar</a>
             		<% } %>
+            		<div class="border-bottom"></div>
             	</div>
             	<div class="col-md-6 col-12 mb-3">
             		<h3>Turmas</h3>
@@ -49,9 +50,10 @@
             			CursoModel curso = new CursoModel().listarCursoPorIdModel(turma.getIdCurso());
 						String cursoNome = curso.getNome();
 					%>
-						<p>Em <span><%out.print(cursoNome);%></span>, sua nota foi <%out.print(matricula.getNota());%></p>
-						<div class="border-bottom"></div>
+						<p>Em <span><%out.print(cursoNome);%></span>, sua nota foi <%out.print(matricula.getNota());%>.</p>
+						
 					<% } %>
+					<div class="border-bottom"></div>
             	</div>
 			</div>
 		</div>
