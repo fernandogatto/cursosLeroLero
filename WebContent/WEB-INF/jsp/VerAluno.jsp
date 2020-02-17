@@ -46,8 +46,11 @@
             		<%
             		int idAluno = (Integer) request.getAttribute("id");
             		for(MatriculaModel matricula : new MatriculaModel().listarTodasMatriculasPorAlunoIdModel(idAluno)) {
+            			TurmaModel turma = new TurmaModel().listarTurmaPorIdModel(matricula.getIdTurma());
+            			CursoModel curso = new CursoModel().listarCursoPorIdModel(turma.getIdCurso());
+						String cursoNome = curso.getNome();
 					%>
-						<p>Nota: <span><% out.println(matricula.getNota()); %></span></p>
+						<p>Em <span><%out.print(cursoNome);%></span>, sua nota foi <%out.print(matricula.getNota());%></p>
 						<div class="border-bottom"></div>
 					<% } %>
             	</div>
